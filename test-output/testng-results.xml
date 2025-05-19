@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="5" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-04-27T23:45:03 IST" name="Default suite" finished-at="2025-04-28T00:04:40 IST" duration-ms="1176925">
+    <groups>
+    </groups>
+    <test started-at="2025-04-27T23:45:03 IST" name="Default test" finished-at="2025-04-28T00:04:40 IST" duration-ms="1176925">
+      <class name="CriticalTestCases.CompanyAdminLogin">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-27T23:45:03 IST" name="setBrowser" finished-at="2025-04-27T23:45:04 IST" duration-ms="420" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setBrowser -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-27T23:45:04 IST" name="Login" finished-at="2025-04-27T23:45:24 IST" duration-ms="20161" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="MyReports()[pri:49, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-27T23:45:24 IST" name="MyReports" finished-at="2025-04-27T23:51:28 IST" duration-ms="364164" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MyReports -->
+        <test-method is-config="true" signature="Close()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-27T23:51:28 IST" name="Close" finished-at="2025-04-27T23:51:28 IST" duration-ms="151" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-27T23:51:28 IST" name="Login" finished-at="2025-04-27T23:51:46 IST" duration-ms="17399" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="MoreReports()[pri:50, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-27T23:51:46 IST" name="MoreReports" finished-at="2025-04-27T23:55:03 IST" duration-ms="197281" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MoreReports -->
+        <test-method is-config="true" signature="Close()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-27T23:55:03 IST" name="Close" finished-at="2025-04-27T23:55:03 IST" duration-ms="137" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-27T23:55:03 IST" name="Login" finished-at="2025-04-27T23:55:22 IST" duration-ms="18993" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="MyReminder()[pri:51, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-27T23:55:22 IST" name="MyReminder" finished-at="2025-04-28T00:01:01 IST" duration-ms="339436" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='ddlTypePopup_chosen']"}
+  (Session info: chrome=135.0.7049.115)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
+System info: host: 'TRPL-PUN-0115', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.115, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: C:\Users\snehalp\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61144}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4a8a50e43c3e218c0be785659c25cac2
+*** Element info: {Using=xpath, value=//*[@id='ddlTypePopup_chosen']}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='ddlTypePopup_chosen']"}
+  (Session info: chrome=135.0.7049.115)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
+System info: host: 'TRPL-PUN-0115', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.115, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: C:\Users\snehalp\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61144}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4a8a50e43c3e218c0be785659c25cac2
+*** Element info: {Using=xpath, value=//*[@id='ddlTypePopup_chosen']}
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at litigationAdditionalOwner.performerPOM.clickType(performerPOM.java:1432)
+at litigationCompanyAdmin.MethodsPOM.NewReminder(MethodsPOM.java:5348)
+at litigationCompanyAdmin.MethodsPOM.MyReminder(MethodsPOM.java:5432)
+at CriticalTestCases.CompanyAdminLogin.MyReminder(CompanyAdminLogin.java:1376)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MyReminder -->
+        <test-method is-config="true" signature="Close()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:01:01 IST" name="Close" finished-at="2025-04-28T00:01:02 IST" duration-ms="126" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:01:02 IST" name="Login" finished-at="2025-04-28T00:01:23 IST" duration-ms="21007" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="ImportUtility()[pri:52, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:01:23 IST" name="ImportUtility" finished-at="2025-04-28T00:03:04 IST" duration-ms="101243" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ImportUtility -->
+        <test-method is-config="true" signature="Close()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:03:04 IST" name="Close" finished-at="2025-04-28T00:03:04 IST" duration-ms="114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:03:04 IST" name="Login" finished-at="2025-04-28T00:03:24 IST" duration-ms="20115" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="CaseUpdationImportUtility()[pri:53, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:03:24 IST" name="CaseUpdationImportUtility" finished-at="2025-04-28T00:03:44 IST" duration-ms="20065" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CaseUpdationImportUtility -->
+        <test-method is-config="true" signature="Close()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:03:44 IST" name="Close" finished-at="2025-04-28T00:03:44 IST" duration-ms="105" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:03:44 IST" name="Login" finished-at="2025-04-28T00:04:11 IST" duration-ms="27147" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="NoticeUpdation()[pri:54, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:04:11 IST" name="NoticeUpdation" finished-at="2025-04-28T00:04:40 IST" duration-ms="28677" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NoticeUpdation -->
+        <test-method is-config="true" signature="Close()[pri:0, instance:CriticalTestCases.CompanyAdminLogin@47eaca72]" started-at="2025-04-28T00:04:40 IST" name="Close" finished-at="2025-04-28T00:04:40 IST" duration-ms="115" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Close -->
+      </class> <!-- CriticalTestCases.CompanyAdminLogin -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
