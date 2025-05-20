@@ -3,8 +3,8 @@
 <suite name="MyTestSuite">
     <test name="MyTest">
         <classes>
-            <class name="CFOlogin"/>
-            <class name="CompanyAdminLogin"/>
+            <class name="CriticalTestCases.CFOlogin"/>
+            <class name="CriticalTestCases.CompanyAdminLogin"/>
         </classes>
     </test>
 </suite>
