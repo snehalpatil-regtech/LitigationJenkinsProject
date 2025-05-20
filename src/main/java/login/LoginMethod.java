@@ -27,7 +27,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import litigationAdditionalOwner.performerPOM;
 
-public class LoginMethod {
+public class LoginMethod extends BasePage{
 	
 	
 	public static WebDriver driver = null;		//WebDriver instance created
@@ -132,7 +132,7 @@ public class LoginMethod {
 	void CorrectPassword() throws InterruptedException, IOException
 	{
 		
-		LoginPOM.Clickdiffuser(driver).click();
+		LoginPOM.Clickdiffuser().click();
     	 XSSFSheet sheet = ReadExcel();
 		test = extent.startTest("Litigation Logging In - Correct Password");
 		//test.log(LogStatus.INFO, "Logging into system");
@@ -149,7 +149,7 @@ public class LoginMethod {
 		driver = login.Login.UserLogin1(uname,password,"cfo");		//Method of Login class to login user.
 		
 		 Thread.sleep(3000);
-		 String msg1 = LoginPOM.Clickreadmsg(driver).getText();
+		 String msg1 = LoginPOM.Clickreadmsg().getText();
 			if(msg1.contains("Please enter valid username or password."))
 			{
 				test.log(LogStatus.PASS, "Message Displayed" +msg1);
@@ -183,7 +183,7 @@ public class LoginMethod {
  		driver = login.Login.UserLogin1(uname,password,"cfo");		//Method of Login class to login user.
  		
  		 Thread.sleep(3000);
-		 String msg1 = LoginPOM.Clickreadmsg(driver).getText();
+		 String msg1 = LoginPOM.Clickreadmsg().getText();
 			if(msg1.contains("Please enter valid username or password."))
 			{
 				test.log(LogStatus.PASS, "Message Displayed- " +msg1);
@@ -197,7 +197,7 @@ public class LoginMethod {
  		extent.endTest(test);
  		extent.flush();
  		
- 		// LoginPOM.Clickdiffuser(driver).click();
+ 		// LoginPOM.Clickdiffuser().click();
  	}
      
     @Test(priority = 4)
@@ -213,7 +213,7 @@ public class LoginMethod {
 			driver = login.Login.forgotPassword();
 			
 //			 Thread.sleep(5000);
-//			 String msg1 = LoginPOM.ClickreadMsg(driver).getText();
+//			 String msg1 = LoginPOM.ClickreadMsg().getText();
 //				if(msg1.contains("Please enter email Id."))
 //				{
 //					test.log(LogStatus.PASS, "Message Displayed- " +msg1);
@@ -236,10 +236,10 @@ public class LoginMethod {
 			test.log(LogStatus.PASS, "Please Enter User Name/ Email ID.");
 			
 			Thread.sleep(3000);
-			login.Login.AccountLocked(driver, test, "Cfo-");
+			login.Login.AccountLocked( test, "Cfo-");
 			
 //			 Thread.sleep(5000);
-//			 String msg1 = LoginPOM.ClickreadMsg(driver).getText();
+//			 String msg1 = LoginPOM.ClickreadMsg().getText();
 //				if(msg1.contains("Please Enter User Name/ Email ID."))
 //				{
 //					test.log(LogStatus.PASS, "Message Displayed- " +msg1);
@@ -260,7 +260,7 @@ public class LoginMethod {
 					test.log(LogStatus.PASS, "Google button work successfully");
 					
 					Thread.sleep(3000);
-					login.Login.Google(driver, test, "Cfo-");
+					login.Login.Google( test, "Cfo-");
 					
 					extent.endTest(test);
 					extent.flush();
@@ -273,7 +273,7 @@ public class LoginMethod {
 					test.log(LogStatus.PASS, "Login help link  work successfully");
 					
 					Thread.sleep(3000);
-					login.Login.LoginHelp(driver, test, "Cfo-");
+					login.Login.LoginHelp( test, "Cfo-");
 					Thread.sleep(2000);
 					driver.navigate().back();
 					extent.endTest(test);

@@ -18,9 +18,10 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import licensePerformer.LiPerformerPOM;
+import login.BasePage;
 import login.LoginPOM;
 
-public class LoginMethod {
+public class LoginMethod extends BasePage {
 	
 
 	private static WebElement litigation = null;		
@@ -28,96 +29,96 @@ public class LoginMethod {
 	public static WebElement upload = null;				//WebElement to get upload button
 	
 	
-	 public static void correctUnPassword(WebDriver driver) throws InterruptedException, IOException
+	 public static void correctUnPassword() throws InterruptedException, IOException
 		
 	 {
 
 		 
-		 //WebDriverWait wait= new WebDriverWait(driver,30);
+		 //WebDriverWait wait= new WebDriverWait(getDriver(),30);
 //		 WebElement UsernamePass  =driver.findElement(By.xpath("//*[@id='txtemail']"));
 //		 UsernamePass.sendKeys("ganesh123@avantis.info");
 				
-	    login.LoginPOM.setUname(driver).sendKeys("ganesh123@avantis.info");		//Sent username to input box 
+	    login.LoginPOM.setUname().sendKeys("ganesh123@avantis.info");		//Sent username to input box 
 		Thread.sleep(500);
-		login.LoginPOM.setPassword(driver).sendKeys("admin@123");	//Sent password to input box
-		LoginPOM.clickSubmit(driver).click();				//Clicked on Sign-in button
+		login.LoginPOM.setPassword().sendKeys("admin@123");	//Sent password to input box
+		LoginPOM.clickSubmit().click();				//Clicked on Sign-in button
 		
 	 }
 	
 	
 		
-		  public static void correctPassword(WebDriver driver) throws InterruptedException, IOException
+		  public static void correctPassword() throws InterruptedException, IOException
 			
 			{
-			WebDriverWait wait1 = new WebDriverWait(driver, 60);
+			WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 			
-			LoginPOM.setUname(driver).sendKeys("ganesh12@avantis.info");		//Sent username to input box 
+			LoginPOM.setUname().sendKeys("ganesh12@avantis.info");		//Sent username to input box 
 			Thread.sleep(500);
-			LoginPOM.setPassword(driver).sendKeys("admin@123");	//Sent password to input box
-			LoginPOM.clickSubmit(driver).click();				//Clicked on Sign-in button
+			LoginPOM.setPassword().sendKeys("admin@123");	//Sent password to input box
+			LoginPOM.clickSubmit().click();				//Clicked on Sign-in button
 			
 		}
-		  public static void correctUsername(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		  public static void correctUsername(ExtentTest test, String type) throws InterruptedException, IOException
 			
 			{
-			WebDriverWait wait1 = new WebDriverWait(driver, 60);
+			WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 			
-			LoginPOM.setUname(driver).sendKeys("ganesh123@avantis.info");		//Sent username to input box 
+			LoginPOM.setUname().sendKeys("ganesh123@avantis.info");		//Sent username to input box 
 			Thread.sleep(500);
-			LoginPOM.setPassword(driver).sendKeys("admin13");	//Sent password to input box
-			LoginPOM.clickSubmit(driver).click();				//Clicked on Sign-in button
+			LoginPOM.setPassword().sendKeys("admin13");	//Sent password to input box
+			LoginPOM.clickSubmit().click();				//Clicked on Sign-in button
 			
 		}
-		  public static void IncorrectUsernamePassword(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		  public static void IncorrectUsernamePassword(ExtentTest test, String type) throws InterruptedException, IOException
 			
 			{
-			WebDriverWait wait1 = new WebDriverWait(driver, 60);
+			WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 			
-			LoginPOM.setUname(driver).sendKeys("companyadmin");		//Sent username to input box 
+			LoginPOM.setUname().sendKeys("companyadmin");		//Sent username to input box 
 			Thread.sleep(500);
-			LoginPOM.setPassword(driver).sendKeys("admin123");	//Sent password to input box
-			LoginPOM.clickSubmit(driver).click();				//Clicked on Sign-in button
+			LoginPOM.setPassword().sendKeys("admin123");	//Sent password to input box
+			LoginPOM.clickSubmit().click();				//Clicked on Sign-in button
 			
 		}
-		  public static void forgotPassword(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		  public static void forgotPassword(ExtentTest test, String type) throws InterruptedException, IOException
 			
 			{
 		
 			
-			LoginPOM.ClickForgotPass(driver).click();
+			LoginPOM.ClickForgotPass().click();
 			
-			LoginPOM.ClickEmailid(driver).sendKeys("");
-			LoginPOM.ClickSubmit(driver).click();
-			LoginPOM.ClickBackButton(driver).click();
+			LoginPOM.ClickEmailid().sendKeys("");
+			LoginPOM.ClickSubmit().click();
+			LoginPOM.ClickBackButton().click();
 		}
-		  public static void AccountLocked(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		  public static void AccountLocked(ExtentTest test, String type) throws InterruptedException, IOException
 			
 			{
-			WebDriverWait wait1 = new WebDriverWait(driver, 60);
+			WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 			
-			LoginPOM.ClickAccountLocked(driver).click();
+			LoginPOM.ClickAccountLocked().click();
 			
-			LoginPOM.ClickEmailid(driver).sendKeys("");
-			LoginPOM.ClickSubmit(driver).click();
-			LoginPOM.ClickBackButton(driver).click();
+			LoginPOM.ClickEmailid().sendKeys("");
+			LoginPOM.ClickSubmit().click();
+			LoginPOM.ClickBackButton().click();
 		}
-		  public static void Google(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		  public static void Google(ExtentTest test, String type) throws InterruptedException, IOException
 			
 			{
-			WebDriverWait wait1 = new WebDriverWait(driver, 60);
+			WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 			
-			LoginPOM.ClickGoogle(driver).click();
+			LoginPOM.ClickGoogle().click();
 			
-			LoginPOM.ClickEmailid(driver).sendKeys("");
-			LoginPOM.ClickSubmit(driver).click();
-			LoginPOM.ClickBackButton(driver).click();
+			LoginPOM.ClickEmailid().sendKeys("");
+			LoginPOM.ClickSubmit().click();
+			LoginPOM.ClickBackButton().click();
 		}
-		  public static void LoginHelp(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		  public static void LoginHelp(ExtentTest test, String type) throws InterruptedException, IOException
 			
 			{
-			WebDriverWait wait1 = new WebDriverWait(driver, 60);
+			WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 			
-			LoginPOM.ClickLoginHelp(driver).click();
+			LoginPOM.ClickLoginHelp().click();
 			
 			
 		}

@@ -42,7 +42,7 @@ public class Login1 extends BasePage {
 
 		public static void progress(WebDriver driver) throws InterruptedException
 		{
-			WebDriverWait wait = new WebDriverWait(driver, 180);
+			WebDriverWait wait = new WebDriverWait(getDriver(),180);
 			try
 			{
 				Thread.sleep(300);
@@ -102,7 +102,7 @@ public class Login1 extends BasePage {
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(3000);
-		LoginMethod.correctUnPassword(driver);
+		LoginMethod.correctUnPassword();
 		
 		extent.endTest(test);
 		extent.flush();
@@ -115,7 +115,7 @@ public class Login1 extends BasePage {
 					test.log(LogStatus.INFO, "Test Initiated");
 					
 					Thread.sleep(3000);
-					LoginMethod.correctPassword(driver);
+					LoginMethod.correctPassword();
 					
 					extent.endTest(test);
 					extent.flush();
@@ -128,7 +128,7 @@ public class Login1 extends BasePage {
 					test.log(LogStatus.INFO, "Test Initiated");
 					
 					Thread.sleep(3000);
-					LoginMethod.correctUsername(driver, test, "Cfo-");
+					LoginMethod.correctUsername( test, "Cfo-");
 					
 					extent.endTest(test);
 					extent.flush();
@@ -140,7 +140,7 @@ public class Login1 extends BasePage {
 					test.log(LogStatus.INFO, "Test Initiated");
 					
 					Thread.sleep(3000);
-					LoginMethod.IncorrectUsernamePassword(driver, test, "Cfo-");
+					LoginMethod.IncorrectUsernamePassword( test, "Cfo-");
 					
 					extent.endTest(test);
 					extent.flush();
@@ -152,7 +152,7 @@ public class Login1 extends BasePage {
 					test.log(LogStatus.INFO, "Test Initiated");
 					
 					Thread.sleep(3000);
-					LoginMethod.forgotPassword(driver, test, "Cfo-");
+					LoginMethod.forgotPassword( test, "Cfo-");
 					
 					extent.endTest(test);
 					extent.flush();
@@ -164,7 +164,7 @@ public class Login1 extends BasePage {
 					test.log(LogStatus.INFO, "Test Initiated");
 					
 					Thread.sleep(3000);
-					LoginMethod.forgotPassword(driver, test, "Cfo-");
+					LoginMethod.forgotPassword( test, "Cfo-");
 					
 					extent.endTest(test);
 					extent.flush();
@@ -176,7 +176,7 @@ public class Login1 extends BasePage {
 					test.log(LogStatus.INFO, "Test Initiated");
 					
 					Thread.sleep(3000);
-					LoginMethod.Google(driver, test, "Cfo-");
+					LoginMethod.Google( test, "Cfo-");
 					
 					extent.endTest(test);
 					extent.flush();
@@ -188,7 +188,7 @@ public class Login1 extends BasePage {
 					test.log(LogStatus.INFO, "Test Initiated");
 					
 					Thread.sleep(3000);
-					LoginMethod.LoginHelp(driver, test, "Cfo-");
+					LoginMethod.LoginHelp( test, "Cfo-");
 					
 					extent.endTest(test);
 					extent.flush();

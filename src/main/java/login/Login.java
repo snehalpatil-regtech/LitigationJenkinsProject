@@ -19,7 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.managers.OperaDriverManager;
 import performer.OverduePOM;
 
-public class Login 
+public class Login extends BasePage
 {
 	public static WebDriver driver = null;				//WebDriver instance created
 	public static WebElement upload = null;				//WebElement to get upload button
@@ -110,23 +110,23 @@ public class Login
 		
 		WebDriverWait wait = new WebDriverWait( driver,(60));
 		Thread.sleep(1000);
-		LoginPOM.setUname(driver).sendKeys(username);		//Sent username to input box 
+		LoginPOM.setUname().sendKeys(username);		//Sent username to input box 
 		Thread.sleep(500);
-		LoginPOM.setPassword(driver).sendKeys(password);	//Sent password to input box
-		LoginPOM.clickSubmit(driver).click();				//Clicked on Sign-in button
+		LoginPOM.setPassword().sendKeys(password);	//Sent password to input box
+		LoginPOM.clickSubmit().click();				//Clicked on Sign-in button
 		Thread.sleep(500);
 		if(!username.equalsIgnoreCase("performer@avantis.info"))
 		{
 			try
 			{
 				Thread.sleep(500);
-				wait.until(ExpectedConditions.visibilityOf(LoginPOM.clickQALink(driver)));
-				wait.until(ExpectedConditions.elementToBeClickable(LoginPOM.clickQALink(driver)));
-				LoginPOM.clickQALink(driver).click();				//Clicking on QA Link instead of OTP.
+				wait.until(ExpectedConditions.visibilityOf(LoginPOM.clickQALink()));
+				wait.until(ExpectedConditions.elementToBeClickable(LoginPOM.clickQALink()));
+				LoginPOM.clickQALink().click();				//Clicking on QA Link instead of OTP.
 				
 				//----------------------------------------------------------------------------//
 				
-				wait.until(ExpectedConditions.invisibilityOf(LoginPOM.clickQALink(driver)));
+				wait.until(ExpectedConditions.invisibilityOf(LoginPOM.clickQALink()));
 			}
 			catch(Exception e)
 			{
@@ -134,9 +134,9 @@ public class Login
 			}
 			
 			Thread.sleep(1000);
-			wait.until(ExpectedConditions.visibilityOf(LoginPOM.Question1(driver)));
-			wait.until(ExpectedConditions.elementToBeClickable(LoginPOM.Question1(driver)));
-			String que1 = LoginPOM.Question1(driver).getText();	//Storing the question in que variable.
+			wait.until(ExpectedConditions.visibilityOf(LoginPOM.Question1()));
+			wait.until(ExpectedConditions.elementToBeClickable(LoginPOM.Question1()));
+			String que1 = LoginPOM.Question1().getText();	//Storing the question in que variable.
 			String ans1 = null;
 			
 			
@@ -168,14 +168,14 @@ public class Login
 			
 			
 			if(ans1.equalsIgnoreCase("birthplace"))
-				LoginPOM.Answer1(driver).sendKeys("place");		//Sending answer to the input box.
+				LoginPOM.Answer1().sendKeys("place");		//Sending answer to the input box.
 			else
-				LoginPOM.Answer1(driver).sendKeys(ans1);		//Sending answer to the input box.
+				LoginPOM.Answer1().sendKeys(ans1);		//Sending answer to the input box.
 			Thread.sleep(1000);
 			
 			//----------------------------------------------------------//
 			
-			String que2 = LoginPOM.Question2(driver).getText();	//Storing the question in que variable.
+			String que2 = LoginPOM.Question2().getText();	//Storing the question in que variable.
 			String ans2 = null;
 			if(method.equalsIgnoreCase("cfo"))
 			{
@@ -202,38 +202,38 @@ public class Login
 			
 			
 			if(ans2.equalsIgnoreCase("birthplace"))
-				LoginPOM.Answer2(driver).sendKeys("place");		//Sending answer to the input box.
+				LoginPOM.Answer2().sendKeys("place");		//Sending answer to the input box.
 			else
-				LoginPOM.Answer2(driver).sendKeys(ans2);		//Sending answer to the input box.
+				LoginPOM.Answer2().sendKeys(ans2);		//Sending answer to the input box.
 			Thread.sleep(100);
 			
-			LoginPOM.SubmitAnswer(driver).click();				//Clicking on Submit button.
+			LoginPOM.SubmitAnswer().click();				//Clicking on Submit button.
 			
 			
 		}
 		
 		Thread.sleep(2000);
-		LoginPOM.ClickLitigation(driver).click();
+		LoginPOM.ClickLitigation().click();
 //		if(!method.equalsIgnoreCase("company"))
 //		{
 //			//wait1.until(ExpectedConditions.elementToBeClickable(LoginPOM.clickComplicane()));
 //			
 //			if(method.equalsIgnoreCase("License"))
 //			{
-//				LoginPOM.clickLicense(driver).click();				//Clicking on Litigation Image.
+//				LoginPOM.clickLicense().click();				//Clicking on Litigation Image.
 //			}
 //			else if(method.equalsIgnoreCase("Litigation"))
 //			{
-//				LoginPOM.ClickLitigation(driver).click();			//Clicking on Litigation Image.
+//				LoginPOM.ClickLitigation().click();			//Clicking on Litigation Image.
 //			}
 //			else if(method.equalsIgnoreCase("Contract"))
 //			{
-//				LoginPOM.ClickContract(driver).click();			//Clicking on Litigation Image.
+//				LoginPOM.ClickContract().click();			//Clicking on Litigation Image.
 //			}
 ////			
 //			else
 //			{
-//				LoginPOM.ClickLitigation(driver).click();	
+//				LoginPOM.ClickLitigation().click();	
 //			//	LoginPOM.clickComplicane().click();			//Clicking on Compliance Image.
 //			}
 //			
@@ -280,11 +280,11 @@ public class Login
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		
-		LoginPOM.setUname(driver).clear();
-		LoginPOM.setUname(driver).sendKeys(username);		//Sent username to input box 
+		LoginPOM.setUname().clear();
+		LoginPOM.setUname().sendKeys(username);		//Sent username to input box 
 		Thread.sleep(500);
-		LoginPOM.setPassword(driver).sendKeys(password);	//Sent password to input box
-		LoginPOM.clickSubmit(driver).click();				//Clicked on Sign-in button
+		LoginPOM.setPassword().sendKeys(password);	//Sent password to input box
+		LoginPOM.clickSubmit().click();				//Clicked on Sign-in button
 		
 		return driver;
     }
@@ -294,50 +294,50 @@ public class Login
 		{
 	
 		  
-		LoginPOM.ClickForgotPass(driver).click();
+		LoginPOM.ClickForgotPass().click();
 		
-		//LoginPOM.ClickEmailid(driver).sendKeys("");
+		//LoginPOM.ClickEmailid().sendKeys("");
 		
 		Thread.sleep(2000);
-		LoginPOM.ClickSubmit(driver).click();
+		LoginPOM.ClickSubmit().click();
 		Thread.sleep(2000);
-		LoginPOM.ClickBackButton(driver).click();
+		LoginPOM.ClickBackButton().click();
 		return driver;
 	}
 	  
-	  public static void AccountLocked(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+	  public static void AccountLocked(ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		
 	
 		Thread.sleep(2000);
-		LoginPOM.ClickAccountLocked(driver).click();
+		LoginPOM.ClickAccountLocked().click();
 		
-		//LoginPOM.ClickEmailid(driver).sendKeys("");
+		//LoginPOM.ClickEmailid().sendKeys("");
 		Thread.sleep(2000);
-		LoginPOM.ClickSubmit(driver).click();
+		LoginPOM.ClickSubmit().click();
 		Thread.sleep(2000);
-		LoginPOM.ClickBackButton1(driver).click();
+		LoginPOM.ClickBackButton1().click();
 	}
-	  public static void Google(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+	  public static void Google(ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		
 		
-		LoginPOM.ClickGoogle(driver).click();
+		LoginPOM.ClickGoogle().click();
 		
-		//LoginPOM.ClickEmailid(driver).sendKeys("");
-		//LoginPOM.ClickSubmit(driver).click();
-		//LoginPOM.ClickBackButton(driver).click();
+		//LoginPOM.ClickEmailid().sendKeys("");
+		//LoginPOM.ClickSubmit().click();
+		//LoginPOM.ClickBackButton().click();
 	}
-	  public static void LoginHelp(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+	  public static void LoginHelp(ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
 		WebDriverWait wait1 = new WebDriverWait(driver, 60);
 		
-		LoginPOM.ClickLoginHelp(driver).click();
+		LoginPOM.ClickLoginHelp().click();
 		
 		
 	}
