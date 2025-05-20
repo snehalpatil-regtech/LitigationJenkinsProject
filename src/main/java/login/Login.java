@@ -1,8 +1,10 @@
 package login;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -239,8 +241,12 @@ public class Login extends BasePage
 //			
 //	
 //		}*/
-	Thread.sleep(2000);
-	LoginPOM.ClickLitigation().click();
+//	Thread.sleep(2000);
+//	LoginPOM.ClickLitigation().click();
+	
+	//WebDriverWait wait1 = new WebDriverWait(getDriver(),(20));
+	WebElement litigationBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dvbtnLitigation']")));
+	litigationBtn.click();
 	
 		return getDriver();
 	}
