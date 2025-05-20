@@ -38,7 +38,7 @@ public class CFOlogin extends BasePage
 	public static XSSFSheet sheet = null;		//Sheet variable
 	public static List<WebElement> elementsList = null;
 	
-	public static XSSFSheet ReadExcel() throws IOException
+	/*public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("user.dir");
 		fis = new FileInputStream("D:\\Litigation-Project 10 April2024\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx");
@@ -46,7 +46,7 @@ public class CFOlogin extends BasePage
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(5);					//Retrieving second sheet of Workbook
 		return sheet;
-	}
+	}*/
 	
 	@BeforeTest
 
@@ -72,7 +72,8 @@ public class CFOlogin extends BasePage
 	void Login() throws Exception
 	{
 	
-		XSSFSheet sheet = ReadExcel();
+		initialization("cfo",5);
+		/*XSSFSheet sheet = ReadExcel();
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
@@ -88,8 +89,10 @@ public class CFOlogin extends BasePage
 		Cell c3 = row2.getCell(1);						//Selected cell (2 row,1 column)
 		String password = c3.getStringCellValue();		//Got the URL stored at position 2,1
 		
-		getDriver = login.Login.UserLogin(uname,password,"company");		//Method of Login class to login user.
+		getDriver = login.Login.UserLogin(uname,password,"company");		//Method of Login class to login user.*/
 	}
+	
+
 	
 
 @Test(priority =1)

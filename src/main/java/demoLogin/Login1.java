@@ -74,27 +74,27 @@ public class Login1 extends BasePage {
 //			return sheet;
 //		}
 	
-	@BeforeTest
-	void setBrowser() throws InterruptedException, IOException
-	{
-		String workingDir = System.getProperty("user.dir");
-		extent = new com.relevantcodes.extentreports.ExtentReports(workingDir+"//Reports//LitigationMgmt.html",true);
-		test = extent.startTest("Verify OpenBrowser");
-		test.log(LogStatus.INFO, "Browser test is initiated");
-		
-//		XSSFSheet sheet = ReadExcel();
-//		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
-//		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-//		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
-		
-		login.Login.BrowserSetup("https://login.teamleaseregtech.com/Login.aspx");					//Method of Login class to set browser.
-		
-		test.log(LogStatus.PASS, "Test Passed.");
-		extent.endTest(test);
-		extent.flush();
-		
-		
-	}
+//	@BeforeTest
+//	void setBrowser() throws InterruptedException, IOException
+//	{
+//		String workingDir = System.getProperty("user.dir");
+//		extent = new com.relevantcodes.extentreports.ExtentReports(workingDir+"//Reports//LitigationMgmt.html",true);
+//		test = extent.startTest("Verify OpenBrowser");
+//		test.log(LogStatus.INFO, "Browser test is initiated");
+//		
+////		XSSFSheet sheet = ReadExcel();
+////		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
+////		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+////		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
+//		
+//		login.Login.BrowserSetup("https://login.teamleaseregtech.com/Login.aspx");					//Method of Login class to set browser.
+//		
+//		test.log(LogStatus.PASS, "Test Passed.");
+//		extent.endTest(test);
+//		extent.flush();
+//		
+//		
+//	}
 	@Test(priority = 1)
 	void correctUnPassword() throws InterruptedException, IOException
 	{

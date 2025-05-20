@@ -17,7 +17,9 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class performer 
+import login.BasePage;
+
+public class performer extends BasePage
 {
 	public static WebDriver driver = null;		//WebDriver instance created
 	public static WebElement upload = null;		//WebElement to get upload button
@@ -28,31 +30,23 @@ public class performer
 	public static XSSFSheet sheet = null;		//Sheet variable
 	public static List<WebElement> elementsList = null;
 	
-	public static XSSFSheet ReadExcel() throws IOException
-	{
-		String workingDir = System.getProperty("user.dir");
-		fis = new FileInputStream(workingDir+"//TestData//LitigationSheet.xlsx");
-		workbook = new XSSFWorkbook(fis);
-		sheet = workbook.getSheetAt(0);					//Retrieving second sheet of Workbook
-		return sheet;
-	}
+//	public static XSSFSheet ReadExcel() throws IOException
+//	{
+//		String workingDir = System.getProperty("user.dir");
+//		fis = new FileInputStream(workingDir+"//TestData//LitigationSheet.xlsx");
+//		workbook = new XSSFWorkbook(fis);
+//		sheet = workbook.getSheetAt(0);					//Retrieving second sheet of Workbook
+//		return sheet;
+//	}
 	
 	@BeforeTest
 	void setBrowser() throws InterruptedException, IOException
 	{
 		String workingDir = System.getProperty("user.dir");
+		System.out.println(workingDir);
 		extent = new com.relevantcodes.extentreports.ExtentReports(workingDir+"//Reports//LitigationPerformer.html",true);
-		test = extent.startTest("Verify OpenBrowser");
-		test.log(LogStatus.INFO, "Browser test is initiated");
-		
-		XSSFSheet sheet = ReadExcel();
-		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
-		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
-		
-		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
-		
-		test.log(LogStatus.PASS, "Test Passed.");
+		test = extent.startTest("Litigation Logging In - Non Admin");
+		test.log(LogStatus.PASS, "Test Passed = Verify Chrome browser.");
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -60,23 +54,24 @@ public class performer
 	@Test(priority = 1)
 	void Login() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Litigation Logging In - Performer");
-		test.log(LogStatus.INFO, "Logging into system");
-		
-		XSSFSheet sheet = ReadExcel();
-		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
-		Cell c1 = row1.getCell(1);						//Selected cell (1 row,1 column)
-		String uname = c1.getStringCellValue();			//Got the URL stored at position 1,1
-		
-		Row row2 = sheet.getRow(2);						//Selected 2nd index row (Third row)
-		Cell c2 = row2.getCell(1);						//Selected cell (2 row,1 column)
-		String password = c2.getStringCellValue();		//Got the URL stored at position 2,1
-		
-		driver = login.Login.UserLogin(uname,password,"Litigation");		//Method of Login class to login user.
-		
-		test.log(LogStatus.PASS, "Test Passed.");
-		extent.endTest(test);
-		extent.flush();
+		initialization("performer",0);
+//		test = extent.startTest("Litigation Logging In - Performer");
+//		test.log(LogStatus.INFO, "Logging into system");
+//		
+//		XSSFSheet sheet = ReadExcel();
+//		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
+//		Cell c1 = row1.getCell(1);						//Selected cell (1 row,1 column)
+//		String uname = c1.getStringCellValue();			//Got the URL stored at position 1,1
+//		
+//		Row row2 = sheet.getRow(2);						//Selected 2nd index row (Third row)
+//		Cell c2 = row2.getCell(1);						//Selected cell (2 row,1 column)
+//		String password = c2.getStringCellValue();		//Got the URL stored at position 2,1
+//		
+//		driver = login.Login.UserLogin(uname,password,"Litigation");		//Method of Login class to login user.
+//		
+//		test.log(LogStatus.PASS, "Test Passed.");
+//		extent.endTest(test);
+//		extent.flush();
 	}
 	
 	@Test(priority = 2)

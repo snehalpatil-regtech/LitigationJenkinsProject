@@ -21,10 +21,10 @@ import performer.OverduePOM;
 
 public class Login extends BasePage
 {
-	public static WebDriver driver = null;				//WebDriver instance created
+	//public static WebDriver driver = null;				//WebDriver instance created
 	public static WebElement upload = null;				//WebElement to get upload button
 	
-	public static void BrowserSetup(String URL) throws InterruptedException
+/*	public static void BrowserSetup(String URL) throws InterruptedException
 	{
 		
 			//WebDriverManager.edgedriver().setup();
@@ -46,7 +46,7 @@ public class Login extends BasePage
 		  /*  System.setProperty("webdriver.opera.driver", "E:\\eclips-projects\\Selenium\\operadriver_win64 -121 version\\operadriver.exe");
 		    OperaOptions operaOptions =new OperaOptions();
 		    operaOptions.setBinary("C:\\Program Files\\OperaBroswer\\opera.exe");
-			driver = new OperaDriver(operaOptions);*/
+			driver = new OperaDriver(operaOptions);
 		
 		
 		   
@@ -54,10 +54,10 @@ public class Login extends BasePage
 			Thread.sleep(500);
 			
 			driver.get(URL);								//Set the URL of WebApplication.
-	}
+	}*/
 	
 	
-	public static void BrowserSetup1(String URL,String browser) throws Exception
+/*	public static void BrowserSetup1(String URL,String browser) throws Exception
 	{
 		
 		
@@ -103,18 +103,18 @@ public class Login extends BasePage
 		               driver.manage().window().maximize();			//Set window size to maximum.
 		                driver.get(URL);
 		
-	}
+	}*/
 	
 	public static WebDriver UserLogin(String username, String password, String method) throws InterruptedException
 	{		
 		
-		WebDriverWait wait = new WebDriverWait( driver,(60));
+		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
 		Thread.sleep(1000);
 		LoginPOM.setUname().sendKeys(username);		//Sent username to input box 
 		Thread.sleep(500);
 		LoginPOM.setPassword().sendKeys(password);	//Sent password to input box
 		LoginPOM.clickSubmit().click();				//Clicked on Sign-in button
-		Thread.sleep(500);
+	/*	Thread.sleep(500);
 		if(!username.equalsIgnoreCase("performer@avantis.info"))
 		{
 			try
@@ -210,10 +210,9 @@ public class Login extends BasePage
 			LoginPOM.SubmitAnswer().click();				//Clicking on Submit button.
 			
 			
-		}
 		
-		Thread.sleep(2000);
-		LoginPOM.ClickLitigation().click();
+		
+		
 //		if(!method.equalsIgnoreCase("company"))
 //		{
 //			//wait1.until(ExpectedConditions.elementToBeClickable(LoginPOM.clickComplicane()));
@@ -239,9 +238,11 @@ public class Login extends BasePage
 //			
 //			
 //	
-//		}		
+//		}*/
+	Thread.sleep(2000);
+	LoginPOM.ClickLitigation().click();
 	
-		return driver;
+		return getDriver();
 	}
 	
 	
@@ -277,8 +278,8 @@ public class Login extends BasePage
 	}
 	public static WebDriver UserLogin1(String username, String password, String method) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
-		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 		
 		LoginPOM.setUname().clear();
 		LoginPOM.setUname().sendKeys(username);		//Sent username to input box 
@@ -286,7 +287,7 @@ public class Login extends BasePage
 		LoginPOM.setPassword().sendKeys(password);	//Sent password to input box
 		LoginPOM.clickSubmit().click();				//Clicked on Sign-in button
 		
-		return driver;
+		return getDriver();
     }
 	
 	  public static WebDriver forgotPassword() throws InterruptedException, IOException
@@ -302,13 +303,13 @@ public class Login extends BasePage
 		LoginPOM.ClickSubmit().click();
 		Thread.sleep(2000);
 		LoginPOM.ClickBackButton().click();
-		return driver;
+		return getDriver();
 	}
 	  
 	  public static void AccountLocked(ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
-		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 		
 	
 		Thread.sleep(2000);
@@ -323,7 +324,7 @@ public class Login extends BasePage
 	  public static void Google(ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
-		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 		
 		
 		LoginPOM.ClickGoogle().click();
@@ -335,7 +336,7 @@ public class Login extends BasePage
 	  public static void LoginHelp(ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
-		WebDriverWait wait1 = new WebDriverWait(driver, 60);
+		WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
 		
 		LoginPOM.ClickLoginHelp().click();
 		

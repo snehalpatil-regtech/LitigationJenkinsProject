@@ -24,9 +24,10 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import login.BasePage;
 import performer.OverduePOM;
 
-public class CFOcountStatutory 
+public class CFOcountStatutory extends BasePage
 {
 	public static WebDriver driver = null;		//WebDriver instance created
 	public static WebElement upload = null;		//WebElement to get upload button
@@ -47,16 +48,16 @@ public class CFOcountStatutory
 	
 	//Write "CFO-diy" for DIYProduction link.
 	//Write "CFO" for login.avantis for CFO Finance
-	public static String link = "CFO";		//Check link in excel sheet first.
+	//public static String link = "CFO";		//Check link in excel sheet first.
 	
-	public static XSSFSheet ReadExcel() throws IOException
-	{
-		String workingDir = System.getProperty("user.dir");
-		fis = new FileInputStream(workingDir+"//TestData//ComplianceSheet.xlsx");
-		workbook = new XSSFWorkbook(fis);
-		sheet = workbook.getSheetAt(2);					//Retrieving third sheet of Workbook
-		return sheet;
-	}
+//	public static XSSFSheet ReadExcel() throws IOException
+//	{
+//		String workingDir = System.getProperty("user.dir");
+//		fis = new FileInputStream(workingDir+"//TestData//ComplianceSheet.xlsx");
+//		workbook = new XSSFWorkbook(fis);
+//		sheet = workbook.getSheetAt(2);					//Retrieving third sheet of Workbook
+//		return sheet;
+//	}
 	
 	@BeforeTest
 	void setBrowser() throws InterruptedException, IOException
@@ -66,12 +67,6 @@ public class CFOcountStatutory
 		test = extent.startTest("Verify OpenBrowser");
 		test.log(LogStatus.INFO, "Browser test is initiated");
 		
-		XSSFSheet sheet = ReadExcel();
-		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
-		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
-		
-		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
 		
 		test.log(LogStatus.PASS, "Test Passed.");
 		extent.endTest(test);
@@ -84,25 +79,26 @@ public class CFOcountStatutory
 		test = extent.startTest("Loging In - CFO Finance (Statutory)");
 		test.log(LogStatus.INFO, "Logging into system");
 		
-		XSSFSheet sheet = ReadExcel();
-		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
-		Cell c1 = row1.getCell(1);						//Selected cell (1 row,1 column)
-		String uname = c1.getStringCellValue();			//Got the URL stored at position 1,1
-		
-		Row row2 = sheet.getRow(2);						//Selected 2nd index row (Third row)
-		Cell c2 = row2.getCell(1);						//Selected cell (2 row,1 column)
-		String password = c2.getStringCellValue();		//Got the URL stored at position 2,1
-		
-		//Write "CFO-diy" for DIYProduction link.
-		//Write "CFO" for login.avantis
-		driver = login.Login.UserLogin(uname,password,link);		//Method of Login class to login user.
-		
-		//CFOcountPOM.clickRefresh(driver).click();
-		//Thread.sleep(3000);
-		
-		test.log(LogStatus.PASS, "Test Passed.");
-		extent.endTest(test);
-		extent.flush();
+		initialization("CFOStatutoryCount",4);
+//		XSSFSheet sheet = ReadExcel();
+//		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
+//		Cell c1 = row1.getCell(1);						//Selected cell (1 row,1 column)
+//		String uname = c1.getStringCellValue();			//Got the URL stored at position 1,1
+//		
+//		Row row2 = sheet.getRow(2);						//Selected 2nd index row (Third row)
+//		Cell c2 = row2.getCell(1);						//Selected cell (2 row,1 column)
+//		String password = c2.getStringCellValue();		//Got the URL stored at position 2,1
+//		
+//		//Write "CFO-diy" for DIYProduction link.
+//		//Write "CFO" for login.avantis
+//		driver = login.Login.UserLogin(uname,password,link);		//Method of Login class to login user.
+//		
+//		//CFOcountPOM.clickRefresh(driver).click();
+//		//Thread.sleep(3000);
+//		
+//		test.log(LogStatus.PASS, "Test Passed.");
+//		extent.endTest(test);
+//		extent.flush();
 	}
 	
 	public static void progress1(WebDriver driver)

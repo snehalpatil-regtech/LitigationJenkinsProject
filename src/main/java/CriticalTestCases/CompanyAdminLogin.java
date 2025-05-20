@@ -42,15 +42,15 @@ public class CompanyAdminLogin extends BasePage
 		public static XSSFSheet sheet = null;		//Sheet variable
 		public static List<WebElement> elementsList = null;
 		
-		public static XSSFSheet ReadExcel() throws IOException
-		{
-			//String workingDir = System.getProperty("user.dir");
-			fis = new FileInputStream("D:\\Litigation-Project 10 April2024\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx");
-		
-			workbook = new XSSFWorkbook(fis);
-			sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
-			return sheet;
-		}
+//		public static XSSFSheet ReadExcel() throws IOException
+//		{
+//			//String workingDir = System.getProperty("user.dir");
+//			fis = new FileInputStream("D:\\Litigation-Project 10 April2024\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx");
+//		
+//			workbook = new XSSFWorkbook(fis);
+//			sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+//			return sheet;
+//		}
 		
 		@BeforeTest
 		void setBrowser() throws InterruptedException, IOException
@@ -70,24 +70,24 @@ public class CompanyAdminLogin extends BasePage
 		
 		void Login() throws InterruptedException, IOException
 		{
-			
-			XSSFSheet sheet = ReadExcel();
-			Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
-			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-			String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
-			
-			login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
-			
-			
-			Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
-			Cell c2 = row1.getCell(1);						//Selected cell (1 row,1 column)
-			String uname = c2.getStringCellValue();			//Got the URL stored at position 1,1
-			
-			Row row2 = sheet.getRow(2);						//Selected 2nd index row (Third row)
-			Cell c3 = row2.getCell(1);						//Selected cell (2 row,1 column)
-			String password = c3.getStringCellValue();		//Got the URL stored at position 2,1
-			
-			getDriver = login.Login.UserLogin(uname,password,"company");		//Method of Login class to login user.
+			initialization("companyAdmin",4);
+//			XSSFSheet sheet = ReadExcel();
+//			Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
+//			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+//			String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
+//			
+//			login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
+//			
+//			
+//			Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
+//			Cell c2 = row1.getCell(1);						//Selected cell (1 row,1 column)
+//			String uname = c2.getStringCellValue();			//Got the URL stored at position 1,1
+//			
+//			Row row2 = sheet.getRow(2);						//Selected 2nd index row (Third row)
+//			Cell c3 = row2.getCell(1);						//Selected cell (2 row,1 column)
+//			String password = c3.getStringCellValue();		//Got the URL stored at position 2,1
+//			
+//			getDriver = login.Login.UserLogin(uname,password,"company");		//Method of Login class to login user.
 			
 		}
 

@@ -164,7 +164,7 @@ import performer.OverduePOM;
 
 	 }
 
-	public void initialization(String link,int no,String text) throws InterruptedException, IOException {
+	public void initialization(String link,int no) throws InterruptedException, IOException {
 		try {
 		//loadProperties(no);
 		openBrower(no);
