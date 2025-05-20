@@ -29,7 +29,7 @@ import performer.OverduePOM;
 
 public class CFOlogin extends BasePage
 {
-	public static WebDriver getDriver  = null;		//Web instance created
+//	public static WebDriver getDriver  = null;		//Web instance created
 	public static WebElement upload = null;		//WebElement to get upload button
 	public static ExtentReports extent;			//Instance created for report file
 	public static ExtentTest test;				//Instance created for tests
