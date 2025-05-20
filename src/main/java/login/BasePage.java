@@ -143,7 +143,7 @@ import performer.OverduePOM;
 	private void openBrower(int no) throws IOException {
 
 		if (browser.contains("chrome")) {
-					System.setProperty("webdriver.chrome.driver", "D:\\eclips-projects\\eclips-projects\\Selenium\\chromedriver-win64_1\\chromedriver-win64\\chromedriver.exe");
+					System.setProperty("webdriver.chrome.driver", "D:\\eclips-projects\\eclips-projects\\Selenium\\chromedriver-win64\\chromedriver.exe");
 					//WebDriverManager.chromedriver().setup();
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--remote-allow-origins=*");
