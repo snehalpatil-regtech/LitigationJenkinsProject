@@ -52,28 +52,28 @@ public class LoginMethod extends BasePage{
 	@Parameters("browser")
 	@BeforeTest
 
-	public static void BrowserSetup(String URL,String browser)
-	{
-
-		if(browser.equalsIgnoreCase("chrome"))
-		  {
-			  WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();		
-		  }
-		  else if(browser.equalsIgnoreCase("edges"))
-		  {
-			  WebDriverManager.edgedriver().setup();
-			  driver = new EdgeDriver();				
-				
-		  }
-		  else if(browser.equalsIgnoreCase("FireFox"))
-		  {
-			  WebDriverManager.firefoxdriver().setup();
-			   driver = new FirefoxDriver();
-		  }
-		driver.manage().window().maximize();			//Set window size to maximum.
-		driver.get(URL);								//Set the URL of WebApplication.
-	}
+//	public static void BrowserSetup(String URL,String browser)
+//	{
+//
+//		if(browser.equalsIgnoreCase("chrome"))
+//		  {
+//			  WebDriverManager.chromedriver().setup();
+//				driver = new ChromeDriver();		
+//		  }
+//		  else if(browser.equalsIgnoreCase("edges"))
+//		  {
+//			  WebDriverManager.edgedriver().setup();
+//			  driver = new EdgeDriver();				
+//				
+//		  }
+//		  else if(browser.equalsIgnoreCase("FireFox"))
+//		  {
+//			  WebDriverManager.firefoxdriver().setup();
+//			   driver = new FirefoxDriver();
+//		  }
+//		driver.manage().window().maximize();			//Set window size to maximum.
+//		driver.get(URL);								//Set the URL of WebApplication.
+//	}
 	
 	@Test
 	
@@ -84,14 +84,14 @@ public class LoginMethod extends BasePage{
 		test = extent.startTest("Verify OpenBrowser");
 		test.log(LogStatus.INFO, "Browser test is initiated");
 		
-		XSSFSheet sheet = ReadExcel();
-		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
-		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
-		
-		//login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
-		
-		BrowserSetup(URL,"browser");
+//		XSSFSheet sheet = ReadExcel();
+//		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
+//		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+//		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
+//		
+//		//login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
+//		
+//		BrowserSetup(URL,"browser");
 		
 		test.log(LogStatus.PASS, "Test Passed.");
 		extent.endTest(test);
@@ -284,7 +284,7 @@ public class LoginMethod extends BasePage{
  	void driverclose() throws InterruptedException
  	{
     	 Thread.sleep(2000);
- 	   driver.close();
+ 	   getDriver().close();
  	}
 	
 	

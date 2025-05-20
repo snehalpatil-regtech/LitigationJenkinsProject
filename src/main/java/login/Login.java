@@ -243,7 +243,7 @@ public class Login extends BasePage
 //	LoginPOM.ClickLitigation().click();
 	
 	//WebDriverWait wait1 = new WebDriverWait(getDriver(),(20));
-	WebElement litigationBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dvbtnLitigation']']")));
+	WebElement litigationBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dvbtnLitigation']")));
 	litigationBtn.click();
 	
 		return getDriver();
