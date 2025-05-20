@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.opera.OperaOptions;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -46,9 +46,7 @@ public class Login extends BasePage
 			//	driver = new OperaDriver();
 		
 		  /*  System.setProperty("webdriver.opera.driver", "E:\\eclips-projects\\Selenium\\operadriver_win64 -121 version\\operadriver.exe");
-		    OperaOptions operaOptions =new OperaOptions();
-		    operaOptions.setBinary("C:\\Program Files\\OperaBroswer\\opera.exe");
-			driver = new OperaDriver(operaOptions);
+		   
 		
 		
 		   
@@ -245,7 +243,7 @@ public class Login extends BasePage
 //	LoginPOM.ClickLitigation().click();
 	
 	//WebDriverWait wait1 = new WebDriverWait(getDriver(),(20));
-	WebElement litigationBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dvbtnLitigation']")));
+	WebElement litigationBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dvbtnLitigation']']")));
 	litigationBtn.click();
 	
 		return getDriver();
