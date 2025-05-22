@@ -114,7 +114,7 @@ public class Login extends BasePage
 		Thread.sleep(500);
 		LoginPOM.setPassword().sendKeys(password);	//Sent password to input box
 		LoginPOM.clickSubmit().click();				//Clicked on Sign-in button
-	/*	Thread.sleep(500);
+		Thread.sleep(500);
 		if(!username.equalsIgnoreCase("performer@avantis.info"))
 		{
 			try
@@ -238,7 +238,7 @@ public class Login extends BasePage
 //			
 //			
 //	
-//		}*/
+		}
 //	Thread.sleep(2000);
 //	LoginPOM.ClickLitigation().click();
 	

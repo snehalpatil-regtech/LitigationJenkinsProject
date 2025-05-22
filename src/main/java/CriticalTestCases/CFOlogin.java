@@ -72,7 +72,7 @@ public class CFOlogin extends BasePage
 	void Login() throws Exception
 	{
 	
-		initialization("cfo",5);
+		initialization("company",5);
 		/*XSSFSheet sheet = ReadExcel();
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -108,7 +108,7 @@ public class CFOlogin extends BasePage
 
    	}
 
-@Test(priority =2)
+@Test(priority =0)
     	void CaseOpen() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Case - Open Count verification");
@@ -176,7 +176,7 @@ public class CFOlogin extends BasePage
     	{
     		test = extent.startTest("Close Notice Count verification");
     		
-    		CFOMethod.CloseNoticeCase( test, workbook,"Notice");
+    		CFOMethod.CloseNoticeCase( test,"Notice");
     		
     		extent.endTest(test);
     		extent.flush();
@@ -187,7 +187,7 @@ public class CFOlogin extends BasePage
 			test = extent.startTest("Close Case Count Verification");
 				
 				
-				CFOMethod.CloseNoticeCase( test, workbook,"Case");
+				CFOMethod.CloseNoticeCase( test,"Case");
 				
 			extent.endTest(test);
 				extent.flush();
@@ -210,7 +210,7 @@ void ClosedTask() throws InterruptedException, IOException
 	test = extent.startTest(" Closed Task Count verification");
 	
 	
-	CFOMethod.CloseNoticeCase( test, workbook, "Task");
+	CFOMethod.CloseNoticeCase( test, "Task");
 	
 	extent.endTest(test);
 	extent.flush();
@@ -235,7 +235,7 @@ void ClosedTask() throws InterruptedException, IOException
 		test = extent.startTest("Notice TaskActivtiy verification");
 		
 		
-		CFOMethod.TaskActivtity( test,workbook);
+		CFOMethod.TaskActivtity( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -247,7 +247,7 @@ void NoticeResponse() throws InterruptedException, IOException
 	test = extent.startTest("Notice Response verification");
 	
 	
-	MethodsPOM.Response( test,workbook);
+	MethodsPOM.Response( test);
 	
 	extent.endTest(test);
 	extent.flush();
@@ -259,7 +259,7 @@ void NoticePayment() throws InterruptedException, IOException
 	test = extent.startTest("Notice Payment verification");
 	
 	
-	CFOMethod.PaymentLog(test,workbook);
+	CFOMethod.PaymentLog(test);
 	
 	extent.endTest(test);
 	extent.flush();
@@ -305,7 +305,7 @@ void CaseTaskActivity() throws InterruptedException, IOException
 	test = extent.startTest("Case - Task/Activty Tab");
 	
 	
-	MethodsPOM.TaskActivity1( test,workbook,"Performer");
+	MethodsPOM.TaskActivity1( test,"Performer");
 	
 	extent.endTest(test);
 	extent.flush();
@@ -318,7 +318,7 @@ void CaseTaskActivity() throws InterruptedException, IOException
 		test = extent.startTest("Case - CaseHearing Tab");
 		
 		
-		CFOMethod.CaseHearing( test,workbook);
+		CFOMethod.CaseHearing( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -330,7 +330,7 @@ void CaseOrder() throws InterruptedException, IOException
 	test = extent.startTest("Case - Case Order Tab");
 
 	
-	MethodsPOM.CaseOrder( test,workbook,"Performer");
+	MethodsPOM.CaseOrder( test,"Performer");
 	
 	extent.endTest(test);
 	extent.flush();
@@ -342,7 +342,7 @@ void CaseStatusPayment() throws InterruptedException, IOException
 	test = extent.startTest("Case - Status/Payment Tab");
 	
 	
-	MethodsPOM.StatusPayment( test,workbook);
+	MethodsPOM.StatusPayment( test);
 	
 	extent.endTest(test);
 	extent.flush();
@@ -1484,7 +1484,7 @@ void AgeingGraphMoreThan3yearsCase() throws InterruptedException, IOException
 		test = extent.startTest("My Document-Download and View Document");
 	
 		
-		CFOMethod.MyDocument( test, workbook);
+		CFOMethod.MyDocument( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -1566,7 +1566,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Masters - Legal Entity  verification");
 				
-				CFOMethod.LegalEntity( test, workbook);
+				CFOMethod.LegalEntity( test);
 				
 				extent.endTest(test);
 				extent.flush();
@@ -1579,7 +1579,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 			test = extent.startTest("Masters - Law Firm verification");
 			
 			
-			CFOMethod.LawFirm( test, workbook);
+			CFOMethod.LawFirm( test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -1591,7 +1591,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 		test = extent.startTest("Masters - 	User  verification");
 	
 	
-		CFOMethod.User( test, workbook);
+		CFOMethod.User( test);
 	
 		extent.endTest(test);
 			extent.flush();
@@ -1603,7 +1603,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Opponent  verification");
 		
 		
-		CFOMethod.Opponent( test, workbook);
+		CFOMethod.Opponent( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -1617,7 +1617,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Court  verification");
 	
 	
-		CFOMethod.Court( test, workbook);
+		CFOMethod.Court( test);
 	
 		extent.endTest(test);
 		extent.flush();
@@ -1629,7 +1629,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Case/NoticeType  verification");
 	
 	
-		CFOMethod.CaseNoticeType( test, workbook);
+		CFOMethod.CaseNoticeType( test);
 	
 		extent.endTest(test);
 		extent.flush();
@@ -1641,7 +1641,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Payment Type  verification");
 	
 	
-		CFOMethod.PaymentType( test, workbook);
+		CFOMethod.PaymentType( test);
 	
 		extent.endTest(test);
 		extent.flush();
@@ -1654,7 +1654,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Custom Parameter  verification");
 
 	
-		CFOMethod.customParameter( test, workbook);
+		CFOMethod.customParameter( test);
 	
 		extent.endTest(test);
 		extent.flush();
@@ -1666,7 +1666,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Case Stage  verification");
 
 	
-		CFOMethod.CaseStage( test, workbook);
+		CFOMethod.CaseStage( test);
 	
 		extent.endTest(test);
 		extent.flush();
@@ -1678,7 +1678,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 	test = extent.startTest("Masters - Document Type  verification");
 	
 	
-	CFOMethod.DocumentType( test, workbook);
+	CFOMethod.DocumentType( test);
 	
 	extent.endTest(test);
 	extent.flush();
@@ -1690,7 +1690,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Rating Criteria  verification");
 
 	
-		CFOMethod.RatingCriteria( test, workbook);
+		CFOMethod.RatingCriteria( test);
 	
 		extent.endTest(test);
 		extent.flush();
@@ -1702,7 +1702,7 @@ void NoticeUpdation() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Notice Stage  verification");
 	
 	
-		CFOMethod.NoticeStage( test, workbook);
+		CFOMethod.NoticeStage( test);
 	
 		extent.endTest(test);
 		extent.flush();

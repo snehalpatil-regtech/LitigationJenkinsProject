@@ -243,7 +243,7 @@ void NoticeSendMailWithDocInvalidFields() throws InterruptedException, IOExcepti
 		test = extent.startTest("Case with Invalid Data verification");
 	
 	
-		MethodPOM.CaseWithInvalidData( test, workbook);
+		MethodPOM.CaseWithInvalidData( test);
 	
 		extent.endTest(test);
 		extent.flush();
@@ -400,7 +400,7 @@ void LinkCase() throws InterruptedException, IOException
 			test = extent.startTest("Notice - Closed Count Verification");
 	
 			
-			MethodsPOM.NoticeClosed( test, workbook, "Performer");
+			MethodsPOM.NoticeClosed( test, "Performer");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -411,7 +411,7 @@ void LinkCase() throws InterruptedException, IOException
 			test = extent.startTest("Case - Closed Count Verification");
 	
 			
-			MethodsPOM.CaseClosed( test, workbook, "Performer");
+			MethodsPOM.CaseClosed( test, "Performer");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -421,7 +421,7 @@ void LinkCase() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Task - Open Count Verification");
 			
-			MethodPOM.TaskOpen( test, workbook, "Performer");
+			MethodPOM.TaskOpen( test, "Performer");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -433,7 +433,7 @@ void LinkCase() throws InterruptedException, IOException
 			test = extent.startTest("Task With existing data verification");
 			
 			
-			MethodPOM.TaskWithExistingData( test, workbook);
+			MethodPOM.TaskWithExistingData( test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -444,7 +444,7 @@ void LinkCase() throws InterruptedException, IOException
 	     				test = extent.startTest("Task With Two manadatory fields verification");
 	     				
 	     				
-	     				MethodPOM.TaskWithTwoMandatoryFields( test, workbook);
+	     				MethodPOM.TaskWithTwoMandatoryFields( test);
 	     				
 	     				extent.endTest(test);
 	     				extent.flush();
@@ -595,7 +595,7 @@ void NoticeTaskActivityTab() throws InterruptedException, IOException
 	test = extent.startTest("Notice Task/Activity verification");
 	
 	
-	MethodPOM.TaskActivtity( test,workbook);
+	MethodPOM.TaskActivtity( test);
 	
 	extent.endTest(test);
 	extent.flush();
@@ -888,7 +888,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				test = extent.startTest("Case Task/Activity verification");
 		
 				
-				MethodPOM.TaskActivity1( test,workbook,"Performer");
+				MethodPOM.TaskActivity1( test,"Performer");
 				
 				extent.endTest(test);
 				extent.flush();
@@ -937,7 +937,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				test = extent.startTest("Case Hearing verification");
 			
 				
-				MethodPOM.CaseHearing( test,workbook);
+				MethodPOM.CaseHearing( test);
 				
 				extent.endTest(test);
 				extent.flush();
@@ -986,7 +986,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				test = extent.startTest("Case Order verification");
 				
 				
-				MethodPOM.CaseOrder( test,workbook,"Performer");
+				MethodPOM.CaseOrder( test,"Performer");
 				
 				extent.endTest(test);
 				extent.flush();
@@ -998,7 +998,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
  			test = extent.startTest("To check validation message displayed  for case order with existing data");
 
  		
- 			MethodPOM.CaseOrderWithExistingData( test,workbook);
+ 			MethodPOM.CaseOrderWithExistingData( test);
  		
  			extent.endTest(test);
  			extent.flush();
@@ -1041,7 +1041,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 		test = extent.startTest("Case Status/Payment verification");
 			
 				
-		MethodsPOM.StatusPayment( test,workbook);
+		MethodsPOM.StatusPayment( test);
 				
 		extent.endTest(test);
 		extent.flush();
@@ -1315,7 +1315,7 @@ void StatusPaymentwithInvaliddata() throws InterruptedException, IOException
 				test = extent.startTest("My Reminder verification");
 			
 				
-				MethodsPOM.MyReminder( test, workbook);
+				MethodsPOM.MyReminder( test);
 				
 				extent.endTest(test);
 				extent.flush();

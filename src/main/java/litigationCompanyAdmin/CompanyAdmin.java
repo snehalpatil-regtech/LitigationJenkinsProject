@@ -226,7 +226,7 @@ void NoticeUserAssignmentDelete() throws InterruptedException, IOException
 		test = extent.startTest("Notice - Closed Count Verification");
 		
 		
-		MethodsPOM.NoticeClosed( test, workbook, "Performer");
+		MethodsPOM.NoticeClosed( test, "Performer");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -238,7 +238,7 @@ void NoticeUserAssignmentDelete() throws InterruptedException, IOException
 		test = extent.startTest("Case - Open Count Verification");
 		
 		
-		MethodsPOM.CaseOpen( test, workbook, "Performer");
+		MethodsPOM.CaseOpen( test, "Performer");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -307,7 +307,7 @@ void NoticeUserAssignmentDelete() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case - Closed Count Verification");
 		
-		MethodsPOM.CaseClosed( test, workbook, "Performer");
+		MethodsPOM.CaseClosed( test, "Performer");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -319,7 +319,7 @@ void NoticeUserAssignmentDelete() throws InterruptedException, IOException
 		test = extent.startTest("Task - Open Count Verification");
 		
 		
-		MethodsPOM.TaskOpen( test, workbook, "Performer");
+		MethodsPOM.TaskOpen( test, "Performer");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -330,7 +330,7 @@ void NoticeUserAssignmentDelete() throws InterruptedException, IOException
 			test = extent.startTest("Task With existing data verification");
 			
 			
-			MethodsPOM.TaskWithExistingData( test, workbook);
+			MethodsPOM.TaskWithExistingData( test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -397,7 +397,7 @@ void NoticeUserAssignmentDelete() throws InterruptedException, IOException
 		test = extent.startTest("Task - Closed Count Verification");
 		
 		
-		MethodsPOM.TaskClosed( test, workbook, "Performer");
+		MethodsPOM.TaskClosed( test, "Performer");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -408,7 +408,7 @@ void NoticeUserAssignmentDelete() throws InterruptedException, IOException
 		test = extent.startTest(" Closed Task Count verification");
 		
 		
-		MethodsPOM.CloseNoticeCase( test, workbook, "Task","company admin");
+		MethodsPOM.CloseNoticeCase( test, "Task","company admin");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -419,7 +419,7 @@ void LinkNotice() throws InterruptedException, IOException
 	test = extent.startTest("Link Notice Verification");
 	
 	
-	MethodsPOM.LinkDocument( test, workbook, "Notice");
+	MethodsPOM.LinkDocument( test, "Notice");
 	
 	extent.endTest(test);
 	extent.flush();
@@ -452,7 +452,7 @@ void LinkNotice() throws InterruptedException, IOException
 	void LinkCase() throws InterruptedException, IOException
 	{
 	test = extent.startTest("Link Case Verification");
-    MethodsPOM.LinkDocument( test, workbook, "Case");
+    MethodsPOM.LinkDocument( test, "Case");
     extent.endTest(test);
 	extent.flush();
    }
@@ -483,7 +483,7 @@ void LinkNotice() throws InterruptedException, IOException
 	void CloseNotice() throws InterruptedException, IOException
 	{
 	test = extent.startTest("Close Notice Count Verification");
-	MethodsPOM.CloseNoticeCase( test, workbook,"Notice","company admin");
+	MethodsPOM.CloseNoticeCase( test,"Notice","company admin");
 	extent.endTest(test);
 	extent.flush();
 	}
@@ -492,7 +492,7 @@ void LinkNotice() throws InterruptedException, IOException
 	{
 	test = extent.startTest("Close Case Count Verification");
 		
-		MethodsPOM.CloseNoticeCase( test, workbook,"Case","company admin");
+		MethodsPOM.CloseNoticeCase( test,"Case","company admin");
 		
 	extent.endTest(test);
 		extent.flush();
@@ -620,7 +620,7 @@ void LinkNotice() throws InterruptedException, IOException
 		test = extent.startTest("Notice Task/Activity verification");
 		
 		
-		MethodsPOM.TaskActivtity( test,workbook);
+		MethodsPOM.TaskActivtity( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -633,7 +633,7 @@ void LinkNotice() throws InterruptedException, IOException
 		test = extent.startTest("Notice Task/Activtiy with existing data verification");
 		
 		
-		MethodsPOM.TaskActivtityExistingData( test,workbook);
+		MethodsPOM.TaskActivtityExistingData( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -694,7 +694,7 @@ void TaskActivtityDeleteResponse() throws InterruptedException, IOException
 		test = extent.startTest("Notice Response tab verification");
 		
 		
-		MethodsPOM.Response( test,workbook);
+		MethodsPOM.Response( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -993,7 +993,7 @@ void CaseUserAssignment() throws InterruptedException, IOException
  		test = extent.startTest("Case Task/Activity verification");
  		
  		
- 		MethodsPOM.TaskActivity1( test,workbook,"Performer");
+ 		MethodsPOM.TaskActivity1( test,"Performer");
  		
  		extent.endTest(test);
  		extent.flush();
@@ -1041,7 +1041,7 @@ void CaseUserAssignment() throws InterruptedException, IOException
  		test = extent.startTest("Case Hearing verification");
  		
  		
- 		MethodsPOM.CaseHearing( test,workbook);
+ 		MethodsPOM.CaseHearing( test);
  		
  		extent.endTest(test);
  		extent.flush();
@@ -1091,7 +1091,7 @@ void CaseUserAssignment() throws InterruptedException, IOException
  		test = extent.startTest("Case Order verification");
  		
  		
- 		MethodsPOM.CaseOrder( test,workbook,"Performer");
+ 		MethodsPOM.CaseOrder( test,"Performer");
  		
  		extent.endTest(test);
  		extent.flush();
@@ -1102,7 +1102,7 @@ void CaseUserAssignment() throws InterruptedException, IOException
  			test = extent.startTest("To check validation message displayed  for case order with existing data");
 
  		
- 			MethodsPOM.CaseOrderWithExistingData( test,workbook);
+ 			MethodsPOM.CaseOrderWithExistingData( test);
  		
  			extent.endTest(test);
  			extent.flush();
@@ -1147,7 +1147,7 @@ void CaseUserAssignment() throws InterruptedException, IOException
  		test = extent.startTest("Case Status/Payment verification");
  	
  		
- 		MethodsPOM.StatusPayment( test,workbook);
+ 		MethodsPOM.StatusPayment( test);
  		
  		extent.endTest(test);
  		extent.flush();
@@ -2577,7 +2577,7 @@ void AdvancedSearchClosedCaseDoc() throws InterruptedException, IOException
 		test = extent.startTest("Reports -excel count verification");
 		
 		
-		MethodsPOM.MyReports( test, workbook, "Company Admin");
+		MethodsPOM.MyReports( test, "Company Admin");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -2613,7 +2613,7 @@ void AdvancedSearchClosedCaseDoc() throws InterruptedException, IOException
 		test = extent.startTest("My Reminder verification");
 		
 		
-		MethodsPOM.MyReminder( test, workbook);
+		MethodsPOM.MyReminder( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -2787,7 +2787,7 @@ void NoticeUpdationUploadInvalidFile() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Legal Entity  verification");
 		
 		
-		MethodsPOM.LegalEntity( test, workbook);
+		MethodsPOM.LegalEntity( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -2851,7 +2851,7 @@ void UnitEntity() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Law Firm verification");
 		
 		
-		MethodsPOM.LawFirm( test, workbook);
+		MethodsPOM.LawFirm( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -2951,7 +2951,7 @@ void LawyerCloseButton() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - 	User  verification");
 		
-		MethodsPOM.User( test, workbook);
+		MethodsPOM.User( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3007,7 +3007,7 @@ void LawyerCloseButton() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Opponent  verification");
 		
 		
-		MethodsPOM.Opponent( test, workbook);
+		MethodsPOM.Opponent( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3048,7 +3048,7 @@ void LawyerCloseButton() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Court  verification");
 		
-		MethodsPOM.Court( test, workbook);
+		MethodsPOM.Court( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3108,7 +3108,7 @@ void LawyerCloseButton() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Case/NoticeType  verification");
 		
 		
-		MethodsPOM.CaseNoticeType( test, workbook);
+		MethodsPOM.CaseNoticeType( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3145,7 +3145,7 @@ void LawyerCloseButton() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Payment Type  verification");
 		
 		
-		MethodsPOM.PaymentType( test, workbook);
+		MethodsPOM.PaymentType( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3191,7 +3191,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Custom Parameter  verification");
 		
 		
-		MethodsPOM.customParameter( test, workbook);
+		MethodsPOM.customParameter( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3238,7 +3238,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Case Stage  verification");
 		
 		
-		MethodsPOM.CaseStage( test, workbook);
+		MethodsPOM.CaseStage( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3283,7 +3283,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Document Type  verification");
 		
 		
-		MethodsPOM.DocumentType( test, workbook);
+		MethodsPOM.DocumentType( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3326,7 +3326,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Rating Criteria  verification");
 		
 		
-		MethodsPOM.RatingCriteria( test, workbook);
+		MethodsPOM.RatingCriteria( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3371,7 +3371,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 		test = extent.startTest("Masters - PageAuthorization   verification");
 		
 		
-		MethodsPOM.PageAuthorization( test, workbook);
+		MethodsPOM.PageAuthorization( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3382,7 +3382,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Annual Budget verification");
 		
 		
-		MethodsPOM.AnnualBudget( test, workbook);
+		MethodsPOM.AnnualBudget( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -3393,7 +3393,7 @@ void ExistingAnnualBudget() throws InterruptedException, IOException
 	test = extent.startTest("Masters - Existing Annual Budget verification");
 	
 	
-	MethodsPOM.AnnualBudget( test, workbook);
+	MethodsPOM.AnnualBudget( test);
 	
 	extent.endTest(test);
 	extent.flush();
@@ -3471,7 +3471,7 @@ void SearchFilterAnnualBudget() throws InterruptedException, IOException
 		test = extent.startTest("Masters - Notice Stage  verification");
 		
 		
-		MethodsPOM.NoticeStage( test, workbook);
+		MethodsPOM.NoticeStage( test);
 		
 		extent.endTest(test);
 		extent.flush();

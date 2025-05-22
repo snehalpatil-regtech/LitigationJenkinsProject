@@ -215,7 +215,7 @@ public class CFO extends BasePage {
 				     test = extent.startTest("Notice User Assignment  verification");
 				
 				
-				      CFOMethod.NoticeUserAssignment( test,workbook);
+				      CFOMethod.NoticeUserAssignment( test);
 				
 				     extent.endTest(test);
 				     extent.flush();
@@ -226,7 +226,7 @@ public class CFO extends BasePage {
 				     test = extent.startTest("Notice User Assignment Delete Icon  verification");
 				
 				
-				      CFOMethod.NoticeUserAssignmentDelete( test,workbook);
+				      CFOMethod.NoticeUserAssignmentDelete( test);
 				
 				     extent.endTest(test);
 				     extent.flush();
@@ -238,7 +238,7 @@ public class CFO extends BasePage {
 					test = extent.startTest("Link Notice Verification");
 					
 					
-					CFOMethod.LinkDocument( test, workbook, "Notice");
+					CFOMethod.LinkDocument( test, "Notice");
 					
 					extent.endTest(test);
 					extent.flush();
@@ -388,7 +388,7 @@ public class CFO extends BasePage {
 			test = extent.startTest("Notice Task/Activtiy with existing data verification");
 			
 			
-			CFOMethod.TaskActivtityExistingData( test,workbook);
+			CFOMethod.TaskActivtityExistingData( test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -444,7 +444,7 @@ public class CFO extends BasePage {
 			test = extent.startTest("Notice Response Existing Data verification");
 			
 			
-			CFOMethod.ResponseExistingData( test,workbook);
+			CFOMethod.ResponseExistingData( test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -478,7 +478,7 @@ public class CFO extends BasePage {
 	    		test = extent.startTest("Notice Payment verification");
 	    		
 	    		
-	    		CFOMethod.PaymentLog(test,workbook);
+	    		CFOMethod.PaymentLog(test);
 	    		
 	    		extent.endTest(test);
 	    		extent.flush();
@@ -489,7 +489,7 @@ public class CFO extends BasePage {
 			test = extent.startTest("Notice Payment with existing data verification");
 			
 			
-			CFOMethod.PaymentLogwithExistingData(test,workbook);
+			CFOMethod.PaymentLogwithExistingData(test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -500,7 +500,7 @@ public class CFO extends BasePage {
 			test = extent.startTest("Notice Payment with Invalid data verification");
 			
 			
-			CFOMethod.PaymentLogwithInvalidData(test,workbook);
+			CFOMethod.PaymentLogwithInvalidData(test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -511,7 +511,7 @@ public class CFO extends BasePage {
 			test = extent.startTest("Notice Payment Without data verification");
 			
 			
-			CFOMethod.PaymentLogWithoutData(test,workbook);
+			CFOMethod.PaymentLogWithoutData(test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -596,7 +596,7 @@ public class CFO extends BasePage {
 			 		test = extent.startTest("Case with Existing Data verification");
 			 		
 			 		
-			 		CFOMethod.CaseExistingData( test, workbook);
+			 		CFOMethod.CaseExistingData( test);
 			 		
 			 		extent.endTest(test);
 			 		extent.flush();
@@ -607,7 +607,7 @@ public class CFO extends BasePage {
 			 		test = extent.startTest("Case with Invalid Data verification");
 			 		
 			 		
-			 		CFOMethod.CaseWithInvalidData( test, workbook);
+			 		CFOMethod.CaseWithInvalidData( test);
 			 		
 			 		extent.endTest(test);
 			 		extent.flush();
@@ -652,7 +652,7 @@ public class CFO extends BasePage {
 			   		test = extent.startTest("Case User Assignment verification");
 			   		
 			   		
-			   		CFOMethod.CaseUserAssignment( test,workbook);
+			   		CFOMethod.CaseUserAssignment( test);
 			   		
 			   		extent.endTest(test);
 			   		extent.flush();
@@ -675,7 +675,7 @@ public class CFO extends BasePage {
 				test = extent.startTest("Link Case Verification");
 			
 				
-				CFOMethod.LinkDocument( test, workbook, "Case");
+				CFOMethod.LinkDocument( test, "Case");
 			
 			extent.endTest(test);
 				extent.flush();
@@ -848,7 +848,7 @@ public class CFO extends BasePage {
 		    		test = extent.startTest("Case - Task/Activity with existing data");
 		    		
 		    		
-		    		CFOMethod.CaseTaskActivitywithExistingData( test,workbook);
+		    		CFOMethod.CaseTaskActivitywithExistingData( test);
 		    		
 		    		extent.endTest(test);
 		    		extent.flush();
@@ -883,7 +883,7 @@ public class CFO extends BasePage {
 		    		test = extent.startTest("Case - CaseHearing Tab");
 		    		
 		    		
-		    		CFOMethod.CaseHearing( test,workbook);
+		    		CFOMethod.CaseHearing( test);
 		    		
 		    		extent.endTest(test);
 		    		extent.flush();
@@ -894,7 +894,7 @@ public class CFO extends BasePage {
 				test = extent.startTest("Case with Existing Hearing Date Verification");
 				
 				
-				CFOMethod.CaseExistingHearingData( test,workbook);
+				CFOMethod.CaseExistingHearingData( test);
 				
 				extent.endTest(test);
 				extent.flush();
@@ -917,7 +917,7 @@ public class CFO extends BasePage {
 		 	test = extent.startTest("Case Invalid Hearing Date Verification");
 		 	
 		 	
-		 	CFOMethod.CaseHearingInvalidDate( test,workbook);
+		 	CFOMethod.CaseHearingInvalidDate( test);
 		 	
 		 	extent.endTest(test);
 		 	extent.flush();
@@ -928,7 +928,7 @@ public class CFO extends BasePage {
 		 	test = extent.startTest("Case heraing clear button Verification");
 		 	
 		 	
-		 	CFOMethod.CaseHearingClearBtn( test,workbook);
+		 	CFOMethod.CaseHearingClearBtn( test);
 		 	
 		 	extent.endTest(test);
 		 	extent.flush();
@@ -939,7 +939,7 @@ public class CFO extends BasePage {
 		    		test = extent.startTest("Case - Case Order Tab");
 		    	
 		    		
-		    		CFOMethod.CaseOrder( test,workbook);
+		    		CFOMethod.CaseOrder( test);
 		    		
 		    		extent.endTest(test);
 		    		extent.flush();
@@ -950,7 +950,7 @@ public class CFO extends BasePage {
 				test = extent.startTest("Case Order with Duplicate data");
 	
 			
-				CFOMethod.CaseOrderwithExistingData( test,workbook);
+				CFOMethod.CaseOrderwithExistingData( test);
 			
 				extent.endTest(test);
 				extent.flush();
@@ -996,7 +996,7 @@ public class CFO extends BasePage {
 		    		test = extent.startTest("Case Status/Payment with duplicate data ");
 		    		
 		    		
-		    		CFOMethod.StatusPaymentExistingdata( test,workbook);
+		    		CFOMethod.StatusPaymentExistingdata( test);
 		    		
 		    		extent.endTest(test);
 		    		extent.flush();
@@ -1007,7 +1007,7 @@ public class CFO extends BasePage {
 			test = extent.startTest("Case Status/Payment with Invalid data ");
 			
 			
-			CFOMethod.StatusPaymentwithInvaliddata( test,workbook);
+			CFOMethod.StatusPaymentwithInvaliddata( test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -1201,7 +1201,7 @@ public class CFO extends BasePage {
 							test = extent.startTest("Task With existing data verification");
 							
 							
-							CFOMethod.TaskwithExistingData( test, workbook);
+							CFOMethod.TaskwithExistingData( test);
 							
 							extent.endTest(test);
 							extent.flush();
@@ -1213,7 +1213,7 @@ public class CFO extends BasePage {
 			    				test = extent.startTest("Task With Two manadatory fields verification");
 			    				
 			    				
-			    				CFOMethod.TaskwithTwoManadatoryFields( test, workbook);
+			    				CFOMethod.TaskwithTwoManadatoryFields( test);
 			    				
 			    				extent.endTest(test);
 			    				extent.flush();
@@ -1279,7 +1279,7 @@ public class CFO extends BasePage {
 			    	{
 			    		test = extent.startTest("Close Notice Count verification");
 			    		
-			    		CFOMethod.CloseNoticeCase( test, workbook,"Notice");
+			    		CFOMethod.CloseNoticeCase( test,"Notice");
 			    		
 			    		extent.endTest(test);
 			    		extent.flush();
@@ -1290,7 +1290,7 @@ public class CFO extends BasePage {
 						test = extent.startTest("Close Case Count Verification");
 							
 							
-							CFOMethod.CloseNoticeCase( test, workbook,"Case");
+							CFOMethod.CloseNoticeCase( test,"Case");
 							
 						extent.endTest(test);
 							extent.flush();
@@ -2433,7 +2433,7 @@ void AgeingGraphMoreThan3yearsCase() throws InterruptedException, IOException
 					test = extent.startTest("My Document-Download and View Document");
 				
 					
-					CFOMethod.MyDocument( test, workbook);
+					CFOMethod.MyDocument( test);
 					
 					extent.endTest(test);
 					extent.flush();

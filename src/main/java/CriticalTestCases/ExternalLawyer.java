@@ -168,7 +168,7 @@ public class ExternalLawyer extends BasePage
 				{
 					test = extent.startTest("Task - Open Count Verification");
 					
-					MethodPOM.TaskOpen(test, workbook, "Performer");
+					MethodPOM.TaskOpen(test, "Performer");
 					
 					extent.endTest(test);
 					extent.flush();
@@ -231,7 +231,7 @@ public class ExternalLawyer extends BasePage
 			test = extent.startTest("Notice Task/Activity verification");
 			
 			
-			MethodPOM.TaskActivtity( test,workbook);
+			MethodPOM.TaskActivtity( test);
 			
 			extent.endTest(test);
 			extent.flush();
@@ -305,7 +305,7 @@ public class ExternalLawyer extends BasePage
 							test = extent.startTest("Case Task/Activity verification");
 					
 							
-							MethodPOM.TaskActivity1( test,workbook,"Performer");
+							MethodPOM.TaskActivity1( test,"Performer");
 							
 							extent.endTest(test);
 							extent.flush();
@@ -318,7 +318,7 @@ public class ExternalLawyer extends BasePage
 					test = extent.startTest("Case Hearing verification");
 				
 					
-					MethodPOM.CaseHearing( test,workbook);
+					MethodPOM.CaseHearing( test);
 					
 					extent.endTest(test);
 					extent.flush();
@@ -331,7 +331,7 @@ public class ExternalLawyer extends BasePage
 				test = extent.startTest("Case Order verification");
 				
 				
-				MethodPOM.CaseOrder( test,workbook,"Performer");
+				MethodPOM.CaseOrder( test,"Performer");
 				
 				extent.endTest(test);
 				extent.flush();
@@ -354,7 +354,7 @@ public class ExternalLawyer extends BasePage
 		test = extent.startTest("Case Status/Payment verification");
 			
 				
-		MethodPOM.StatusPayment( test,workbook);
+		MethodPOM.StatusPayment( test);
 				
 		extent.endTest(test);
 		extent.flush();

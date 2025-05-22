@@ -173,45 +173,19 @@ import performer.OverduePOM;
 			e.printStackTrace();
 		}
 		
-	/*	Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
-		Cell c1 = row1.getCell(1);						//Selected cell (1 row,1 column)
-		String uname = c1.getStringCellValue();			//Got the URL stored at position 1,1
-		
-		Row row2 = sheet.getRow(2);						//Selected 2nd index row (Third row)
-		Cell c2 = row2.getCell(1);						//Selected cell (2 row,1 column)
-		String password = c2.getStringCellValue();		//Got the URL stored at position 2,1
-		*/
+	
 		
 		read_Login_username( no);
 		read_Login_password( no);
 		
 		login.Login.UserLogin(uname,password,link);		//Method of Login class to login user.
 		
-	/*	if(text.equalsIgnoreCase("internal")) {
-		Thread.sleep(3000);
-		Select drp = new Select(CFOcountPOM.selectInternal());
-		Thread.sleep(700);
-		drp.selectByIndex(1);
-		
-		Thread.sleep(1000);
-		CFOcountPOM.clickApply().click();
-		Thread.sleep(3000);
-		}else if(text.equalsIgnoreCase("StatutoryExcludingChecklist")) {
-			Thread.sleep(3000);
-			ApprovalcountPOM.Filters().click();
-			Thread.sleep(2000);
-			ApprovalcountPOM.StatutoryExcludingChecklist().click();
-			Thread.sleep(4000);
-			CFOcountPOM.clickApply().click();
-		}else {
-			
-		}*/
+
 		
 	//	CFOcountPOM.RefreshNow().click();
 		Thread.sleep(3000);
 		
 	}
-	
 	
 	public void closeBrowser() {
 		getDriver().quit();

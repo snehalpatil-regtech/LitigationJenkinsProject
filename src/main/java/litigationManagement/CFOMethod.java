@@ -8,8 +8,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -49,11 +53,11 @@ public class CFOMethod extends BasePage{
 	
 	   private static List<WebElement> elementsList = null;
 	    public static FileInputStream fis = null;	//File input stream variable
-		public static XSSFWorkbook workbook = null;	//Excel sheet workbook variable
-		public static XSSFSheet sheet = null;		//Sheet variable
-		public static XSSFSheet sheet1 = null;		//Sheet variable
+		//public static XSSFWorkbook workbook = null;	//Excel sheet workbook variable
+		//public static XSSFSheet sheet = null;		//Sheet variable
+		//public static XSSFSheet sheet1 = null;		//Sheet variable
 
-
+	    static String filePath ="D:\\Litigation-Project 10 April2024\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx";
 		public static void progress() throws InterruptedException
 		{
 			WebDriverWait wait = new WebDriverWait(getDriver(), 180);
@@ -68,15 +72,15 @@ public class CFOMethod extends BasePage{
 			}
 		}
 		
-		public static XSSFSheet ReadExcel() throws IOException
-		{
-			//String workingDir = System.getProperty("user.dir");
-			fis = new FileInputStream("D:\\Litigation-Project 10 April2024\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx");
-			
-			workbook = new XSSFWorkbook(fis);
-			sheet = workbook.getSheetAt(5);					//Retrieving second sheet of Workbook
-			return sheet;
-		}
+//		public static XSSFSheet ReadExcel() throws IOException
+//		{
+//			//String workingDir = System.getProperty("user.dir");
+//			fis = new FileInputStream("D:\\Litigation-Project 10 April2024\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx");
+//			
+//			workbook = new XSSFWorkbook(fis);
+//			sheet = workbook.getSheetAt(5);					//Retrieving second sheet of Workbook
+//			return sheet;
+//		}
 		public static void DashBoardFilter(ExtentTest test, String type) throws InterruptedException
 		{
 			
@@ -300,7 +304,7 @@ public class CFOMethod extends BasePage{
 		public static void CaseNoticeStageGraph1(ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			WebDriverWait wait=new WebDriverWait(getDriver(),20);
 			
 	       	Thread.sleep(2000);
@@ -678,7 +682,7 @@ public class CFOMethod extends BasePage{
 		{
 			
 			WebDriverWait wait = new WebDriverWait(getDriver(),20);
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	
        
 	    	if(type.equalsIgnoreCase("Inward/Defendent Type"))
@@ -905,7 +909,7 @@ public class CFOMethod extends BasePage{
 		{
 			
 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	       
 
 			if(type.equalsIgnoreCase("High Risk"))
@@ -1078,7 +1082,7 @@ public class CFOMethod extends BasePage{
 		{
 			
 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
-			JavascriptExecutor js = (JavascriptExecutor)driver;			
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();			
 			
 			
 			if(type.equalsIgnoreCase("High Risk"))
@@ -1275,7 +1279,7 @@ public class CFOMethod extends BasePage{
 	   public static void DepartmentSummaryGraph(ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
-		   JavascriptExecutor js = (JavascriptExecutor)driver;
+		   JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
 	
 	       	Thread.sleep(2000);
@@ -1438,7 +1442,7 @@ public class CFOMethod extends BasePage{
 			{
 				
 				WebDriverWait wait=new WebDriverWait (getDriver(),20);
-				JavascriptExecutor js = (JavascriptExecutor)driver;
+				JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			
 		    	
 		       	Thread.sleep(2000);
@@ -1620,7 +1624,7 @@ public class CFOMethod extends BasePage{
 	   public static void LocationSummaryGraph(ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
-		   JavascriptExecutor js = (JavascriptExecutor)driver;
+		   JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
 			
 	      
@@ -1780,7 +1784,7 @@ public class CFOMethod extends BasePage{
 		
 		{
 		
-		   JavascriptExecutor js = (JavascriptExecutor)driver;
+		   JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
 			
 	    	
@@ -2200,7 +2204,7 @@ public class CFOMethod extends BasePage{
 	 		{
 	 			
 	 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
-	 			JavascriptExecutor js = (JavascriptExecutor)driver;
+	 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 			 
 	 			Thread.sleep(2000);
 	 		
@@ -2391,7 +2395,7 @@ public class CFOMethod extends BasePage{
 			
 			WebDriverWait wait = new WebDriverWait(getDriver(),20);
 			 
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 				
 				if(type.equalsIgnoreCase("Applicant"))
 				{
@@ -2616,7 +2620,7 @@ public class CFOMethod extends BasePage{
 		{
 			
 			WebDriverWait wait=new WebDriverWait(getDriver(),20);
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 				if(type.equalsIgnoreCase("Complianant"))
 				{
 		         	Thread.sleep(2000);
@@ -2835,7 +2839,7 @@ public class CFOMethod extends BasePage{
 			
 
 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	     	js.executeScript("window.scrollBy(0,800)");
 	     	
 	     	Thread.sleep(5000);
@@ -3118,7 +3122,7 @@ public class CFOMethod extends BasePage{
 			
 
 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
 	     	js.executeScript("window.scrollBy(0,800)");
 	     	
@@ -3387,7 +3391,7 @@ public class CFOMethod extends BasePage{
 			
 
 			
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	     	js.executeScript("window.scrollBy(0,800)");
 	     	
 	     	Thread.sleep(5000);
@@ -3432,7 +3436,7 @@ public class CFOMethod extends BasePage{
 			
 
 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	     	js.executeScript("window.scrollBy(0,800)");
 	     	
 	     	Thread.sleep(5000);
@@ -3717,6 +3721,11 @@ public class CFOMethod extends BasePage{
 		public static void clickRefNo() throws InterruptedException, IOException
 		{
 			
+
+			 FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(5);
+			
 		Thread.sleep(1000);
 		Row row0 = sheet.getRow(5);						//Selected 0th index row (First row)
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -3741,17 +3750,22 @@ public class CFOMethod extends BasePage{
 			
 		}
 		
-		public static void clickAct( ) throws InterruptedException
+		public static void clickAct( ) throws InterruptedException, EncryptedDocumentException, IOException
 		{
 		   Thread.sleep(300);
 		   progress();
-	       XSSFRow row0 = sheet.getRow(6);						//Selected 0th index row (First row)
-		   XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+		   FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(5);
+	        Row row0 = sheet.getRow(6);						//Selected 0th index row (First row)
+		   Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 		   int actNo = (int) c1.getNumericCellValue();
 		   performerPOM.clickAct().click();						//Clicking on 'Act' drop down.
 		   elementsList = performerPOM.chooseAct();
 		   elementsList.get(3).click();							//Selecting particular act no
 		   performerPOM.clickAct().click();						//Clicking on 'Act' drop down.
+		   
+		   
 		}
 		 public static void clickOpponentcfo() throws InterruptedException
 		   {
@@ -3771,19 +3785,27 @@ public class CFOMethod extends BasePage{
 				 performerPOM.chooseCategory().click();
 			}
 			
-			public static void clickNoticeTitle( ) throws InterruptedException
+			public static void clickNoticeTitle( ) throws InterruptedException, EncryptedDocumentException, IOException
 			{
+				
+				 FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			  Thread.sleep(300);
-			  XSSFRow row0 = sheet.getRow(8);						//Selected 0th index row (First row)
-			  XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			 Row row0 = sheet.getRow(8);						//Selected 0th index row (First row)
+			  Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 			  String title = c1.getStringCellValue();
 			  performerPOM.clickNoticeTitle().sendKeys(title);		//Writing 'Notice Title'
 			}
-			public static void clickNoticeDescription( ) throws InterruptedException
+			public static void clickNoticeDescription( ) throws InterruptedException, EncryptedDocumentException, IOException
 			{
+				
+				 FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			Thread.sleep(300);
-			XSSFRow row0 = sheet.getRow(9);						//Selected 0th index row (First row)
-			XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			Row row0 = sheet.getRow(9);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 			String desc = c1.getStringCellValue();
 			performerPOM.clickNoticeDescription().sendKeys(desc);	//Writing 'Notice Description'
 			Thread.sleep(300);		
@@ -3828,11 +3850,16 @@ public class CFOMethod extends BasePage{
 		        
 		      }
 			
-			public static void clickInternalUser( ) throws InterruptedException
+			public static void clickInternalUser( ) throws InterruptedException, EncryptedDocumentException, IOException
 			{
+				
+				
+				 FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			Thread.sleep(300);
-			XSSFRow row0 = sheet.getRow(10);						//Selected 0th index row (First row)
-			XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			Row row0 = sheet.getRow(10);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 			int internalUserNo = (int) c1.getNumericCellValue();
 			Thread.sleep(300);
 			performerPOM.clickInternalUser().click();						//Clicking on 'Internal User' drop down.
@@ -3847,7 +3874,7 @@ public class CFOMethod extends BasePage{
 			{
 				
 				WebDriverWait wait = new WebDriverWait(getDriver(),20);
-				JavascriptExecutor js = (JavascriptExecutor)driver;
+				JavascriptExecutor js = (JavascriptExecutor) getDriver();
 					if(type.equalsIgnoreCase("Applicant"))
 					{
 			         	Thread.sleep(2000);
@@ -4270,7 +4297,7 @@ public class CFOMethod extends BasePage{
 			
 			Thread.sleep(4000);
 			performerPOM.clickExcelReport().sendKeys(Keys.PAGE_DOWN);
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			js.executeScript("window.scrollBy(0,700)");
 			
 			Thread.sleep(5000);
@@ -4297,7 +4324,7 @@ public class CFOMethod extends BasePage{
 			
 
 			
-			sheet = workbook.getSheetAt(5);
+		//	sheet = workbook.getSheetAt(5);
 			
 			getDriver().navigate().refresh();
 			
@@ -4450,10 +4477,10 @@ public class CFOMethod extends BasePage{
 	       getDriver().switchTo().parentFrame();
 	     }
     	
-    	 public  static void TaskActivtity(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+    	 public  static void TaskActivtity(ExtentTest test) throws InterruptedException, IOException
 			{
     		 
-    		       XSSFSheet sheet = ReadExcel();
+    		     //  //XSSFSheet sheet = ReadExcel();
 				   WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 
 				    Thread.sleep(3000);
@@ -4470,7 +4497,9 @@ public class CFOMethod extends BasePage{
 				  Thread.sleep(1000);
 				  performerPOM.clickNewTask().click(); 
 				 
-				  
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 				  
 				Thread.sleep(3000);
 				Row row0 = sheet.getRow(12);								//Selected 0th index row (First row)
@@ -4703,7 +4732,7 @@ public class CFOMethod extends BasePage{
      public static void Response(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			{
     	 WebDriverWait wait=new WebDriverWait(getDriver(),20);
-			   XSSFSheet sheet = ReadExcel();
+			   //XSSFSheet sheet = ReadExcel();
 			  
 			   Thread.sleep(3000);
 				performerPOM.clickNoticeOpen().click();//click edit notice
@@ -4862,13 +4891,13 @@ public class CFOMethod extends BasePage{
 							
 			       }
     	
-    	 public static void PaymentLog(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+    	 public static void PaymentLog(ExtentTest test) throws InterruptedException, IOException
 			{
     		 
     		 
     		   WebDriverWait wait = new WebDriverWait(getDriver(),60);
 			   
-			   XSSFSheet sheet = ReadExcel();
+			   //XSSFSheet sheet = ReadExcel();
 			  
 			     
 			   Thread.sleep(3000);
@@ -4885,7 +4914,10 @@ public class CFOMethod extends BasePage{
 			
 			    Thread.sleep(1000);
 				performerPOM.clickInvoiceNo().sendKeys("56742584");
-				
+
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);	 
 				
 				Thread.sleep(3000);
 				Row r5 = sheet.getRow(31);
@@ -5174,7 +5206,7 @@ public class CFOMethod extends BasePage{
   		
   		                  Thread.sleep(1000);
   		                  performerPOM.clickExcelReport().sendKeys(Keys.PAGE_DOWN);
-  		                JavascriptExecutor js = (JavascriptExecutor)driver;
+  		                JavascriptExecutor js = (JavascriptExecutor) getDriver();
   		                  js.executeScript("window.scrollBy(0,700)");
   		                  
   		                  test.log(LogStatus.PASS,"Export report download sucssesfully ");
@@ -5235,7 +5267,7 @@ public class CFOMethod extends BasePage{
     			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad()));
     			
     			Thread.sleep(2000);
-    			JavascriptExecutor js = (JavascriptExecutor)driver;
+    			JavascriptExecutor js = (JavascriptExecutor) getDriver();
     			try
     			{
     				performerPOM.clickExcelReport().sendKeys(Keys.PAGE_DOWN);
@@ -5464,7 +5496,7 @@ public class CFOMethod extends BasePage{
 			
 			Thread.sleep(500);
 			performerPOM.clickExcelReport().sendKeys(Keys.PAGE_DOWN);
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			js.executeScript("window.scrollBy(0,700)");
 			
 			Thread.sleep(300);
@@ -5489,11 +5521,11 @@ public class CFOMethod extends BasePage{
 				gridRecords = Integer.parseInt(compliancesCount);
 			}
 			
-			sheet = workbook.getSheetAt(5);
+			//sheet = workbook.getSheetAt(5);
 			getDriver().navigate().refresh();
 			perform1( test, sheet, open, gridRecords, "Case - Open");
 		}
- static void perform1(ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type) throws InterruptedException
+ static void perform1(ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type) throws InterruptedException, EncryptedDocumentException, IOException
 		{
 			WebDriverWait wait = new WebDriverWait(getDriver(), 50);
 			
@@ -5714,8 +5746,11 @@ public class CFOMethod extends BasePage{
 			
 
 				
-			  public  static void clickRefNo1() throws InterruptedException 
+			  public  static void clickRefNo1() throws InterruptedException, EncryptedDocumentException, IOException 
 			  {
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			       Thread.sleep(3000);
 			       Row row0 = sheet.getRow(34);								//Selected 0th index row (First row)
 			      Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -5723,16 +5758,23 @@ public class CFOMethod extends BasePage{
 			      performerPOM.clickRefNo().sendKeys(refno);			//Writing 'Court Case No'
 			  }
 				
-			  public  static void clickInternalCaseNo() throws InterruptedException 
+			  public  static void clickInternalCaseNo() throws InterruptedException, EncryptedDocumentException, IOException 
 			  {
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			       Thread.sleep(3000);
 			      Row row0 = sheet.getRow(35);								//Selected 0th index row (First row)
 			      Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
 			       String caseNo = c1.getStringCellValue();
 			       performerPOM.clickInternalCaseNo().sendKeys(caseNo);	//Writing 'Court Case No'
 			  }
-			  public  static void clickCaseTitle() throws InterruptedException 
+			  public  static void clickCaseTitle() throws InterruptedException, EncryptedDocumentException, IOException 
 			  {
+				  
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			       Thread.sleep(3000);
 			       Row row0 = sheet.getRow(36);								//Selected 0th index row (First row)
 			       Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -5741,9 +5783,13 @@ public class CFOMethod extends BasePage{
 			  }
 
 		 	
-			  public  static void clickCaseAct() throws InterruptedException 
+			  public  static void clickCaseAct() throws InterruptedException, EncryptedDocumentException, IOException 
 			  {
-	   	      Thread.sleep(3000);
+				  
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
+			        Thread.sleep(3000);
 		         Row row0 = sheet.getRow(37);								//Selected 0th index row (First row)
 		         Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
 	 	          int actNo = (int) c1.getNumericCellValue();
@@ -5754,16 +5800,22 @@ public class CFOMethod extends BasePage{
 			     performerPOM.clickAct().click();	                  //Clicking on 'Act' drop down.
 			  }
 			  
-			  public  static void clickUnderSection( ) throws InterruptedException 
+			  public  static void clickUnderSection( ) throws InterruptedException, EncryptedDocumentException, IOException 
 			  { 
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			     Thread.sleep(3000);
 			     Row row0 = sheet.getRow(38);								//Selected 0th index row (First row)
 			     Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
 			     String underSection = c1.getStringCellValue();
 			      performerPOM.clickUnderSection().sendKeys(underSection);	//Writing 'Under section'
 			  }
-			  public  static void clickSearchCaseCategory() throws InterruptedException 
+			  public  static void clickSearchCaseCategory() throws InterruptedException, EncryptedDocumentException, IOException 
 			  { 
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			     Thread.sleep(3000);
 			     Row row0 = sheet.getRow(39);								//Selected 0th index row (First row)
 			    Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -5771,8 +5823,11 @@ public class CFOMethod extends BasePage{
 			    performerPOM.clickCaseCategory().click();
 			    performerPOM.clickSearchCaseCategory().sendKeys(caseType, Keys.ENTER);	//Writing 'Case Type'
 			  }
-			  public  static void clickCaseBudget() throws InterruptedException 
+			  public  static void clickCaseBudget() throws InterruptedException, EncryptedDocumentException, IOException 
 			  {
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			      Thread.sleep(3000);
 			     Row row0 = sheet.getRow(40);								//Selected 0th index row (First row)
 			      Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -5780,8 +5835,11 @@ public class CFOMethod extends BasePage{
 			     performerPOM.clickCaseBudget().sendKeys(caseBudget+"");
 			  }
 			
-			  public  static void clickCaseOpponent() throws InterruptedException 
+			  public  static void clickCaseOpponent() throws InterruptedException, EncryptedDocumentException, IOException 
 			  {
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			     Thread.sleep(3000);
 			     Row row0 = sheet.getRow(41);						//Selected 0th index row (First row)
 			     Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -5791,8 +5849,11 @@ public class CFOMethod extends BasePage{
 			     performerPOM.clickOpponentcfo().click();
 			  }
 
-			  public  static void clickCaseOppLawyer() throws InterruptedException 
+			  public  static void clickCaseOppLawyer() throws InterruptedException, EncryptedDocumentException, IOException 
 			  {
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 		          Thread.sleep(3000);
 			      Row row0 = sheet.getRow(42);								//Selected 0th index row (First row)
 			      Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -5803,8 +5864,11 @@ public class CFOMethod extends BasePage{
 			        performerPOM.clickSelectAll3().click();
 			        performerPOM.clickOppLawyer().click();
 			  }
-			  public  static void clickCaseCourt() throws InterruptedException 
+			  public  static void clickCaseCourt() throws InterruptedException, EncryptedDocumentException, IOException 
 			  {
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			         Thread.sleep(3000);
 			        Row row0 = sheet.getRow(43);								//Selected 0th index row (First row)
 			         Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -5815,8 +5879,11 @@ public class CFOMethod extends BasePage{
 			
 			
 		
-			  public  static void clickCaseDescription() throws InterruptedException 
+			  public  static void clickCaseDescription() throws InterruptedException, EncryptedDocumentException, IOException 
 			  {
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			        Thread.sleep(3000);
 			       Row row0 = sheet.getRow(36);							//Selected 0th index row (First row)
 			       Cell  c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -5858,18 +5925,24 @@ public class CFOMethod extends BasePage{
 		       performerPOM.selectRisk1().click();			//Selecting 'Medium' Winning Prospect'
 			  }
 			 
-				public static void clickLawFirm() throws InterruptedException
+				public static void clickLawFirm() throws InterruptedException, EncryptedDocumentException, IOException
 				{
+					 FileInputStream fis = new FileInputStream(filePath);
+				        Workbook workbook = WorkbookFactory.create(fis);
+				        Sheet sheet = workbook.getSheetAt(5);
 					Thread.sleep(300);
-					XSSFRow row0 = sheet.getRow(11);					//Selected 0th index row (First row)
-					XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+					Row row0 = sheet.getRow(11);					//Selected 0th index row (First row)
+					Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 					String lawFirm = c1.getStringCellValue();
 					performerPOM.clickLawFirm().click();		//Clicking on 'Law Firm' drop down.
 					performerPOM.chooseLawFirm().sendKeys(lawFirm, Keys.DOWN, Keys.ENTER);	//Writing & selecting 'Law Firm' name
 				}
 			
-		 public  static void clickCaseInternalUser() throws InterruptedException 
+		 public  static void clickCaseInternalUser() throws InterruptedException, EncryptedDocumentException, IOException 
 			  { 
+			 	FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(5);
 			       Thread.sleep(3000);
 		            Row row0 = sheet.getRow(47);						//Selected 0th index row (First row)
 			       Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -5880,11 +5953,14 @@ public class CFOMethod extends BasePage{
 			      //performerPOM.clickInternalUser().click();						//Clicking on 'Internal User' drop down.
 			  }
 		 
-			public static void clickLawyer() throws InterruptedException
+			public static void clickLawyer() throws InterruptedException, EncryptedDocumentException, IOException
 			{
+				 FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 			Thread.sleep(300);
-			XSSFRow row0 = sheet.getRow(4);						//Selected 0th index row (First row)
-			XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			Row row0 = sheet.getRow(4);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 			int lawyerNo = (int) c1.getNumericCellValue();
 			Thread.sleep(300);
 			performerPOM.clickLawyer().click();						//Clicking on 'Lawyer' drop down.
@@ -6038,12 +6114,12 @@ public class CFOMethod extends BasePage{
 	  	        
 		 }
 		 
-		 public static void TaskActivity1(ExtentTest test,XSSFWorkbook workbook ) throws InterruptedException, IOException
+		 public static void TaskActivity1(ExtentTest test) throws InterruptedException, IOException
 			{
 			    WebDriverWait wait=new WebDriverWait (getDriver(),20);
 			    
 			    
-		       XSSFSheet sheet=ReadExcel();
+		      ////XSSFSheet sheet = ReadExcel();
 
 		       Thread.sleep(500);
  	        	performerPOM.clickCaseOpencfo().click();		
@@ -6074,12 +6150,15 @@ public class CFOMethod extends BasePage{
 			    Thread.sleep(2000);
 			    performerPOM.clickSaveHearingDatecfo().click();
 			  
-			  
+			    FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(5);
 				Thread.sleep(6000);
 				Row row0 = sheet.getRow(12);								//Selected 0th index row (First row)
 				Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
 				String title = c1.getStringCellValue();
 				performerPOM.clickTaskTitle().sendKeys(title);	//Writing 'Task Title'
+				
 				
 				Thread.sleep(5000);
 				row0 = sheet.getRow(13);									//Selected 0th index row (First row)
@@ -6269,10 +6348,10 @@ public class CFOMethod extends BasePage{
 					
 			}
 		 
-		 public static void CaseHearing(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+		 public static void CaseHearing(ExtentTest test) throws InterruptedException, IOException
 			{
 			       WebDriverWait wait=new WebDriverWait (getDriver(),20);
-			       XSSFSheet sheet=ReadExcel();
+			   //   //XSSFSheet sheet = ReadExcel();
 			       
 			       Thread.sleep(500);
 	 	        	performerPOM.clickCaseOpencfo().click();		
@@ -6302,7 +6381,9 @@ public class CFOMethod extends BasePage{
 					
 					performerPOM.clickCaseHearingDate().sendKeys("08-12-2025");	//Writing 'HearingDate'
 					
-					
+					 FileInputStream fis = new FileInputStream(filePath);
+				        Workbook workbook = WorkbookFactory.create(fis);
+				        Sheet sheet = workbook.getSheetAt(5);
 					Thread.sleep(2000);
 					Row row1 = sheet.getRow(50);									//Selected 0th index row (First row)
 					Cell c2 = row1.getCell(1);									//Selected cell (0 row,1 column)
@@ -6391,10 +6472,10 @@ public class CFOMethod extends BasePage{
 				    
 			} 
 		 
-			public static void CaseOrder(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+			public static void CaseOrder(ExtentTest test) throws InterruptedException, IOException
 			{
 				WebDriverWait wait=new WebDriverWait (getDriver(),20);
-				 XSSFSheet sheet=ReadExcel();
+				////XSSFSheet sheet = ReadExcel();
 				 Thread.sleep(3000);
 					performerPOM.clickCaseOpencfo().click();//click edit notice
 			     
@@ -6418,7 +6499,9 @@ public class CFOMethod extends BasePage{
 				
 				 
 				 
-					
+				 FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);
 					Thread.sleep(300);
 					Row row0 = sheet.getRow(53);					//Selected 0th index row (First row)
 					Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -6508,11 +6591,11 @@ public class CFOMethod extends BasePage{
 				 
 			}	 
 			
-			   public static void StatusPayment(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+			   public static void StatusPayment(ExtentTest test) throws InterruptedException, IOException
 			      {	
 			    	       WebDriverWait wait=new WebDriverWait(getDriver(),50);
 			      
-			    	       XSSFSheet sheet=ReadExcel();
+			    	    //  //XSSFSheet sheet = ReadExcel();
 			    	       
 			    	       performerPOM.clickCaseOpencfo().click();//click edit notice
 						     
@@ -6528,6 +6611,9 @@ public class CFOMethod extends BasePage{
 							
 							//wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus()));
 //							
+			               FileInputStream fis = new FileInputStream(filePath);
+			   	        	Workbook workbook = WorkbookFactory.create(fis);
+			   	        	Sheet sheet = workbook.getSheetAt(5);
 							Thread.sleep(3000);
 							Row row0 = sheet.getRow(58);					//Selected 0th index row (First row)
 							Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -6823,7 +6909,7 @@ public class CFOMethod extends BasePage{
 								OverduePOM.clickDashboard().click();
 			      }	 
 			      
-			  	public static void LinkDocument(ExtentTest test, XSSFWorkbook workbook, String type) throws InterruptedException, IOException
+			  	public static void LinkDocument(ExtentTest test,  String type) throws InterruptedException, IOException
 				{
 			  		WebDriverWait wait=new WebDriverWait(getDriver(),180);
 					progress();
@@ -8222,7 +8308,7 @@ public class CFOMethod extends BasePage{
 					
 			}
 				
-				public static void MyDocument( ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+				public static void MyDocument( ExtentTest test) throws InterruptedException, IOException
 				{
 					WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 					progress();
@@ -10532,11 +10618,11 @@ public class CFOMethod extends BasePage{
 							gridRecords = Integer.parseInt(compliancesCount);
 						}
 						
-						sheet = workbook.getSheetAt(5);
+						//sheet = workbook.getSheetAt(5);
 						
-						TaskAdd( test, sheet, open, gridRecords, "Task - Open");
+						TaskAdd( test,  open, gridRecords, "Task - Open");
 					}
-					static void TaskAdd(ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type) throws InterruptedException
+					static void TaskAdd(ExtentTest test,  int open, int gridRecords, String type) throws InterruptedException, EncryptedDocumentException, IOException
 					{
 						WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 						
@@ -10555,6 +10641,9 @@ public class CFOMethod extends BasePage{
 //						OverduePOM.selectNextMonth().click();
 //						OverduePOM.selectDate().click();					//Selecting particular date.
 //						
+						FileInputStream fis = new FileInputStream(filePath);
+				        Workbook workbook = WorkbookFactory.create(fis);
+				        Sheet sheet = workbook.getSheetAt(5);
 						Thread.sleep(500);
 						Row row0 = sheet.getRow(12);								//Selected 0th index row (First row)
 						Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -10727,7 +10816,7 @@ public class CFOMethod extends BasePage{
 						Thread.sleep(500);
 						OverduePOM.clickDashboard().click();			//Clicking on 'Dashboard'
 					}
-					public static void CloseNoticeCase(ExtentTest test, XSSFWorkbook workbook, String type) throws InterruptedException, IOException
+					public static void CloseNoticeCase(ExtentTest test,  String type) throws InterruptedException, IOException
 					{
 						WebDriverWait wait = new WebDriverWait(getDriver(), 180);
 						progress();
@@ -10796,7 +10885,7 @@ public class CFOMethod extends BasePage{
 						Thread.sleep(3000);
 						if(type.equals("Notice"))
 						{
-							sheet = workbook.getSheetAt(5);
+							//sheet = workbook.getSheetAt(5);
 							
 							Thread.sleep(3000);
 							performerPOM.clickStatusPayments().click();			//Clicking on 'Status/Payments'
@@ -10823,7 +10912,9 @@ public class CFOMethod extends BasePage{
 							performerPOM.clickNoticeResult().click();
 							performerPOM.clickSelectResult().sendKeys("In Progress", Keys.ENTER);
 							
-							
+							FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);
 							Thread.sleep(300);
 							Row r1 = sheet.getRow(26);
 							Cell c1 = r1.getCell(1);
@@ -12135,10 +12226,10 @@ public class CFOMethod extends BasePage{
 						
 
 					
-					public static void LegalEntity(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					public static void LegalEntity(ExtentTest test) throws InterruptedException, IOException
 					 {
 						
-						XSSFSheet sheet = ReadExcel();
+					//	//XSSFSheet sheet = ReadExcel();
 						WebDriverWait wait = new WebDriverWait(getDriver(), 180);
 						JavascriptExecutor js = (JavascriptExecutor)getDriver() ;
 						progress();
@@ -12151,6 +12242,10 @@ public class CFOMethod extends BasePage{
 						Thread.sleep(300);
 						 performerPOM.addLegalEntity().click();
 						
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	 
 
 						Thread.sleep(5000);
 						Row row0 = sheet.getRow(63);						//Selected 0th index row (First row)
@@ -12575,10 +12670,10 @@ public class CFOMethod extends BasePage{
 					
 					
 					
-					 public static void LawFirm(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					 public static void LawFirm(ExtentTest test) throws InterruptedException, IOException
 					  {
 						  
-						  XSSFSheet sheet = ReadExcel();
+						  //XSSFSheet sheet = ReadExcel();
 							WebDriverWait wait = new WebDriverWait(getDriver(), 180);
 							progress();
 							
@@ -12594,6 +12689,10 @@ public class CFOMethod extends BasePage{
 						    Thread.sleep(3000);
 							performerPOM.newLawFirm().click();
 							
+
+							  FileInputStream fis = new FileInputStream(filePath);
+						        Workbook workbook = WorkbookFactory.create(fis);
+						        Sheet sheet = workbook.getSheetAt(5);	 
 							Thread.sleep(3000);
 							Row row4 = sheet.getRow(71);						//Selected 0th index row (First row)
 							Cell c4 = row4.getCell(1);						//Selected cell (0 row,1 column)
@@ -13077,10 +13176,10 @@ public class CFOMethod extends BasePage{
 							
 					 
 					 
-					 public static void User(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					 public static void User(ExtentTest test) throws InterruptedException, IOException
 						{
 						 
-						    XSSFSheet sheet = ReadExcel();
+						    //XSSFSheet sheet = ReadExcel();
 							WebDriverWait wait = new WebDriverWait(getDriver(),80);
 							progress();
 						
@@ -13093,7 +13192,10 @@ public class CFOMethod extends BasePage{
 							 Thread.sleep(3000);
 							 performerPOM.clickAddNewUser().click();
 							 
-							 
+
+							  FileInputStream fis = new FileInputStream(filePath);
+						        Workbook workbook = WorkbookFactory.create(fis);
+						        Sheet sheet = workbook.getSheetAt(5);	
 						      Thread.sleep(4000);
 							  Row row12 = sheet.getRow(80);						//Selected 0th index row (First row)
 							  Cell c12 = row12.getCell(1);						//Selected cell (0 row,1 column)
@@ -13413,10 +13515,10 @@ public class CFOMethod extends BasePage{
 							 
 					 
 					 
-					 public static void Opponent(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					 public static void Opponent(ExtentTest test) throws InterruptedException, IOException
 					  {
 						  
-						    XSSFSheet sheet = ReadExcel();
+						    //XSSFSheet sheet = ReadExcel();
 							WebDriverWait wait = new WebDriverWait(getDriver(), 180);
 							progress();
 						  
@@ -13433,7 +13535,10 @@ public class CFOMethod extends BasePage{
 							
 						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePartyDetial"));
 								
-							
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	
 						    Thread.sleep(3000);
 							Row row17 = sheet.getRow(88);						//Selected 0th index row (First row)
 							Cell c17 = row17.getCell(1);						//Selected cell (0 row,1 column)
@@ -13679,9 +13784,9 @@ public class CFOMethod extends BasePage{
 					 
 					 
 					 
-					 public static void Court(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					 public static void Court(ExtentTest test) throws InterruptedException, IOException
 					   {
-						   XSSFSheet sheet = ReadExcel();
+						   //XSSFSheet sheet = ReadExcel();
 							WebDriverWait wait = new WebDriverWait(getDriver(), 180);
 							progress();
 						 
@@ -13697,6 +13802,10 @@ public class CFOMethod extends BasePage{
 						   Thread.sleep(5000);
 						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCourt"));
 						 
+
+							  FileInputStream fis = new FileInputStream(filePath);
+						        Workbook workbook = WorkbookFactory.create(fis);
+						        Sheet sheet = workbook.getSheetAt(5);	
 						   Thread.sleep(5000);
 						   Row row18 = sheet.getRow(93);						//Selected 0th index row (First row)
 						   Cell c18 = row18.getCell(1);						//Selected cell (0 row,1 column)
@@ -13994,9 +14103,9 @@ public class CFOMethod extends BasePage{
 					   }
 				 
 						   
-					 public static void CaseNoticeType(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					 public static void CaseNoticeType(ExtentTest test) throws InterruptedException, IOException
 					   {
-						   XSSFSheet sheet = ReadExcel();
+						   //XSSFSheet sheet = ReadExcel();
 						   
 						    WebDriverWait wait=new WebDriverWait (getDriver(),20);  
 						    Thread.sleep(3000);
@@ -14018,7 +14127,10 @@ public class CFOMethod extends BasePage{
 							
 							Thread.sleep(3000);
 							performerPOM.CaseNoticeType().click();
-							
+
+							  FileInputStream fis = new FileInputStream(filePath);
+						        Workbook workbook = WorkbookFactory.create(fis);
+						        Sheet sheet = workbook.getSheetAt(5);	
 							Thread.sleep(3000);
 							Row row19 = sheet.getRow(98);						//Selected 0th index row (First row)
 							Cell c19 = row19.getCell(1);						//Selected cell (0 row,1 column)
@@ -14254,9 +14366,9 @@ public class CFOMethod extends BasePage{
 					   }
 								
 					 
-					 public static void PaymentType(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					 public static void PaymentType(ExtentTest test) throws InterruptedException, IOException
 					 {
-						XSSFSheet sheet = ReadExcel();
+						//XSSFSheet sheet = ReadExcel();
 						 WebDriverWait wait=new WebDriverWait (getDriver(),20);  
 						  Thread.sleep(5000);
 						  performerPOM.clickMasters().click();  
@@ -14267,6 +14379,10 @@ public class CFOMethod extends BasePage{
 						  
 						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePayment"));
 					   
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	
 						  Thread.sleep(3000);
 						  Row row20 = sheet.getRow(103);						//Selected 0th index row (First row)
 						  Cell c20= row20.getCell(1);						//Selected cell (0 row,1 column)
@@ -14483,10 +14599,10 @@ public class CFOMethod extends BasePage{
 					 }
 					 
 						  
-					 public static void customParameter(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					 public static void customParameter(ExtentTest test) throws InterruptedException, IOException
 					  {
 				    	 
-				    	 XSSFSheet sheet = ReadExcel();
+				    	 //XSSFSheet sheet = ReadExcel();
 						 WebDriverWait wait=new WebDriverWait (getDriver(),20);  
 							 
 						  Thread.sleep(3000);
@@ -14506,6 +14622,10 @@ public class CFOMethod extends BasePage{
 						  Thread.sleep(3000);
 						  performerPOM.selectTypeCustomParameter().click();
 						  
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	
 						  Thread.sleep(3000);
 						  Row row21 = sheet.getRow(108);						//Selected 0th index row (First row)
 						  Cell c21= row21.getCell(1);						//Selected cell (0 row,1 column)
@@ -14755,9 +14875,9 @@ public class CFOMethod extends BasePage{
 					 
 					 
 					 
-					 public static void CaseStage(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					 public static void CaseStage(ExtentTest test) throws InterruptedException, IOException
 				     {
-				    	 XSSFSheet sheet=ReadExcel();
+				    	////XSSFSheet sheet = ReadExcel();
 				    	 WebDriverWait wait=new WebDriverWait (getDriver(),20);  
 				    	  Thread.sleep(3000);
 						  performerPOM.clickMasters().click();
@@ -14770,6 +14890,10 @@ public class CFOMethod extends BasePage{
 				    	 
 				    	 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCaseStageType"));
 				    	 
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	
 				    	 Thread.sleep(3000);
 						 Row row=sheet.getRow(113);
 						 Cell c=row.getCell(1);
@@ -14987,10 +15111,10 @@ public class CFOMethod extends BasePage{
 				     }
 					 
 					 
-					 public static void DocumentType(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					 public static void DocumentType(ExtentTest test) throws InterruptedException, IOException
 					  {
 					  
-					      XSSFSheet sheet=ReadExcel();
+					     ////XSSFSheet sheet = ReadExcel();
 					      WebDriverWait wait=new WebDriverWait (getDriver(),20);  
 					      Thread.sleep(3000);
 					      performerPOM.clickMasters().click();
@@ -15002,6 +15126,10 @@ public class CFOMethod extends BasePage{
 						  
 						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeDocType"));
 						  
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	
 						  Thread.sleep(3000);
 						  Row row=sheet.getRow(118);
 						  Cell c=row.getCell(1);
@@ -15207,9 +15335,9 @@ public class CFOMethod extends BasePage{
 					 
 					   
 					   
-					  public static void RatingCriteria(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					  public static void RatingCriteria(ExtentTest test) throws InterruptedException, IOException
 					  {
-						  XSSFSheet sheet=ReadExcel();
+						 ////XSSFSheet sheet = ReadExcel();
 						  WebDriverWait wait=new WebDriverWait (getDriver(),20);  
 						  Thread.sleep(3000);
 						  performerPOM.clickMasters().click();
@@ -15223,6 +15351,10 @@ public class CFOMethod extends BasePage{
 						  Thread.sleep(3000);
 						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeCriteriaMastre"));
 						  
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	
 						  Thread.sleep(3000);
 						  Row row=sheet.getRow(123);
 						  Cell c=row.getCell(1);
@@ -15449,9 +15581,9 @@ public class CFOMethod extends BasePage{
 					  }
 					  
 						  
-					  public static void NoticeStage(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+					  public static void NoticeStage(ExtentTest test) throws InterruptedException, IOException
 					  {
-						  XSSFSheet sheet=ReadExcel();
+						 ////XSSFSheet sheet = ReadExcel();
 
 						  Thread.sleep(4000);
 						  performerPOM.clickMasters().click();
@@ -15465,7 +15597,10 @@ public class CFOMethod extends BasePage{
 						  performerPOM.addNoticeStage().click();
 						  
 						  
-						  
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	
 						  Thread.sleep(3000);
 						  Row row=sheet.getRow(128);
 						  Cell c=row.getCell(1);
@@ -20476,10 +20611,10 @@ public class CFOMethod extends BasePage{
 		
          
          
-         public static void NoticeWithInvalidData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+         public static void NoticeWithInvalidData(ExtentTest test) throws InterruptedException, IOException
  		{
  		   
-        	 sheet = workbook.getSheetAt(5);					//Retrieving second sheet of Workbook
+        	// sheet = workbook.getSheetAt(5);					//Retrieving second sheet of Workbook
         	 WebDriverWait wait1 = new WebDriverWait(getDriver(), 300);
  			progress();
  			
@@ -20589,10 +20724,10 @@ public class CFOMethod extends BasePage{
  		      }
 
  			
- 		  public static void NoticeWithExistingData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		  public static void NoticeWithExistingData(ExtentTest test) throws InterruptedException, IOException
  	 		{
  	 		   
- 	        	 sheet = workbook.getSheetAt(5);					//Retrieving second sheet of Workbook
+ 	        	 //sheet = workbook.getSheetAt(5);					//Retrieving second sheet of Workbook
  	        	WebDriverWait wait1 = new WebDriverWait(getDriver(), 300);
  	 			progress();
  	 			
@@ -20697,10 +20832,10 @@ public class CFOMethod extends BasePage{
  	 		
  	 	
  	 			
- 	 public static void NoticeWithTwoMandatoryData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 public static void NoticeWithTwoMandatoryData(ExtentTest test) throws InterruptedException, IOException
  	 	 {
  	 	 		   
- 	 	        	 sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
+ 	 	        	// sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
  	 	        	WebDriverWait wait1 = new WebDriverWait(getDriver(), 300);
  	 	 			progress();
  	 	 			
@@ -20748,10 +20883,10 @@ public class CFOMethod extends BasePage{
  	 	     	
  	 	 	 		
  	 	 	 		
- 	 	 	 	public  static void NoticeWithEmptyFields(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 	 	 	public  static void NoticeWithEmptyFields(ExtentTest test) throws InterruptedException, IOException
  	 	 	 	 {
  	 	 	 	 		   
- 	 	 	 	        	 sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
+ 	 	 	 	        	 //sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
  	 	 	 	 			WebDriverWait wait1 = new WebDriverWait(getDriver(), 300);
  	 	 	 	 			progress();
  	 	 	 	 			
@@ -20788,10 +20923,10 @@ public class CFOMethod extends BasePage{
  	 	 	 	     		Thread.sleep(3000);
  	 	 	 	     		OverduePOM.clickDashboard().click();
  	 	 	 	 }
- 	 	 	  static void NoticeClearBtn(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 	 	  static void NoticeClearBtn(ExtentTest test) throws InterruptedException, IOException
 	 	 	 	 {
 	 	 	 	 		   
-	 	 	 	        	 sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
+	 	 	 	        	// sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
 	 	 	 	      	WebDriverWait wait1 = new WebDriverWait(getDriver(), 300);
 	 	 	 	 			progress();
 	 	 	 	 			
@@ -21091,10 +21226,10 @@ public class CFOMethod extends BasePage{
  	 	 	 			
  	 	 	 }
  	 		 
- 	 		 public static void NoticeUserAssignment(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 		 public static void NoticeUserAssignment(ExtentTest test) throws InterruptedException, IOException
  	 	 	 {
  	 	 	 		   
- 	 			        sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
+ 	 			       // sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
  	 			      WebDriverWait wait1 = new WebDriverWait(getDriver(), 300);
  	 	 	 			progress();
  	 	 	 	  
@@ -21153,10 +21288,10 @@ public class CFOMethod extends BasePage{
  	 	 	     		OverduePOM.clickDashboard().click();
  	 	 	    }
  	 		 
- 	 		 public static void NoticeUserAssignmentDelete(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 		 public static void NoticeUserAssignmentDelete(ExtentTest test) throws InterruptedException, IOException
  	 	 	 {
  	 	 	 		   
- 	 			        sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
+ 	 			        //sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
  	 			      WebDriverWait wait1 = new WebDriverWait(getDriver(), 300);
  	 	 	 			progress();
  	 	 	 			
@@ -21560,10 +21695,10 @@ public class CFOMethod extends BasePage{
 	   	     	
  	       }
  	 		
- 	 		 public  static void TaskActivtityExistingData( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 		 public  static void TaskActivtityExistingData( ExtentTest test) throws InterruptedException, IOException
  			{
      		 
-     		       XSSFSheet sheet = ReadExcel();
+     		       //XSSFSheet sheet = ReadExcel();
  				   WebDriverWait wait = new WebDriverWait(getDriver(), 60);
  				   
  				  Thread.sleep(3000);
@@ -21583,7 +21718,10 @@ public class CFOMethod extends BasePage{
  				  performerPOM.clickNewTask().click(); 
  				 
  				  
- 				  
+
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);	 
  				Thread.sleep(3000);
  				Row row0 = sheet.getRow(12);								//Selected 0th index row (First row)
  				Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -21956,11 +22094,11 @@ public class CFOMethod extends BasePage{
 			performerPOM.clickClose().click();//Clicking on 'Close'
 	 }
  	 		
- 	 	 public static void ResponseExistingData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 	 public static void ResponseExistingData(ExtentTest test) throws InterruptedException, IOException
  			{
  	 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
  			   
- 			   XSSFSheet sheet = ReadExcel();
+ 			   //XSSFSheet sheet = ReadExcel();
  			  
  			   Thread.sleep(3000);
  				performerPOM.clickNoticeOpen().click();//click edit notice
@@ -21982,7 +22120,10 @@ public class CFOMethod extends BasePage{
  					  Thread.sleep(3000);
  					  performerPOM. selectRespondedDate();
  				
- 					 		 
+
+					  FileInputStream fis = new FileInputStream(filePath);
+				        Workbook workbook = WorkbookFactory.create(fis);
+				        Sheet sheet = workbook.getSheetAt(5);		 
  					  Thread.sleep(500);
  					  Row row1 = sheet.getRow(20);								//Selected 0th index row (First row)
  					  Cell c2 = row1.getCell(1);								//Selected cell (0 row,1 column)
@@ -22098,7 +22239,7 @@ public class CFOMethod extends BasePage{
 				   	     	performerPOM.clickClose().click();//Clicking on 'Close'
 		 			}
  	 	 
- 	 	 public static void PaymentLogWithoutData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 	 public static void PaymentLogWithoutData(ExtentTest test) throws InterruptedException, IOException
 			{
  		 
  		 
@@ -22137,13 +22278,13 @@ public class CFOMethod extends BasePage{
 					
 			}
  	 	 
- 	 	 public static void PaymentLogwithExistingData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 	 public static void PaymentLogwithExistingData(ExtentTest test) throws InterruptedException, IOException
 			{
  		 
  		 
  		   WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 			   
-			   XSSFSheet sheet = ReadExcel();
+			   //XSSFSheet sheet = ReadExcel();
 			   
 			   Thread.sleep(3000);
 			     performerPOM.clickNoticeOpen().click();//click edit notice
@@ -22160,7 +22301,10 @@ public class CFOMethod extends BasePage{
 			    Thread.sleep(1000);
 				performerPOM.clickInvoiceNo().sendKeys("56742584");
 				
-				
+
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);	
 				Thread.sleep(3000);
 				Row r5 = sheet.getRow(30);
 				Cell c5 = r5.getCell(1);
@@ -22201,13 +22345,13 @@ public class CFOMethod extends BasePage{
 			   	     	Thread.sleep(3000);
 			   	     	performerPOM.clickClose().click();//Clicking on 'Close'
 			   	  }
- 		 public static void PaymentLogwithInvalidData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		 public static void PaymentLogwithInvalidData(ExtentTest test) throws InterruptedException, IOException
 			{
 		 
 		 
  			 	WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 			   
- 			 	XSSFSheet sheet = ReadExcel();
+ 			 	//XSSFSheet sheet = ReadExcel();
 			   
  			 	Thread.sleep(3000);
 			     performerPOM.clickNoticeOpen().click();//click edit notice
@@ -22224,7 +22368,10 @@ public class CFOMethod extends BasePage{
 			    Thread.sleep(1000);
 				performerPOM.clickInvoiceNo().sendKeys("abc");
 				
-				
+
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);	
 				Thread.sleep(3000);
 				Row r5 = sheet.getRow(30);
 				Cell c5 = r5.getCell(1);
@@ -22403,10 +22550,10 @@ public class CFOMethod extends BasePage{
    				   performerPOM.clickclosecriteria().click();
          }
  	 	 
- 		public static void CaseExistingData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+ 		public static void CaseExistingData(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
 		{
  			
- 			sheet = workbook.getSheetAt(5);		
+ 			//sheet = workbook.getSheetAt(5);		
 			WebDriverWait wait = new WebDriverWait(getDriver(), 50);
 			
 					
@@ -22489,10 +22636,10 @@ public class CFOMethod extends BasePage{
 			performerPOM.clickClose().click();			//Clicking on 'Close'
 			
 		}
- 		public static void CaseWithInvalidData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+ 		public static void CaseWithInvalidData(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
 		{
  			
- 			sheet = workbook.getSheetAt(5);		
+ 			//sheet = workbook.getSheetAt(5);		
  			WebDriverWait wait = new WebDriverWait(getDriver(), 50);
 			
 					
@@ -22794,10 +22941,10 @@ public class CFOMethod extends BasePage{
 	 	     		OverduePOM.clickDashboard().click();
 	 	 	 			
 	 	 	 }
- 		 public static void CaseUserAssignment(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		 public static void CaseUserAssignment(ExtentTest test) throws InterruptedException, IOException
 	 	 	 {
 
-  			            sheet = workbook.getSheetAt(8);		
+  			           // sheet = workbook.getSheetAt(8);		
 
   			          WebDriverWait wait1 = new WebDriverWait(getDriver(), 300);
 	 	 	 			progress();
@@ -23388,12 +23535,12 @@ public class CFOMethod extends BasePage{
    	     	
 	       }
  		
- 		 public static void CaseTaskActivitywithExistingData(ExtentTest test,XSSFWorkbook workbook ) throws InterruptedException, IOException
+ 		 public static void CaseTaskActivitywithExistingData(ExtentTest test ) throws InterruptedException, IOException
 			{
 			    WebDriverWait wait=new WebDriverWait (getDriver(),20);
 			    
 			    
-		       XSSFSheet sheet=ReadExcel();
+		      //XSSFSheet sheet = ReadExcel();
 
 		       Thread.sleep(3000);
 				performerPOM.clickCaseOpencfo().click();//click edit notice
@@ -23418,7 +23565,10 @@ public class CFOMethod extends BasePage{
 			    performerPOM.clickHearingDatedropdowncfo().click(); 
 //			    Thread.sleep(2000);
 //			    performerPOM.clickSaveHearingDatecfo().click();
-			  
+
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);	
 			  
 				Thread.sleep(6000);
 				Row row0 = sheet.getRow(12);								//Selected 0th index row (First row)
@@ -23674,10 +23824,10 @@ public class CFOMethod extends BasePage{
 	             
 			}
  		 
- 		 public static void CaseExistingHearingData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		 public static void CaseExistingHearingData(ExtentTest test) throws InterruptedException, IOException
 			{
 			       WebDriverWait wait=new WebDriverWait (getDriver(),20);
-			       XSSFSheet sheet=ReadExcel();
+			      //XSSFSheet sheet = ReadExcel();
 			       
 			       Thread.sleep(3000);
 	 				performerPOM.clickCaseOpencfo().click();//click edit notice
@@ -23746,10 +23896,10 @@ public class CFOMethod extends BasePage{
 			   	     	Thread.sleep(3000);
 			   	     	performerPOM.clickClose().click();//Clicking on 'Close'
 			}
- 		public static void CaseHearingInvalidDate(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		public static void CaseHearingInvalidDate(ExtentTest test) throws InterruptedException, IOException
 		{
 		       WebDriverWait wait=new WebDriverWait (getDriver(),20);
-		       XSSFSheet sheet=ReadExcel();
+		      //XSSFSheet sheet = ReadExcel();
 		       
 		       Thread.sleep(3000);
 				performerPOM.clickCaseOpencfo().click();//click edit notice
@@ -23768,7 +23918,10 @@ public class CFOMethod extends BasePage{
 				performerPOM.clickCaseHearingDate().sendKeys("31-05-202");	//Writing 'HearingDate'
 			   Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearingDate().click();
-			
+
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(5);	
 				
 				Thread.sleep(2000);
 				Row row1 = sheet.getRow(50);									//Selected 0th index row (First row)
@@ -23794,10 +23947,10 @@ public class CFOMethod extends BasePage{
 		   	     	performerPOM.clickClose().click();//Clicking on 'Close'
 		}
  		
- 		 static void CaseHearingClearBtn(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		 static void CaseHearingClearBtn(ExtentTest test) throws InterruptedException, IOException
 			{
 			       WebDriverWait wait=new WebDriverWait (getDriver(),20);
-			       XSSFSheet sheet=ReadExcel();
+			      //XSSFSheet sheet = ReadExcel();
 			       
 			       Thread.sleep(3000);
 					performerPOM.clickCaseOpencfo().click();//click edit notice
@@ -23810,6 +23963,10 @@ public class CFOMethod extends BasePage{
 				   performerPOM.clickCaseHearing().click();
 					Thread.sleep(3000);
 					performerPOM.clickNewCaseHearing().click();
+
+					  FileInputStream fis = new FileInputStream(filePath);
+				        Workbook workbook = WorkbookFactory.create(fis);
+				        Sheet sheet = workbook.getSheetAt(5);	
 					Thread.sleep(2000);
 					Row row1 = sheet.getRow(50);									//Selected 0th index row (First row)
 					Cell c2 = row1.getCell(1);									//Selected cell (0 row,1 column)
@@ -23864,10 +24021,10 @@ public class CFOMethod extends BasePage{
 	   	     	performerPOM.clickClose().click();//Clicking on 'Close'
 		}
  		
-		public static void CaseOrderwithExistingData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+		public static void CaseOrderwithExistingData(ExtentTest test) throws InterruptedException, IOException
 		{
 			WebDriverWait wait=new WebDriverWait (getDriver(),20);
-			 XSSFSheet sheet=ReadExcel();
+			//XSSFSheet sheet = ReadExcel();
 			
 			 Thread.sleep(3000);
 				performerPOM.clickCaseOpencfo().click();//click edit notice
@@ -23890,6 +24047,10 @@ public class CFOMethod extends BasePage{
 			 Thread.sleep(3000);
 			 performerPOM.selectCaseOrderType().click();
 			
+
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(5);	
 			 Thread.sleep(300);
 			 Row row0 = sheet.getRow(53);					//Selected 0th index row (First row)
 			 Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -24155,11 +24316,11 @@ public class CFOMethod extends BasePage{
 			
 		}
 		
-		   public static void StatusPaymentExistingdata(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+		   public static void StatusPaymentExistingdata(ExtentTest test) throws InterruptedException, IOException
 		      {	
 		    	       WebDriverWait wait=new WebDriverWait(getDriver(),50);
 		      
-		    	       XSSFSheet sheet=ReadExcel();
+		    	      //XSSFSheet sheet = ReadExcel();
 		    	       
 		    	       Thread.sleep(3000);
 						performerPOM.clickCaseOpencfo().click();//click edit notice
@@ -24174,6 +24335,10 @@ public class CFOMethod extends BasePage{
 						
 						//wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus()));
 //						
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	
 						Thread.sleep(3000);
 						Row row0 = sheet.getRow(58);					//Selected 0th index row (First row)
 						Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -24211,11 +24376,11 @@ public class CFOMethod extends BasePage{
 					   	     	Thread.sleep(3000);
 					   	     	performerPOM.clickClose().click();//Clicking on 'Close'
 		      }
-		   public static void StatusPaymentwithInvaliddata(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+		   public static void StatusPaymentwithInvaliddata(ExtentTest test) throws InterruptedException, IOException
 		      {	
 		    	       WebDriverWait wait=new WebDriverWait(getDriver(),50);
 		      
-		    	       XSSFSheet sheet=ReadExcel();
+		    	      //XSSFSheet sheet = ReadExcel();
 		    	       
 		    	       Thread.sleep(3000);
 						performerPOM.clickCaseOpencfo().click();//click edit notice
@@ -24230,6 +24395,10 @@ public class CFOMethod extends BasePage{
 						
 					//	wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus()));
 						
+
+						  FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(5);	
 						Thread.sleep(3000);
 						Row row0 = sheet.getRow(58);					//Selected 0th index row (First row)
 						Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -24270,7 +24439,7 @@ public class CFOMethod extends BasePage{
 		      {	
 		    	       WebDriverWait wait=new WebDriverWait(getDriver(),50);
 		      
-		    	       XSSFSheet sheet=ReadExcel();
+		    	      //XSSFSheet sheet = ReadExcel();
 		    	       
 		    	       Thread.sleep(3000);
 						performerPOM.clickCaseOpencfo().click();//click edit notice
@@ -24483,12 +24652,12 @@ public class CFOMethod extends BasePage{
 	   				   getDriver().switchTo().parentFrame();
 	   				   performerPOM.clickclosecriteria().click();
 	         }
-				public static void TaskwithExistingData(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+				public static void TaskwithExistingData(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
 				{
 					
 					// int sheetNo=8;  
 					 
-					 sheet = workbook.getSheetAt(5);
+					 //sheet = workbook.getSheetAt(5);
 					WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 					Thread.sleep(500);
 					performerPOM.clickTaskOpen().click();	
@@ -24508,6 +24677,10 @@ public class CFOMethod extends BasePage{
 //					OverduePOM.selectNextMonth().click();
 //					OverduePOM.selectDate().click();					//Selecting particular date.
 //					
+
+					  FileInputStream fis = new FileInputStream(filePath);
+				        Workbook workbook = WorkbookFactory.create(fis);
+				        Sheet sheet = workbook.getSheetAt(5);	
 					Thread.sleep(500);
 					Row row0 = sheet.getRow(12);								//Selected 0th index row (First row)
 					Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -24684,10 +24857,10 @@ public class CFOMethod extends BasePage{
 				}
 				
 				
-				public static void TaskwithTwoManadatoryFields(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+				public static void TaskwithTwoManadatoryFields(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
 				{
 					WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-					sheet = workbook.getSheetAt(5);
+					//sheet = workbook.getSheetAt(5);
 					Thread.sleep(500);
 					performerPOM.clickTaskOpen().click();	
 					
@@ -24700,7 +24873,11 @@ public class CFOMethod extends BasePage{
 					
 					progress();
 					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeAddTask"));
-									
+							
+
+					  FileInputStream fis = new FileInputStream(filePath);
+				        Workbook workbook = WorkbookFactory.create(fis);
+				        Sheet sheet = workbook.getSheetAt(5);	
 					Thread.sleep(500);
 					Row row0 = sheet.getRow(12);								//Selected 0th index row (First row)
 					Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)

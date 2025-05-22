@@ -6,13 +6,15 @@ import java.awt.event.KeyEvent;
 //import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
-
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -59,7 +61,7 @@ public class MethodsPOM extends BasePage
 	public static XSSFSheet sheet = null;		//Sheet variable
 	public static XSSFSheet sheet1 = null;		//Sheet variable
 
-
+	 static String filePath ="D:\\Litigation-Project 10 April2024\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx";
 
 	public static void progress() throws InterruptedException
 	{
@@ -75,17 +77,17 @@ public class MethodsPOM extends BasePage
 		}
 	}
 	
-	public static XSSFSheet ReadExcel() throws IOException
-	{
-		//String workingDir = System.getProperty("user.dir");
-		fis = new FileInputStream("D:\\Litigation-Project 10 April2024\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx");
-		
-		workbook = new XSSFWorkbook(fis);
-		sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
-		return sheet;
-	}
+//	public static XSSFSheet ReadExcel() throws IOException
+//	{
+//		//String workingDir = System.getProperty("user.dir");
+//		fis = new FileInputStream("D:\\Litigation-Project 10 April2024\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx");
+//		
+//		workbook = new XSSFWorkbook(fis);
+//		sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+//		return sheet;
+//	}
 	
-	static void perform( ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type, String noticeCategory) throws InterruptedException
+	static void perform( ExtentTest test,  int open, int gridRecords, String type, String noticeCategory) throws InterruptedException, EncryptedDocumentException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait (getDriver(), 50);
 		WebDriverWait wait1 = new WebDriverWait(getDriver(), 300);
@@ -275,8 +277,12 @@ public class MethodsPOM extends BasePage
 		performerPOM.clickFinancialYear().click();			//Clicking on 'Financial Year' drop down.
          }
 		
-		public static void clickRefNo() throws InterruptedException
+		public static void clickRefNo() throws InterruptedException, EncryptedDocumentException, IOException
 		{
+
+			 FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 			Thread.sleep(500);
 			Row row0 = sheet.getRow(65);						//Selected 0th index row (First row)
 			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -293,12 +299,15 @@ public class MethodsPOM extends BasePage
 			
 		}	
 
-		public static void clickAct() throws InterruptedException
+		public static void clickAct() throws InterruptedException, EncryptedDocumentException, IOException
 		{
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
 		   Thread.sleep(300);
 		   progress();
-	       XSSFRow row0 = sheet.getRow(67);						//Selected 0th index row (First row)
-		   XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+	       Row row0 = sheet.getRow(67);						//Selected 0th index row (First row)
+		   Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 		   int actNo = (int) c1.getNumericCellValue();
 		   performerPOM.clickAct().click();						//Clicking on 'Act' drop down.
 		   elementsList = performerPOM.chooseAct();
@@ -309,8 +318,11 @@ public class MethodsPOM extends BasePage
 
 		
 	
-		 public static void clickOpponentcfo() throws InterruptedException
+		 public static void clickOpponentcfo() throws InterruptedException, EncryptedDocumentException, IOException
 		   {
+			 FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 	           Thread.sleep(300);
 	           Row row0 = sheet.getRow(69);						//Selected 0th index row (First row)
 	           Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -369,24 +381,30 @@ public class MethodsPOM extends BasePage
 //		performerPOM.clickOppLawyer().click();
 		
 		
-		public static void clickNoticeTitle() throws InterruptedException
+		public static void clickNoticeTitle() throws InterruptedException, EncryptedDocumentException, IOException
 		{
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
 		  Thread.sleep(300);
-		  XSSFRow row0 = sheet.getRow(71);						//Selected 0th index row (First row)
-		  XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+		  Row row0 = sheet.getRow(71);						//Selected 0th index row (First row)
+		 Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 		  String title = c1.getStringCellValue();
 		  performerPOM.clickNoticeTitle().sendKeys(title);		//Writing 'Notice Title'
 		}
 		
-		public static void clickNoticeDescription() throws InterruptedException
+		public static void clickNoticeDescription() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(72);						//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String desc = c1.getStringCellValue();
-		performerPOM.clickNoticeDescription().sendKeys(desc);	//Writing 'Notice Description'
-		Thread.sleep(300);		
-		performerPOM.clickNoticeDescription().sendKeys(Keys.PAGE_DOWN);
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(72);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			String desc = c1.getStringCellValue();
+			performerPOM.clickNoticeDescription().sendKeys(desc);	//Writing 'Notice Description'
+			Thread.sleep(300);		
+			performerPOM.clickNoticeDescription().sendKeys(Keys.PAGE_DOWN);
         }
 		
 		public static void selectLocation() throws InterruptedException
@@ -405,56 +423,71 @@ public class MethodsPOM extends BasePage
 		
 	//	performerPOM.clickNoticeDescription().sendKeys(Keys.PAGE_DOWN);
 		
-		public static void clickJurisdiction() throws InterruptedException
+		public static void clickJurisdiction() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		 Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(73);						//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String jurisdiction = c1.getStringCellValue();
-		performerPOM.clickJurisdiction().click();					//Clicking on 'Jurisdiction' drop down
-		Thread.sleep(600);
-		performerPOM.clickSearch3().sendKeys(jurisdiction, Keys.ENTER);	//Writing 'Jurisdiction' name
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			 Thread.sleep(300);
+			Row row0 = sheet.getRow(73);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			String jurisdiction = c1.getStringCellValue();
+			performerPOM.clickJurisdiction().click();					//Clicking on 'Jurisdiction' drop down
+			Thread.sleep(600);
+			performerPOM.clickSearch3().sendKeys(jurisdiction, Keys.ENTER);	//Writing 'Jurisdiction' name
 		
 		}
 		
-		public static void clickDepartment() throws InterruptedException
+		public static void clickDepartment() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(1000);
-		Row row0 = sheet.getRow(74);						//Selected 0th index row (First row)
-		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String dept = c1.getStringCellValue();
-		performerPOM.clickDepartment().click();					//Clicking on 'Department' drop down
-		performerPOM.clickSearch4().sendKeys(dept, Keys.ENTER);	//Writing 'Department' name
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(1000);
+			Row row0 = sheet.getRow(74);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			String dept = c1.getStringCellValue();
+			performerPOM.clickDepartment().click();					//Clicking on 'Department' drop down
+			performerPOM.clickSearch4().sendKeys(dept, Keys.ENTER);	//Writing 'Department' name
 		}
 		
-		public static void clickContactDept() throws InterruptedException
+		public static void clickContactDept() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(75);					//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String ContactDept = c1.getStringCellValue();
-		performerPOM.clickContactDept().click();					//Clicking on 'Contact Person of Department' drop down
-		performerPOM.clickSearch5().sendKeys(ContactDept, Keys.ENTER);	//Writing 'Contact Person' name
-		
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(75);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			String ContactDept = c1.getStringCellValue();
+			performerPOM.clickContactDept().click();					//Clicking on 'Contact Person of Department' drop down
+			performerPOM.clickSearch5().sendKeys(ContactDept, Keys.ENTER);	//Writing 'Contact Person' name
+			
 		}
 		
-		public static void clickNoticeTerm() throws InterruptedException
+		public static void clickNoticeTerm() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		Row row0 = sheet.getRow(76);					//Selected 0th index row (First row)
-		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		int noticeTerm = (int) c1.getNumericCellValue();
-		performerPOM.clickNoticeTerm().sendKeys(noticeTerm+"");		//Writing 'Notice Term'
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(76);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int noticeTerm = (int) c1.getNumericCellValue();
+			performerPOM.clickNoticeTerm().sendKeys(noticeTerm+"");		//Writing 'Notice Term'
 		}
 		
-		public static void clickOwner() throws InterruptedException
+		public static void clickOwner() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(77);					//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String owner = c1.getStringCellValue();
-		performerPOM.clickOwner().click();					//Clicking on 'Owner' drop down
-		performerPOM.clickSearch6().sendKeys(owner, Keys.ENTER);	//Writing 'Owner' name
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(77);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			String owner = c1.getStringCellValue();
+			performerPOM.clickOwner().click();					//Clicking on 'Owner' drop down
+			performerPOM.clickSearch6().sendKeys(owner, Keys.ENTER);	//Writing 'Owner' name
 		}
 		
 		public static void selectRisk() throws InterruptedException
@@ -471,63 +504,81 @@ public class MethodsPOM extends BasePage
 		
 		}
 		
-		public static void clickNoticeBudget() throws InterruptedException
+		public static void clickNoticeBudget() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(78);					//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		int noticeBudget = (int) c1.getNumericCellValue();
-		performerPOM.clickNoticeBudget().sendKeys(noticeBudget+"");	//Writing 'Notice Budget'
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(78);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int noticeBudget = (int) c1.getNumericCellValue();
+			performerPOM.clickNoticeBudget().sendKeys(noticeBudget+"");	//Writing 'Notice Budget'
 		
 		}
 		
-		public static void clickClaimedAmount() throws InterruptedException
+		public static void clickClaimedAmount() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(79);					//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		int claimedAmount = (int) c1.getNumericCellValue();
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(79);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int claimedAmount = (int) c1.getNumericCellValue();
 		performerPOM.clickClaimedAmount().sendKeys(claimedAmount+"");	//Writing 'Claimed Amount'
 		
 		}
 		
-		public static void clickState() throws InterruptedException
+		public static void clickState() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(80);					//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String state = c1.getStringCellValue();
-		performerPOM.clickState().click();					//Clicking on 'Owner' drop down
-		performerPOM.clickSearchState().sendKeys(state, Keys.ENTER);	//Writing 'State' name
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(80);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			String state = c1.getStringCellValue();
+			performerPOM.clickState().click();					//Clicking on 'Owner' drop down
+			performerPOM.clickSearchState().sendKeys(state, Keys.ENTER);	//Writing 'State' name
 		}
 		
-		public static void clickProbableAmount() throws InterruptedException
+		public static void clickProbableAmount() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(81);					//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		int probAmount = (int) c1.getNumericCellValue();
-		performerPOM.clickProbableAmount().sendKeys(probAmount+"");	//Writing 'Probable Amount'
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(81);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int probAmount = (int) c1.getNumericCellValue();
+			performerPOM.clickProbableAmount().sendKeys(probAmount+"");	//Writing 'Probable Amount'
 		}
 		
-		public static void clickProvisionalAmount() throws InterruptedException
+		public static void clickProvisionalAmount() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		Row row0 = sheet.getRow(82);					//Selected 0th index row (First row)
-		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		int provAmount = (int) c1.getNumericCellValue();
-		performerPOM.clickProvisionalAmount().sendKeys(provAmount+"");	//Writing 'Provisional Amount'
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(82);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int provAmount = (int) c1.getNumericCellValue();
+			performerPOM.clickProvisionalAmount().sendKeys(provAmount+"");	//Writing 'Provisional Amount'
 		}
 		
-		public static void clickProtestMoney() throws InterruptedException
+		public static void clickProtestMoney() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(83);					//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		int protestAmount = (int) c1.getNumericCellValue();
-		performerPOM.clickProtestMoney().sendKeys(protestAmount+"");	//Writing 'Protest Amount'
-		Thread.sleep(500);
-		performerPOM.clickProtestMoney().sendKeys(Keys.PAGE_DOWN);
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(83);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int protestAmount = (int) c1.getNumericCellValue();
+			performerPOM.clickProtestMoney().sendKeys(protestAmount+"");	//Writing 'Protest Amount'
+			Thread.sleep(500);
+			performerPOM.clickProtestMoney().sendKeys(Keys.PAGE_DOWN);
 		}
 
 //		Thread.sleep(500);
@@ -536,14 +587,17 @@ public class MethodsPOM extends BasePage
 //		Thread.sleep(400);
 //		performerPOM.clickMonetary().sendKeys("Automation123");
 		
-		public static void clickLawFirm() throws InterruptedException
+		public static void clickLawFirm() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(84);					//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String lawFirm = c1.getStringCellValue();
-		performerPOM.clickLawFirm().click();		//Clicking on 'Law Firm' drop down.
-		performerPOM.chooseLawFirm().sendKeys(lawFirm, Keys.DOWN, Keys.ENTER);	//Writing & selecting 'Law Firm' name
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(84);					//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			String lawFirm = c1.getStringCellValue();
+			performerPOM.clickLawFirm().click();		//Clicking on 'Law Firm' drop down.
+			performerPOM.chooseLawFirm().sendKeys(lawFirm, Keys.DOWN, Keys.ENTER);	//Writing & selecting 'Law Firm' name
 		}
 		public static void selectSapCode() throws InterruptedException
 		{
@@ -561,30 +615,36 @@ public class MethodsPOM extends BasePage
 	          openDate.sendKeys("30-09-2021");
 	        
 	      }
-		public static void clickInternalUser() throws InterruptedException
+		public static void clickInternalUser() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(85);						//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		int internalUserNo = (int) c1.getNumericCellValue();
-		performerPOM.clickInternalUser().click();						//Clicking on 'Internal User' drop down.
-		elementsList = performerPOM.chooseInternalUser();
-		elementsList.get(internalUserNo).click();							//Selecting particular user no
-		Thread.sleep(2000);
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(85);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int internalUserNo = (int) c1.getNumericCellValue();
+			performerPOM.clickInternalUser().click();						//Clicking on 'Internal User' drop down.
+			elementsList = performerPOM.chooseInternalUser();
+			elementsList.get(internalUserNo).click();							//Selecting particular user no
+			Thread.sleep(2000);
 		
 		performerPOM.clickInternalUser().click();	//Clicking on 'Internal User' drop down.
 		}
 		
-		public static void clickLawyer() throws InterruptedException
+		public static void clickLawyer() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(86);						//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		int lawyerNo = (int) c1.getNumericCellValue();
-		performerPOM.clickLawyer().click();						//Clicking on 'Lawyer' drop down.
-		elementsList = performerPOM.chooseLawyer();
-		elementsList.get(lawyerNo).click();								//Selecting particular lawyer no
-		performerPOM.clickLawyer().click();		//Clicking on 'Lawyer' drop down.
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(86);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int lawyerNo = (int) c1.getNumericCellValue();
+			performerPOM.clickLawyer().click();						//Clicking on 'Lawyer' drop down.
+			elementsList = performerPOM.chooseLawyer();
+			elementsList.get(lawyerNo).click();								//Selecting particular lawyer no
+			performerPOM.clickLawyer().click();		//Clicking on 'Lawyer' drop down.
 		}
 		
 		public static void NoticeDocument( ExtentTest test) throws InterruptedException
@@ -738,11 +798,11 @@ public class MethodsPOM extends BasePage
     }
 		
 		
-	 public  static void TaskActivtity( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 public  static void TaskActivtity( ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
 			{
 				  WebDriverWait wait = new WebDriverWait (getDriver(), 60);
 				  
-			     sheet = workbook.getSheetAt(4);		
+			    // sheet = workbook.getSheetAt(4);		
 				  
 				  Thread.sleep(8000);
 					performerPOM.clickNoticeOpen().click();
@@ -761,7 +821,9 @@ public class MethodsPOM extends BasePage
 				  performerPOM.clickNewTask().click(); 
 				 
 				  
-				  
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(4);
 				Thread.sleep(8000);
 				Row row0 = sheet.getRow(91);								//Selected 0th index row (First row)
 				Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -991,10 +1053,10 @@ public class MethodsPOM extends BasePage
 	 
 	 
 		   
-    public static void Response( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+    public static void Response( ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
 			{
 			   WebDriverWait wait = new WebDriverWait (getDriver(), 60);
-			   sheet = workbook.getSheetAt(4);
+			  // sheet = workbook.getSheetAt(4);
 			   
 			   Thread.sleep(8000);
 				performerPOM.clickNoticeOpen().click();
@@ -1019,7 +1081,9 @@ public class MethodsPOM extends BasePage
 					  Thread.sleep(8000);
 					  performerPOM. selectRespondedDate();
 				
-					 		 
+					  FileInputStream fis = new FileInputStream(filePath);
+				        Workbook workbook = WorkbookFactory.create(fis);
+				        Sheet sheet = workbook.getSheetAt(4);	 
 					  Thread.sleep(8000);
 					  Row row1 = sheet.getRow(99);								//Selected 0th index row (First row)
 					  Cell c2 = row1.getCell(1);								//Selected cell (0 row,1 column)
@@ -1478,7 +1542,7 @@ public class MethodsPOM extends BasePage
 		}
 		
 		
-	static void perform1( ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type) throws InterruptedException
+	static void perform1( ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type) throws InterruptedException, EncryptedDocumentException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait (getDriver(), 50);
 		WebDriverWait wait1 = new WebDriverWait (getDriver(), 300);
@@ -1711,8 +1775,11 @@ public class MethodsPOM extends BasePage
 		
 
 			
-		  public  static void clickRefNo1() throws InterruptedException 
+		  public  static void clickRefNo1() throws InterruptedException, EncryptedDocumentException, IOException 
 		  {
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 		       Thread.sleep(3000);
 		       Row row0 = sheet.getRow(114);								//Selected 0th index row (First row)
 		      Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -1720,16 +1787,22 @@ public class MethodsPOM extends BasePage
 		      performerPOM.clickRefNo().sendKeys(refno);			//Writing 'Court Case No'
 		  }
 			
-		  public  static void clickInternalCaseNo() throws InterruptedException 
+		  public  static void clickInternalCaseNo() throws InterruptedException, EncryptedDocumentException, IOException 
 		  {
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 		       Thread.sleep(3000);
 		      Row row0 = sheet.getRow(115);								//Selected 0th index row (First row)
 		      Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
 		       String caseNo = c1.getStringCellValue();
 		       performerPOM.clickInternalCaseNo().sendKeys(caseNo);	//Writing 'Court Case No'
 		  }
-		  public  static void clickCaseTitle() throws InterruptedException 
+		  public  static void clickCaseTitle() throws InterruptedException, EncryptedDocumentException, IOException 
 		  {
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 		       Thread.sleep(3000);
 		       Row row0 = sheet.getRow(116);								//Selected 0th index row (First row)
 		       Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -1738,29 +1811,38 @@ public class MethodsPOM extends BasePage
 		  }
 
 	 	
-		  public  static void clickCaseAct() throws InterruptedException 
+		  public  static void clickCaseAct() throws InterruptedException, EncryptedDocumentException, IOException 
 		  {
-   	      Thread.sleep(3000);
-	         Row row0 = sheet.getRow(117);								//Selected 0th index row (First row)
-	         Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
- 	          int actNo = (int) c1.getNumericCellValue();
-		     performerPOM.clickAct().click();						//Clicking on 'Act' drop down.
-//	       //	elementsList = performerPOM.chooseAct();
-		    elementsList = performerPOM.chooseAct1();
-	        elementsList.get(2).click();							//Selecting particular act no
-		     performerPOM.clickAct().click();	                  //Clicking on 'Act' drop down.
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
+	   	      Thread.sleep(3000);
+		         Row row0 = sheet.getRow(117);								//Selected 0th index row (First row)
+		         Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
+	 	          int actNo = (int) c1.getNumericCellValue();
+			     performerPOM.clickAct().click();						//Clicking on 'Act' drop down.
+	//	       //	elementsList = performerPOM.chooseAct();
+			    elementsList = performerPOM.chooseAct1();
+		        elementsList.get(2).click();							//Selecting particular act no
+			     performerPOM.clickAct().click();	                  //Clicking on 'Act' drop down.
 		  }
 		  
-		  public  static void clickUnderSection() throws InterruptedException 
+		  public  static void clickUnderSection() throws InterruptedException, EncryptedDocumentException, IOException 
 		  { 
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 		     Thread.sleep(3000);
 		     Row row0 = sheet.getRow(118);								//Selected 0th index row (First row)
 		     Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
 		     String underSection = c1.getStringCellValue();
 		      performerPOM.clickUnderSection().sendKeys(underSection);	//Writing 'Under section'
 		  }
-		  public  static void clickSearchCaseCategory() throws InterruptedException 
+		  public  static void clickSearchCaseCategory() throws InterruptedException, EncryptedDocumentException, IOException 
 		  { 
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 		     Thread.sleep(3000);
 		     Row row0 = sheet.getRow(119);								//Selected 0th index row (First row)
 		    Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -1768,8 +1850,11 @@ public class MethodsPOM extends BasePage
 		    performerPOM.clickCaseCategory().click();
 		    performerPOM.clickSearchCaseCategory().sendKeys(caseType, Keys.ENTER);	//Writing 'Case Type'
 		  }
-		  public  static void clickCaseBudget() throws InterruptedException 
+		  public  static void clickCaseBudget() throws InterruptedException, EncryptedDocumentException, IOException 
 		  {
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 		      Thread.sleep(3000);
 		     Row row0 = sheet.getRow(120);								//Selected 0th index row (First row)
 		      Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -1788,8 +1873,11 @@ public class MethodsPOM extends BasePage
 		
 		  }
 
-		  public  static void clickCaseOppLawyer() throws InterruptedException 
+		  public  static void clickCaseOppLawyer() throws InterruptedException, EncryptedDocumentException, IOException 
 		  {
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 	          Thread.sleep(3000);
 		      Row row0 = sheet.getRow(122);								//Selected 0th index row (First row)
 		      Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -1800,8 +1888,11 @@ public class MethodsPOM extends BasePage
 		        performerPOM.clickSelectAll3().click();
 		        performerPOM.clickOppLawyer().click();
 		  }
-		  public  static void clickCaseCourt() throws InterruptedException 
+		  public  static void clickCaseCourt() throws InterruptedException, EncryptedDocumentException, IOException 
 		  {
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 		         Thread.sleep(3000);
 		        Row row0 = sheet.getRow(123);								//Selected 0th index row (First row)
 		         Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -1812,8 +1903,11 @@ public class MethodsPOM extends BasePage
 		
 		
 	
-		  public  static void clickCaseDescription() throws InterruptedException 
+		  public  static void clickCaseDescription() throws InterruptedException, EncryptedDocumentException, IOException 
 		  {
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 		        Thread.sleep(3000);
 		       Row row0 = sheet.getRow(125);							//Selected 0th index row (First row)
 		       Cell  c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -1852,8 +1946,11 @@ public class MethodsPOM extends BasePage
 		  }
 		 
 	
-	 public  static void clickCaseInternalUser( ) throws InterruptedException 
+	 public  static void clickCaseInternalUser( ) throws InterruptedException, EncryptedDocumentException, IOException 
 		  { 
+		 	FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
 		       Thread.sleep(3000);
 	            Row row0 = sheet.getRow(136);						//Selected 0th index row (First row)
 		       Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -1864,25 +1961,31 @@ public class MethodsPOM extends BasePage
 		      performerPOM.clickInternalUser().click();						//Clicking on 'Internal User' drop down.
 		  }
 	 
-		public static void clickLawyer1( ) throws InterruptedException
+		public static void clickLawyer1( ) throws InterruptedException, EncryptedDocumentException, IOException
 		{
-		Thread.sleep(300);
-		XSSFRow row0 = sheet.getRow(137);						//Selected 0th index row (First row)
-		XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		int lawyerNo = (int) c1.getNumericCellValue();
-		performerPOM.clickLawyer().click();	
-		Thread.sleep(300);//Clicking on 'Lawyer' drop down.
-		elementsList = performerPOM.chooseLawyer();
-		elementsList.get(lawyerNo).click();								//Selecting particular lawyer no
-		Thread.sleep(300);
-		performerPOM.clickLawyer().click();		//Clicking on 'Lawyer' drop down.
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
+			Thread.sleep(300);
+			Row row0 = sheet.getRow(137);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int lawyerNo = (int) c1.getNumericCellValue();
+			performerPOM.clickLawyer().click();	
+			Thread.sleep(300);//Clicking on 'Lawyer' drop down.
+			elementsList = performerPOM.chooseLawyer();
+			elementsList.get(lawyerNo).click();								//Selecting particular lawyer no
+			Thread.sleep(300);
+			performerPOM.clickLawyer().click();		//Clicking on 'Lawyer' drop down.
 		}
 		
-		public static void clickLawFirm1( ) throws InterruptedException
+		public static void clickLawFirm1( ) throws InterruptedException, EncryptedDocumentException, IOException
 		{
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
 		 Thread.sleep(3000);
-		 XSSFRow row1 = sheet.getRow(135);					//Selected 0th index row (First row)
-		 XSSFCell c2 = row1.getCell(1);						//Selected cell (0 row,1 column)
+		 Row row1 = sheet.getRow(135);					//Selected 0th index row (First row)
+		 Cell c2 = row1.getCell(1);						//Selected cell (0 row,1 column)
 		 String lawFirm = c2.getStringCellValue();
 		 performerPOM.clickLawFirm().click();		//Clicking on 'Law Firm' drop down.
 		 performerPOM.chooseLawFirm().sendKeys(lawFirm, Keys.DOWN, Keys.ENTER);	//Writing & selecting 'Law Firm' name
@@ -2024,7 +2127,7 @@ public class MethodsPOM extends BasePage
 		  
 	 }
 		
-		public static void TaskActivity1( ExtentTest test, XSSFWorkbook workbook,String login) throws InterruptedException, IOException
+		public static void TaskActivity1( ExtentTest test,String login) throws InterruptedException, IOException
 		{
 			
 		
@@ -2034,7 +2137,7 @@ public class MethodsPOM extends BasePage
 		    performerPOM.clickCaseOpen().click();
 	          Thread.sleep(8000);
 	          performerPOM.clickEditNotice().click();
-	      	sheet = workbook.getSheetAt(4);	
+	      //	sheet = workbook.getSheetAt(4);	
 		    Thread.sleep(8000);
 		    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 		    Thread.sleep(8000);
@@ -2047,7 +2150,10 @@ public class MethodsPOM extends BasePage
 		    performerPOM.clickHearingDate().sendKeys("13-12-2025");
 		    Thread.sleep(8000);
 		    performerPOM.clickSaveHearingDate().click();
-		  
+
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);	 
 		  
 			Thread.sleep(8000);
 			Row row0 = sheet.getRow(141);								//Selected 0th index row (First row)
@@ -2383,7 +2489,7 @@ public class MethodsPOM extends BasePage
 	
 
 	
-		public static void CaseHearing( ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+		public static void CaseHearing( ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
 		{
 			
 			
@@ -2421,7 +2527,9 @@ public class MethodsPOM extends BasePage
 			    Thread.sleep(8000);
 			    performerPOM.clickSaveCaseHearingDate().click();
 			
-				
+			    FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);
 				Thread.sleep(8000);
 				Row row1 = sheet.getRow(149);									//Selected 0th index row (First row)
 				Cell c2 = row1.getCell(1);									//Selected cell (0 row,1 column)
@@ -2519,7 +2627,7 @@ public class MethodsPOM extends BasePage
 			        alert.accept();
 		} 
 			 
-		public static void CaseOrder( ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException
+		public static void CaseOrder( ExtentTest test, String login) throws InterruptedException, EncryptedDocumentException, IOException
 		{
 			
 			
@@ -2551,7 +2659,10 @@ public class MethodsPOM extends BasePage
 			 performerPOM.selectCaseOrderType().click();
 			
 			 
-			 
+
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);	 
 				
 				Thread.sleep(8000);
 				Row row0 = sheet.getRow(153);					//Selected 0th index row (First row)
@@ -2807,9 +2918,9 @@ public class MethodsPOM extends BasePage
 			 
       }
 
-      public static void StatusPayment(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+      public static void StatusPayment(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
       {
-    	  			sheet = workbook.getSheetAt(4);
+    	  			//sheet = workbook.getSheetAt(4);
     	  			WebDriverWait wait=new WebDriverWait(getDriver(),50);
     	         Thread.sleep(8000);
     	          performerPOM.clickCaseOpen().click();
@@ -2827,7 +2938,10 @@ public class MethodsPOM extends BasePage
 				
 				//  wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus()));
 
-				
+
+				  FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(4);	 
 				Thread.sleep(8000);
 				Row row0 = sheet.getRow(163);					//Selected 0th index row (First row)
 				Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -3143,7 +3257,7 @@ public class MethodsPOM extends BasePage
       }	 
 			 
 	
-	static void TaskAdd( ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type) throws InterruptedException
+	static void TaskAdd( ExtentTest test,  int open, int gridRecords, String type) throws InterruptedException, EncryptedDocumentException, IOException
 	{
 		
 		//sheet = workbook.getSheetAt(4);
@@ -3169,7 +3283,10 @@ public class MethodsPOM extends BasePage
 //		performerPOM.clickDueDate().click();				//Clicking on 'Due Date' text box
 //		OverduePOM.selectNextMonth().click();
 //		OverduePOM.selectDate().click();					//Selecting particular date.
-//		
+
+		FileInputStream fis = new FileInputStream(filePath);
+        Workbook workbook = WorkbookFactory.create(fis);
+        Sheet sheet = workbook.getSheetAt(4);
 		Thread.sleep(8000);
 		Row row0 = sheet.getRow(167);								//Selected 0th index row (First row)
 		Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
@@ -3572,12 +3689,12 @@ public class MethodsPOM extends BasePage
 		
 
 		
-		sheet = workbook.getSheetAt(4);
+		//sheet = workbook.getSheetAt(4);
 		getDriver().navigate().refresh();
-		perform( test, sheet, open, gridRecords, "Notice - Open",compliancesCount);
+		perform( test, open, gridRecords, "Notice - Open",compliancesCount);
 	}
 	
-	public static void NoticeClosed( ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
+	public static void NoticeClosed( ExtentTest test,String login) throws InterruptedException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait (getDriver(), 50);
 		
@@ -3590,7 +3707,7 @@ public class MethodsPOM extends BasePage
 		OverduePOM.clickDashboard().click();			//Clicking on 'Dashboard'
 	}
 	
-	public static void CaseOpen( ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
+	public static void CaseOpen( ExtentTest test, String login) throws InterruptedException, IOException
 	{
 
 		
@@ -3629,7 +3746,7 @@ public class MethodsPOM extends BasePage
 		perform1( test, sheet, open, gridRecords, "Case - Open");
 	}
 	
-	public static void CaseClosed( ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
+	public static void CaseClosed( ExtentTest test,String login) throws InterruptedException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait (getDriver(), 50);
 		
@@ -3640,7 +3757,7 @@ public class MethodsPOM extends BasePage
 		OverduePOM.clickDashboard().click();			//Clicking on 'Dashboard'
 	}
 	
-	public static void TaskOpen( ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
+	public static void TaskOpen( ExtentTest test, String login) throws InterruptedException, IOException
 	{
 	
 		
@@ -3673,12 +3790,12 @@ public class MethodsPOM extends BasePage
 			gridRecords = Integer.parseInt(compliancesCount);
 		}
 		
-		sheet = workbook.getSheetAt(4);
+		//sheet = workbook.getSheetAt(4);
 		
-		TaskAdd( test, sheet, open, gridRecords, "Task - Open");
+		TaskAdd( test, open, gridRecords, "Task - Open");
 	}
 	
-	public static void TaskClosed( ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
+	public static void TaskClosed( ExtentTest test,  String login) throws InterruptedException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait (getDriver(), 50);
 		
@@ -3689,7 +3806,7 @@ public class MethodsPOM extends BasePage
 		OverduePOM.clickDashboard().click();			//Clicking on 'Dashboard'
 	}
 	
-	public static void LinkDocument( ExtentTest test, XSSFWorkbook workbook, String type) throws InterruptedException, IOException
+	public static void LinkDocument( ExtentTest test,  String type) throws InterruptedException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait (getDriver(), 180);
 		progress();
@@ -4070,11 +4187,11 @@ public class MethodsPOM extends BasePage
 	 	 			
 	 	 }
 	
-	public static void CloseNoticeCase( ExtentTest test, XSSFWorkbook workbook, String type,String login) throws InterruptedException, IOException
+	public static void CloseNoticeCase( ExtentTest test,String type,String login) throws InterruptedException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait (getDriver(), 180);
 		progress();
-		sheet = workbook.getSheetAt(4);
+		//sheet = workbook.getSheetAt(4);
 		//wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen()));
 		int closed = 0;
 		int open = 0;
@@ -4189,7 +4306,9 @@ public class MethodsPOM extends BasePage
 			performerPOM.clickNoticeResult().click();
 			performerPOM.clickSelectResult().sendKeys("In Progress", Keys.ENTER);
 			
-			
+			FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);
 			Thread.sleep(3000);
 			Row r1 = sheet.getRow(105);
 			Cell c1 = r1.getCell(1);
@@ -4725,7 +4844,7 @@ public class MethodsPOM extends BasePage
 	
 	
 	
-	public static void MyReports( ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
+	public static void MyReports( ExtentTest test,  String login) throws InterruptedException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait (getDriver(), 60);
 		progress();
@@ -5418,7 +5537,7 @@ public class MethodsPOM extends BasePage
 	        alert.accept();		
 	}
 	
-	public static void MyReminder( ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+	public static void MyReminder( ExtentTest test) throws InterruptedException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait (getDriver(), 180);
 		progress();
@@ -5441,7 +5560,7 @@ public class MethodsPOM extends BasePage
 	}
 		
 	
-	public static void LegalEntity(ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	public static void LegalEntity(ExtentTest test) throws InterruptedException, IOException
 	 {
 		sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 	
@@ -5456,7 +5575,9 @@ public class MethodsPOM extends BasePage
 		 Thread.sleep(300);
 		 performerPOM.addLegalEntity().click();
 		
-
+		 FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
 		Thread.sleep(5000);
 		Row row0 = sheet.getRow(10);						//Selected 0th index row (First row)
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -5873,10 +5994,10 @@ public class MethodsPOM extends BasePage
 		 performerPOM.CloseUnitType().click();
 	 }
 	
-  public static void LawFirm( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+  public static void LawFirm( ExtentTest test) throws InterruptedException, IOException
   {
 	  
-	  sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+	  //sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 		WebDriverWait wait = new WebDriverWait (getDriver(), 180);
 		progress();
 		
@@ -5889,6 +6010,9 @@ public class MethodsPOM extends BasePage
 	    Thread.sleep(3000);
 		performerPOM.newLawFirm().click();
 		
+		 FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
 		Thread.sleep(3000);
 		Row row4 = sheet.getRow(18);						//Selected 0th index row (First row)
 		Cell c4 = row4.getCell(1);						//Selected cell (0 row,1 column)
@@ -6366,10 +6490,10 @@ else
   OverduePOM.clickDashboard().click();
 }
 	
- public static void User( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+ public static void User( ExtentTest test) throws InterruptedException, IOException
 	{
 	 
-	     sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+	    // sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 		WebDriverWait wait = new WebDriverWait (getDriver(), 180);
 		progress();
 	
@@ -6382,7 +6506,9 @@ else
 		 Thread.sleep(3000);
 		 performerPOM.clickAddNewUser().click();
 		 
-		 
+		 FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
 	      Thread.sleep(4000);
 		  Row row12 = sheet.getRow(26);						//Selected 0th index row (First row)
 		  Cell c12 = row12.getCell(1);						//Selected cell (0 row,1 column)
@@ -6662,10 +6788,10 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 		 
  
  
-  public static void Opponent( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+  public static void Opponent( ExtentTest test) throws InterruptedException, IOException
   {
 	  
-	     sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+	     //sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 		WebDriverWait wait = new WebDriverWait (getDriver(), 180);
 		progress();
 	  
@@ -6682,7 +6808,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 		
 		 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePartyDetial"));
 			
-		
+		 FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
 	    Thread.sleep(3000);
 		Row row17 = sheet.getRow(33);						//Selected 0th index row (First row)
 		Cell c17 = row17.getCell(1);						//Selected cell (0 row,1 column)
@@ -6917,9 +7045,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
   }
 	
  
-  public static void Court( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+  public static void Court( ExtentTest test) throws InterruptedException, IOException
    {
-	  sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+//	 / sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 		WebDriverWait wait = new WebDriverWait (getDriver(), 180);
 		progress();
 	 
@@ -6935,6 +7063,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 	   Thread.sleep(4000);
 	   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCourt"));
 	 
+	   FileInputStream fis = new FileInputStream(filePath);
+       Workbook workbook = WorkbookFactory.create(fis);
+       Sheet sheet = workbook.getSheetAt(4);	 
 	   Thread.sleep(4000);
 	   Row row18 = sheet.getRow(36);						//Selected 0th index row (First row)
 	   Cell c18 = row18.getCell(1);						//Selected cell (0 row,1 column)
@@ -7225,7 +7356,7 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 		   }
 	   }
 
-   public static void CaseNoticeType( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+   public static void CaseNoticeType( ExtentTest test) throws InterruptedException, IOException
    {
 	   sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 	   
@@ -7249,6 +7380,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 		Thread.sleep(3000);
 		performerPOM.CaseNoticeType().click();
 		
+		 FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
 		Thread.sleep(3000);
 		Row row19 = sheet.getRow(39);						//Selected 0th index row (First row)
 		Cell c19 = row19.getCell(1);						//Selected cell (0 row,1 column)
@@ -7477,9 +7611,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 		 }
    }
 			
-	public static void PaymentType( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	public static void PaymentType( ExtentTest test) throws InterruptedException, IOException
 	 {
-		sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+		//sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 		 WebDriverWait wait=new WebDriverWait(getDriver(),20); 
 		  Thread.sleep(5000);
 		  performerPOM.clickMasters().click();
@@ -7493,6 +7627,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 		  
 		  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePayment"));
 	   
+		  FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
 		  Thread.sleep(3000);
 		  Row row20 = sheet.getRow(42);						//Selected 0th index row (First row)
 		  Cell c20= row20.getCell(1);						//Selected cell (0 row,1 column)
@@ -7696,10 +7833,10 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 		  }
 	 }
 	 
-     public static void customParameter( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+     public static void customParameter( ExtentTest test) throws InterruptedException, IOException
 	  {
     	 
-    	 sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+    	// sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
     	 WebDriverWait wait=new WebDriverWait(getDriver(),20);  
 			 
 		  Thread.sleep(3000);
@@ -7718,6 +7855,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 		  Thread.sleep(3000);
 		  performerPOM.selectTypeCustomParameter().click();
 		  
+		  FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
 		  Thread.sleep(3000);
 		  Row row21 = sheet.getRow(45);						//Selected 0th index row (First row)
 		  Cell c21= row21.getCell(1);						//Selected cell (0 row,1 column)
@@ -7833,9 +7973,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 				Thread.sleep(300);
 				OverduePOM.clickDashboard().click();
 	}  
-     public static void CaseStage( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+     public static void CaseStage( ExtentTest test) throws InterruptedException, IOException
      {
-    	 sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+    	// sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
     	 WebDriverWait wait=new WebDriverWait(getDriver(),20);  
     	  Thread.sleep(3000);
 		  performerPOM.clickMasters().click();
@@ -7846,6 +7986,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
     	 
     	 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCaseStageType"));
     	 
+    	 FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
     	 Thread.sleep(3000);
 		 Row row=sheet.getRow(48);
 		 Cell c=row.getCell(1);
@@ -8049,10 +8192,10 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
      }
      
 		  
-	  public static void DocumentType( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	  public static void DocumentType( ExtentTest test) throws InterruptedException, IOException
 		  {
 		  
-		      sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+		      //sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 		      WebDriverWait wait=new WebDriverWait(getDriver(),20);  
 		      Thread.sleep(3000);
 		      performerPOM.clickMasters().click();
@@ -8065,6 +8208,10 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 			  
 			  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeDocType"));
 			  
+			  
+			  FileInputStream fis = new FileInputStream(filePath);
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheetAt(4);	 
 			  Thread.sleep(3000);
 			  Row row=sheet.getRow(51);
 			  Cell c=row.getCell(1);
@@ -8253,9 +8400,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 			  test.log(LogStatus.FAIL, "Close button is not clickable");
 		  }
 	  }
-	  public static void RatingCriteria( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	  public static void RatingCriteria( ExtentTest test) throws InterruptedException, IOException
 	  {
-		  sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+		 // sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 		 WebDriverWait wait=new WebDriverWait(getDriver(),20);
 		  Thread.sleep(3000);
 		  performerPOM.clickMasters().click();
@@ -8269,6 +8416,9 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 		  Thread.sleep(3000);
 		  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeCriteriaMastre"));
 		  
+		  FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
 		  Thread.sleep(3000);
 		  Row row=sheet.getRow(54);
 		  Cell c=row.getCell(1);
@@ -8482,7 +8632,7 @@ public static void UserCloseButton( ExtentTest test) throws InterruptedException
 	  
 	  
 	  
-	  public static void PageAuthorization( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	  public static void PageAuthorization( ExtentTest test) throws InterruptedException, IOException, AWTException
 	  {
 		  JavascriptExecutor js = (JavascriptExecutor)getDriver() ;
 		 
@@ -8548,7 +8698,7 @@ Robot 		robot = new Robot();
 	  
 	  }
 	  
-	  public static void AnnualBudget( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	  public static void AnnualBudget( ExtentTest test) throws InterruptedException, IOException
 	  {
 		 
 		  sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
@@ -8809,7 +8959,7 @@ Robot 		robot = new Robot();
 		  
 	  }
 		  
-	  public static void NoticeStage( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	  public static void NoticeStage( ExtentTest test) throws InterruptedException, IOException, AWTException
 	  {
 		  sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 
@@ -8828,7 +8978,9 @@ Robot 		robot = new Robot();
 		  Thread.sleep(3000);
 		  performerPOM.addNoticeStage().click();
 		  
-		  
+		  FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	 
 		  
 		  Thread.sleep(3000);
 		  Row row=sheet.getRow(57);
@@ -18197,12 +18349,12 @@ public static void CaseNoticeStageGraph(ExtentTest test, String type) throws Int
 	     	
     }
 	
-	 public  static void TaskActivtityExistingData( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	 public  static void TaskActivtityExistingData( ExtentTest test) throws InterruptedException, IOException
 		{
 		 
 		 WebDriverWait wait = new WebDriverWait (getDriver(), 60);
 		  
-		  sheet = workbook.getSheetAt(4);		
+		 // sheet = workbook.getSheetAt(4);		
 		  
 		  Thread.sleep(8000);
 			performerPOM.clickNoticeOpen().click();
@@ -18240,7 +18392,9 @@ public static void CaseNoticeStageGraph(ExtentTest test, String type) throws Int
 		  Thread.sleep(8000);
 		  performerPOM.clickNewTask().click(); 
 		 
-		  
+		  FileInputStream fis = new FileInputStream(filePath);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheetAt(4);	  
 		  
 		Thread.sleep(8000);
 		Row row0 = sheet.getRow(91);								//Selected 0th index row (First row)
@@ -19225,7 +19379,7 @@ public static void CaseNoticeStageGraph(ExtentTest test, String type) throws Int
 	   				   performerPOM.clickclosecriteria().click();
 	         }
 			 
-				public static void CaseExistingData( ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+				public static void CaseExistingData( ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, EncryptedDocumentException, IOException
 				{
 		 			
 		 			sheet = workbook.getSheetAt(4);		
@@ -19312,7 +19466,7 @@ public static void CaseNoticeStageGraph(ExtentTest test, String type) throws Int
 					
 				}
 				
-				public static void CaseWithInvalidData( ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+				public static void CaseWithInvalidData( ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, EncryptedDocumentException, IOException
 				{
 		 			
 		 			sheet = workbook.getSheetAt(4);		
@@ -20713,7 +20867,7 @@ public static void CaseNoticeStageGraph(ExtentTest test, String type) throws Int
 						   	     	performerPOM.clickClose().click();//Clicking on 'Close'
 						}
 			 		 
-			 		public static void CaseOrderWithExistingData( ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+			 		public static void CaseOrderWithExistingData( ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
 					{
 						
 						
@@ -20765,6 +20919,9 @@ public static void CaseNoticeStageGraph(ExtentTest test, String type) throws Int
 						 Thread.sleep(8000);
 						 performerPOM.selectCaseOrderType().click();
 						
+						 FileInputStream fis = new FileInputStream(filePath);
+					        Workbook workbook = WorkbookFactory.create(fis);
+					        Sheet sheet = workbook.getSheetAt(4);	 
 						 Thread.sleep(8000);
 						Row row0 = sheet.getRow(153);					//Selected 0th index row (First row)
 					    Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -21189,7 +21346,7 @@ public static void CaseNoticeStageGraph(ExtentTest test, String type) throws Int
 			   public static void StatusPaymentwithInvaliddata( ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			      {	
 			    	       WebDriverWait wait=new WebDriverWait(getDriver(),50);
-			    	       XSSFSheet sheet=ReadExcel();
+			    	     //  XSSFSheet sheet=ReadExcel();
 			    	       
 			    	       Thread.sleep(8000);
 							performerPOM.clickCaseOpencfo().click();//click edit notice
@@ -21510,7 +21667,7 @@ public static void CaseNoticeStageGraph(ExtentTest test, String type) throws Int
 		   				   performerPOM.clickclosecriteria().click();
 		         }
 			 	 
-			 	public static void TaskWithExistingData( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+			 	public static void TaskWithExistingData( ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException
 				{
 			 		
 			 		//sheet = workbook.getSheetAt(4);
@@ -21529,7 +21686,10 @@ public static void CaseNoticeStageGraph(ExtentTest test, String type) throws Int
 					
 					progress();
 					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeAddTask"));
-									
+						
+					 FileInputStream fis = new FileInputStream(filePath);
+				        Workbook workbook = WorkbookFactory.create(fis);
+				        Sheet sheet = workbook.getSheetAt(4);	 
 					Thread.sleep(8000);
 					Row row0 = sheet.getRow(167);								//Selected 0th index row (First row)
 					Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
