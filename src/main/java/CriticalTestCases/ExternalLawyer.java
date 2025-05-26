@@ -56,7 +56,7 @@ public class ExternalLawyer extends BasePage
 		test.log(LogStatus.PASS, "Test Passed = Verify Chrome browser.");
 		test.log(LogStatus.PASS, "URL = https://login.teamleaseregtech.com/Login.aspx");
 		test.log(LogStatus.PASS, "Login =lawyer@avantis.info");
-		test.log(LogStatus.PASS, "Password = admin@123");
+		test.log(LogStatus.PASS, "Password = admin#123");
 		
 		extent.endTest(test);
 		extent.flush();

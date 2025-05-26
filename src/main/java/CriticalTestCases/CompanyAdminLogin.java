@@ -70,7 +70,7 @@ public class CompanyAdminLogin extends BasePage
 		
 		void Login() throws InterruptedException, IOException
 		{
-			initialization("companyAdmin",4);
+			initialization("company",4);
 //			XSSFSheet sheet = ReadExcel();
 //			Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
 //			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)

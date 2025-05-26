@@ -64,7 +64,7 @@ public class AddtionalOwner extends BasePage
 	@BeforeMethod()
 	void Login() throws Exception
 	{
-		initialization("AdditonalOwner",0);
+		initialization("company",0);
 //		XSSFSheet sheet = ReadExcel();
 //		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
 //		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
