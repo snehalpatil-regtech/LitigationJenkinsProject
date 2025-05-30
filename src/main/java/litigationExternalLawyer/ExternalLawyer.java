@@ -310,7 +310,7 @@ void NoticeSendMailWithDocInvalidFields() throws InterruptedException, IOExcepti
 			test = extent.startTest("Close Notice Count Verification");
 		
 		
-			MethodPOM.CloseNoticeCase( test, workbook,"Notice","Lawyer ABCD");
+			MethodPOM.CloseNoticeCase( test,"Notice","Lawyer ABCD");
 				extent.endTest(test);
 			extent.flush();
 		}
@@ -320,7 +320,7 @@ void NoticeSendMailWithDocInvalidFields() throws InterruptedException, IOExcepti
 		test = extent.startTest("Close Case Count Verification");
 			
 			
-		MethodPOM.CloseNoticeCase( test, workbook,"Case","Lawyer ABCD");
+		MethodPOM.CloseNoticeCase( test,"Case","Lawyer ABCD");
 			
 		extent.endTest(test);
 			extent.flush();

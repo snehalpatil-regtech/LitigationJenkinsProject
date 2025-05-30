@@ -6379,7 +6379,7 @@ public class CFOMethod extends BasePage{
 //					int HearingDate = (int) c1.getNumericCellValue();
 //					performerPOM.clickCaseHearingDate().sendKeys(HearingDate+"");	//Writing 'HearingDate'
 					
-					performerPOM.clickCaseHearingDate().sendKeys("08-12-2025");	//Writing 'HearingDate'
+					performerPOM.clickCaseHearingDate().sendKeys("07-12-2025");	//Writing 'HearingDate'
 					
 					 FileInputStream fis = new FileInputStream(filePath);
 				        Workbook workbook = WorkbookFactory.create(fis);
@@ -11847,10 +11847,10 @@ public class CFOMethod extends BasePage{
 						action.moveToElement(performerPOM.clickTitle()).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText().sendKeys("Reminder new 30Mar25");
+						performerPOM.clickReminderText().sendKeys("Reminder new 31Mar25");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription().sendKeys("Reminder new 30Mar25");
+						performerPOM.clickDescription().sendKeys("Reminder new 31Mar25");
 						
 						Thread.sleep(3000);
 						performerPOM.clickRemark2().sendKeys("Remark");

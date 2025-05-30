@@ -68,7 +68,7 @@ public class ExternalLawyer extends BasePage
 	void Login() throws InterruptedException, IOException
 	{
 		
-		initialization("ExternalLawyer",6);
+		initialization("company",6);
 //		XSSFSheet sheet = ReadExcel();
 //		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
 //		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -124,7 +124,7 @@ public class ExternalLawyer extends BasePage
 					test = extent.startTest("Close Notice Count Verification");
 				
 				
-					MethodPOM.CloseNoticeCase( test, workbook,"Notice","External Lawyer");
+					MethodPOM.CloseNoticeCase( test,"Notice","External Lawyer");
 						extent.endTest(test);
 					extent.flush();
 				}
@@ -134,7 +134,7 @@ public class ExternalLawyer extends BasePage
 				test = extent.startTest("Close Case Count Verification");
 					
 					
-				MethodPOM.CloseNoticeCase( test, workbook,"Case","External Lawyer");
+				MethodPOM.CloseNoticeCase( test,"Case","External Lawyer");
 					
 				extent.endTest(test);
 					extent.flush();
@@ -206,7 +206,7 @@ public class ExternalLawyer extends BasePage
  				test = extent.startTest(" Closed Task Count verification");
  				
  				
- 				MethodsPOM.CloseNoticeCase( test, workbook, "Task","External Lawyer");
+ 				MethodsPOM.CloseNoticeCase( test, "Task","External Lawyer");
  				
  				extent.endTest(test);
  				extent.flush();

@@ -82,7 +82,7 @@ public class MethodPOM  extends BasePage
 			progress();
 			
 			Thread.sleep(500);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //			CFOcountPOM.clickNextPage1().sendKeys(Keys.UP);
 //			js.executeScript("window.scrollBy(0,-700)");		
 			Thread.sleep(4000);
@@ -241,7 +241,7 @@ public class MethodPOM  extends BasePage
 			public  static void clickNewNotice() throws InterruptedException 
 			  {
 					Thread.sleep(3000);
-//					JavascriptExecutor js = (JavascriptExecutor) driver;
+//					JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //					CFOcountPOM.clickNextPage1().sendKeys(Keys.UP);
 //					js.executeScript("window.scrollBy(0,-700)");
 					performerPOM.clickNew().click();	//Clicking on 'New' button
@@ -641,7 +641,7 @@ public class MethodPOM  extends BasePage
 				
 				Thread.sleep(3000);
 				performerPOM.clickExcelReport().sendKeys(Keys.PAGE_DOWN);
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+				JavascriptExecutor js = (JavascriptExecutor) getDriver();
 				js.executeScript("window.scrollBy(0,700)");
 				
 				Thread.sleep(5000);
@@ -722,7 +722,7 @@ public class MethodPOM  extends BasePage
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad()));
 				
 				Thread.sleep(2000);
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+				JavascriptExecutor js = (JavascriptExecutor) getDriver();
 				try
 				{
 					performerPOM.clickExcelReport().sendKeys(Keys.PAGE_DOWN);
@@ -1261,7 +1261,7 @@ public class MethodPOM  extends BasePage
 							String Description= c4.getStringCellValue();
 							 performerPOM.Description().sendKeys(Description);
 								
-							  JavascriptExecutor jse=(JavascriptExecutor)driver;
+							  JavascriptExecutor jse=(JavascriptExecutor)getDriver();
 								jse.executeScript("arguments[0].click();",  performerPOM.clickSaveResponse());
 							  //performerPOM.clickSaveResponse().click();
 								
@@ -1616,7 +1616,7 @@ public class MethodPOM  extends BasePage
 //				test.log(LogStatus.FAIL, "Clear button not working successfully");
 //			}
 			Thread.sleep(500);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
 			js.executeScript("window.scrollBy(0,-700)");
 			
@@ -2204,7 +2204,7 @@ public class MethodPOM  extends BasePage
 			    
 			    
 			    Thread.sleep(8000);
-			    performerPOM.clickHearingDate().sendKeys("27-04-2025");
+			    performerPOM.clickHearingDate().sendKeys("27-06-2025");
 			    Thread.sleep(8000);
 			    performerPOM.clickSaveHearingDate().click();
 			  
@@ -2415,11 +2415,43 @@ public class MethodPOM  extends BasePage
 //						//performerPOM.selectInternalUser2().click();
 //						performerPOM.selectInternalUser3().sendKeys(internalUser1, Keys.ENTER);	//Selecting 'Internal User'
 						
-						Thread.sleep(8000);
-						performerPOM.clickInternalUser3().click();
+//						Thread.sleep(8000);
+//						performerPOM.clickInternalUser3().click();
+//						
+//						Thread.sleep(1000);
+//						performerPOM.selectInternalUser4().click();
+						
+						
 						
 						Thread.sleep(1000);
-						performerPOM.selectInternalUser4().click();
+						row0 = sheet.getRow(32);									//Selected 0th index row (First row)
+						c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+						String internalUser1 = c1.getStringCellValue();
+						performerPOM.clickInternalUser3().click();
+						
+//						Thread.sleep(1000);
+//						performerPOM.selectInternalUser4().click();
+						//performerPOM.selectInternalUser2().click();
+						performerPOM.selectInternalUser3().sendKeys(internalUser1, Keys.ENTER);	//Selecting 'Internal User'
+						
+//						Thread.sleep(1000);
+//						row0 = sheet.getRow(33);									//Selected 0th index row (First row)
+//						c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+//						String externalUser = c1.getStringCellValue();
+						try
+						{
+							Thread.sleep(300);
+							performerPOM.clickExternalUser().click();
+							Thread.sleep(300);
+							performerPOM.selectExternalUser1().click();
+							
+//							Thread.sleep(500);
+//							action.moveToElement(performerPOM.clickSearchExternalUser()).sendKeys(externalUser, Keys.ENTER).perform();
+						}
+						catch(Exception e)
+						{
+							
+						}
 						
 						Thread.sleep(8000);
 						OverduePOM.clickSaveButton().click();				//Clicking on 'Save' button.
@@ -2474,7 +2506,7 @@ public class MethodPOM  extends BasePage
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate().sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate().sendKeys("13-05-2025");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate().sendKeys("13-06-2025");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(8000);
@@ -3124,7 +3156,7 @@ public class MethodPOM  extends BasePage
 	  		
 	  		Thread.sleep(500);
 	  		performerPOM.clickExcelReport().sendKeys(Keys.PAGE_DOWN);
-	  		JavascriptExecutor js = (JavascriptExecutor) driver;
+	  		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	  		js.executeScript("window.scrollBy(0,700)");
 	  		
 	  		Thread.sleep(300);
@@ -3153,11 +3185,11 @@ public class MethodPOM  extends BasePage
 	  		getDriver().navigate().refresh();
 	  		perform1(test, open, gridRecords, "Case - Open");
 	  	}
-	      public static void CloseNoticeCase( ExtentTest test, XSSFWorkbook workbook, String type,String Login) throws InterruptedException, IOException
+	      public static void CloseNoticeCase( ExtentTest test,String type,String Login) throws InterruptedException, IOException
 	  	{
 	  		WebDriverWait wait = new WebDriverWait(getDriver(), 180);
 	  		progress();
-	  		sheet = workbook.getSheetAt(6);
+	  		//sheet = workbook.getSheetAt(6);
 	  		wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen()));
 	  		int closed = 0;
 	  		int open = 0;
@@ -3189,7 +3221,7 @@ public class MethodPOM  extends BasePage
 	  		wait.until(ExpectedConditions.visibilityOf(performerPOM.clickExcelReport()));	//Waiting until visibility of Excel Report button.
 	  		
 	  		Thread.sleep(1000);
-	  		JavascriptExecutor js = (JavascriptExecutor) driver;
+	  		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	  		js.executeScript("window.scrollBy(0,500)");
 	  		
 	  		Thread.sleep(3000);
@@ -3235,7 +3267,9 @@ public class MethodPOM  extends BasePage
 	  			performerPOM.clickNoticeResult().click();
 	  			performerPOM.clickSelectResult().sendKeys("In Progress", Keys.ENTER);
 	  			
-	  			
+	  			 FileInputStream fis = new FileInputStream(filePath);
+			        Workbook workbook = WorkbookFactory.create(fis);
+			        Sheet sheet = workbook.getSheetAt(6);
 	  			Thread.sleep(3000);
 	  			Row r1 = sheet.getRow(43);
 	  			Cell c1 = r1.getCell(1);
@@ -3341,22 +3375,22 @@ public class MethodPOM  extends BasePage
 	  			
 	  			if(open > open1 && closed1 > closed && caseOpen1 > caseOpen)
 	  			{
-	  				//test.log(LogStatus.PASS, "Notice-Closed count increased.");
-	  				test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
-	  				//test.log(LogStatus.PASS, "Notice-Open count decreased.");
-	  				test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
-	  				//test.log(LogStatus.PASS, "Case-Open count increased.");
-	  				test.log(LogStatus.PASS, "Old Count = "+caseOpen+" | New Count = "+caseOpen1);
-	  			}
-	  			else
-	  			{
-	  				//test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased.");
-	  				test.log(LogStatus.FAIL, "Old Count = "+closed+" | New Count = "+closed1);
-	  				//test.log(LogStatus.FAIL, "Notice-Open count doesn't decreased.");
-	  				test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
-	  				//test.log(LogStatus.FAIL, "Case-Open count doesn't increased.");
-	  				test.log(LogStatus.FAIL, "Old Count = "+caseOpen+" | New Count = "+caseOpen1);
-	  			}
+	  			//test.log(LogStatus.PASS, "Notice-Closed count increased.");
+					test.log(LogStatus.PASS, "Notice-Closed count increased :- Old Count = "+closed+" | New Count = "+closed1);
+					//test.log(LogStatus.PASS, "Notice-Open count decreased.");
+					test.log(LogStatus.PASS, "Notice-Open count decreased :- Old Count = "+open+" | New Count = "+open1);
+					//test.log(LogStatus.PASS, "Case-Open count increased.");
+					test.log(LogStatus.PASS, "Case-Open count increased :- Old Count = "+caseOpen+" | New Count = "+caseOpen1);
+				}
+				else
+				{
+					//test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased.");
+					test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased:-Old Count = "+closed+" | New Count = "+closed1);
+					//test.log(LogStatus.FAIL, "Notice-Open count doesn't decreased.");
+					test.log(LogStatus.FAIL, "Notice-Open count doesn't decreased.:-Old Count = "+open+" | New Count = "+open1);
+					//test.log(LogStatus.FAIL, "Case-Open count doesn't increased.");
+					test.log(LogStatus.FAIL, "Case-Open count doesn't increased:-Old Count = "+caseOpen+" | New Count = "+caseOpen1);
+				}
 	  		}
 	  		else if(type.equals("Case"))
 	  		{
@@ -3366,16 +3400,16 @@ public class MethodPOM  extends BasePage
 	  			if(open > open1 && closed1 > closed)
 	  			{
 	  				//test.log(LogStatus.PASS, "Case-Closed count increased.");
-	  				test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
+	  				test.log(LogStatus.PASS, "Case-Closed count increased.:-Old Count = "+closed+" | New Count = "+closed1);
 	  				//test.log(LogStatus.PASS, "Case-Open count decreased.");
-	  				test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+	  				test.log(LogStatus.PASS, "Case-Open count decreased.:-Old Count = "+open+" | New Count = "+open1);
 	  			}
 	  			else
 	  			{
 	  				//test.log(LogStatus.FAIL, "Case-Closed count doesn't increased.");
-	  				test.log(LogStatus.FAIL, "Old Count = "+closed+" | New Count = "+closed1);
+	  				test.log(LogStatus.FAIL, "Case-Closed count doesn't increased.:-Old Count = "+closed+" | New Count = "+closed1);
 	  				//test.log(LogStatus.FAIL, "Case-Open count doesn't decreased.");
-	  				test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
+	  				test.log(LogStatus.FAIL, "Case-Open count doesn't decreased.:-Old Count = "+open+" | New Count = "+open1);
 	  			}
 	  		}
 	  		else if(type.equals("Task"))
@@ -3418,7 +3452,7 @@ public class MethodPOM  extends BasePage
 	  		wait.until(ExpectedConditions.visibilityOf(performerPOM.clickExcelReport()));
 	  		
 	  		Thread.sleep(400);
-	  		JavascriptExecutor js = (JavascriptExecutor) driver;
+	  		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	  		js.executeScript("window.scrollBy(0,500)");
 	  		
 	  		Thread.sleep(1500);
@@ -3638,7 +3672,7 @@ public class MethodPOM  extends BasePage
 			
 			Thread.sleep(500);
 			performerPOM.clickExcelReport().sendKeys(Keys.PAGE_DOWN);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			js.executeScript("window.scrollBy(0,700)");
 			
 			Thread.sleep(300);
@@ -3861,7 +3895,7 @@ public class MethodPOM  extends BasePage
 	          Thread.sleep(3000);
 	           performerPOM.clickEditNotice1().click();
 	  
-	            JavascriptExecutor js = (JavascriptExecutor) driver;
+	            JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	             js.executeScript("window.scrollBy(0,1000)");
 	  
 	               Thread.sleep(3000);
@@ -3976,7 +4010,7 @@ public class MethodPOM  extends BasePage
 				//--------------------------------Notice----------------------------------
 		 
 				       Thread.sleep(5000);
-					   // JavascriptExecutor js = (JavascriptExecutor) driver;
+					   // JavascriptExecutor js = (JavascriptExecutor) getDriver();
 						//js.executeScript("window.scrollBy(500,0)");
 						Thread.sleep(3000);
 						performerPOM.clickTypeDropdown().click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
@@ -4349,7 +4383,7 @@ public class MethodPOM  extends BasePage
 				//--------------------------------Notice----------------------------------
 				
 				Thread.sleep(10000);
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+				JavascriptExecutor js = (JavascriptExecutor) getDriver();
 				performerPOM.clickExcelReport().sendKeys(Keys.PAGE_DOWN);
 				performerPOM.clickExcelReport().sendKeys(Keys.END);
 				js.executeScript("arguments[0].scrollIntoView();", CFOcountPOM.readTotalItems1());
@@ -4628,7 +4662,7 @@ public class MethodPOM  extends BasePage
 				Thread.sleep(8000);
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad()));	//Wait until records table gets visible.
 				
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+				JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		        js.executeScript("window.scrollBy(0,-500)");
 				
 				Thread.sleep(8000);
@@ -4957,13 +4991,13 @@ public class MethodPOM  extends BasePage
 				action.moveToElement(performerPOM.clickTitle()).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 				
 				Thread.sleep(3000);
-				performerPOM.clickReminderText().sendKeys("Reminder as on  test 18");
+				performerPOM.clickReminderText().sendKeys("Reminder as on  test 19");
 				
 				Thread.sleep(3000);
-				performerPOM.clickDescription().sendKeys("Reminder as on  test 18");
+				performerPOM.clickDescription().sendKeys("Reminder as on  test 19");
 				
 				Thread.sleep(3000);
-				performerPOM.clickRemark2().sendKeys("Reminder as on test 18");
+				performerPOM.clickRemark2().sendKeys("Reminder as on test 19");
 				
 				Thread.sleep(3000);
 				performerPOM.clickDate().click();
@@ -5110,7 +5144,7 @@ public class MethodPOM  extends BasePage
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad()));	//Wait until records table gets visible.
 				
 				Thread.sleep(3000);
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+				JavascriptExecutor js = (JavascriptExecutor) getDriver();
 				js.executeScript("document.querySelector(\"div[id='grid1'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=2000");
 				
 				
@@ -5126,7 +5160,7 @@ public class MethodPOM  extends BasePage
 					
 					WebElement ViewButton = getDriver().findElement(locator);	
 					Thread.sleep(4000);
-				    JavascriptExecutor jse=(JavascriptExecutor)driver;
+				    JavascriptExecutor jse=(JavascriptExecutor) getDriver();
 				    jse.executeScript("arguments[0].click();", ViewButton);
 				
 				
@@ -5148,7 +5182,7 @@ public class MethodPOM  extends BasePage
 					
 				WebElement ViewButton1 = getDriver().findElement(locator1);	
 				Thread.sleep(4000);
-			    JavascriptExecutor jse1=(JavascriptExecutor)driver;
+			    JavascriptExecutor jse1=(JavascriptExecutor)getDriver();
 				jse1.executeScript("arguments[0].click();", ViewButton1);
 				
 				
@@ -5173,7 +5207,7 @@ public class MethodPOM  extends BasePage
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(3000);
-				//JavascriptExecutor js = (JavascriptExecutor) driver;
+				//JavascriptExecutor js = (JavascriptExecutor) getDriver();
 				js.executeScript("document.querySelector(\"div[id='grid1'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=2000");
 			
 				
@@ -5186,7 +5220,7 @@ public class MethodPOM  extends BasePage
 					
 				WebElement ViewButton2 = getDriver().findElement(locator2);	
 				Thread.sleep(4000);
-			    JavascriptExecutor jse2=(JavascriptExecutor)driver;
+			    JavascriptExecutor jse2=(JavascriptExecutor)getDriver();
 			    jse2.executeScript("arguments[0].click();", ViewButton2);
 				
 				
@@ -5204,7 +5238,7 @@ public class MethodPOM  extends BasePage
 				Thread.sleep(1000);
 				WebElement ViewButton3 = getDriver().findElement(locator3);	
 				Thread.sleep(1000);
-			    JavascriptExecutor jse3=(JavascriptExecutor)driver;
+			    JavascriptExecutor jse3=(JavascriptExecutor)getDriver();
 			    jse3.executeScript("arguments[0].click();", ViewButton3);
 				
 				
@@ -5238,7 +5272,7 @@ public class MethodPOM  extends BasePage
 					
 				WebElement ViewButton4 = getDriver().findElement(locator4);	
 				Thread.sleep(4000);
-			    JavascriptExecutor jse4=(JavascriptExecutor)driver;
+			    JavascriptExecutor jse4=(JavascriptExecutor)getDriver();
 			    jse4.executeScript("arguments[0].click();", ViewButton4);
 				
 				
@@ -5393,7 +5427,7 @@ public class MethodPOM  extends BasePage
 				
 				Thread.sleep(3000);
 	    		performerPOM.clickExportAdavanced().sendKeys(Keys.PAGE_DOWN);
-	    		JavascriptExecutor js = (JavascriptExecutor) driver;
+	    		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	    		js.executeScript("window.scrollBy(0,700)");
 	      		
 	      		
@@ -5429,7 +5463,7 @@ public class MethodPOM  extends BasePage
 		      	{
 		      		
 		      		WebDriverWait wait=new WebDriverWait(getDriver(),20);
-		   		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		   		 JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		   		Thread.sleep(3000);
 		   		performerPOM.clickMyWorkspace().click();
 		   		
@@ -5587,7 +5621,7 @@ public class MethodPOM  extends BasePage
 		    	{
 		   		WebDriverWait wait=new WebDriverWait(getDriver(),20);
 				progress();
-				 JavascriptExecutor js = (JavascriptExecutor) driver;
+				 JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			
 				 performerPOM.clickMyDocument().click();					//Clicking on 'My Document'
 				 performerPOM.clickmyDocument().click();	                    //Clicking on 'My Document'
@@ -5658,7 +5692,7 @@ public class MethodPOM  extends BasePage
 			     Thread.sleep(4000);
 		         WebElement ViewButton1 = getDriver().findElement(dept);	
 				 Thread.sleep(4000);
-				 JavascriptExecutor jse1=(JavascriptExecutor)driver;
+				 JavascriptExecutor jse1=(JavascriptExecutor)getDriver();
 				 jse1.executeScript("arguments[0].click();", ViewButton1);
 			    
 				
@@ -5764,7 +5798,7 @@ public class MethodPOM  extends BasePage
 				Thread.sleep(500);
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad()));	//Wait until records table gets visible.
 				
-				 JavascriptExecutor js = (JavascriptExecutor) driver;
+				 JavascriptExecutor js = (JavascriptExecutor) getDriver();
 					js.executeScript("window.scrollBy(0,-150)");	
 				
 				Thread.sleep(3000);
@@ -5952,7 +5986,7 @@ public class MethodPOM  extends BasePage
 		 			progress();
 		 			
 		 			Thread.sleep(500);
-		 			JavascriptExecutor js = (JavascriptExecutor) driver;
+		 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		             js.executeScript("window.scrollBy(0,-700)");
 		             Thread.sleep(500);
 		         	performerPOM.clickNoticeOpen().click();		
@@ -6049,7 +6083,7 @@ public class MethodPOM  extends BasePage
 		 	 			progress();
 		 	 			
 		 	 			Thread.sleep(500);
-		 	 			JavascriptExecutor js = (JavascriptExecutor) driver;
+		 	 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		 	            js.executeScript("window.scrollBy(0,-700)");
 		 	            Thread.sleep(500);
 		 	        	performerPOM.clickNoticeOpen().click();		
@@ -6152,7 +6186,7 @@ public class MethodPOM  extends BasePage
 		 	 	 	 	 			progress();
 		 	 	 	 	 			
 		 	 	 	 	 			Thread.sleep(500);
-		 	 	 	 	 			JavascriptExecutor js = (JavascriptExecutor) driver;
+		 	 	 	 	 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		 	 	 	 	            js.executeScript("window.scrollBy(0,-700)");
 		 	 	 	 	            Thread.sleep(500);
 		 	 	 	 	        	performerPOM.clickNoticeOpen().click();		
@@ -6200,7 +6234,7 @@ public class MethodPOM  extends BasePage
 		  	 	 	 	 			progress();
 		  	 	 	 	 			
 		  	 	 	 	 			Thread.sleep(500);
-		  	 	 	 	 			JavascriptExecutor js = (JavascriptExecutor) driver;
+		  	 	 	 	 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		  	 	 	 	            js.executeScript("window.scrollBy(0,-700)");
 		  	 	 	 	            Thread.sleep(500);
 		  	 	 	 	        	performerPOM.clickNoticeOpen().click();		
@@ -6241,7 +6275,7 @@ public class MethodPOM  extends BasePage
 		 		 	 	 	 			progress();
 		 		 	 	 	 			
 		 		 	 	 	 			Thread.sleep(500);
-		 		 	 	 	 			JavascriptExecutor js = (JavascriptExecutor) driver;
+		 		 	 	 	 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		 		 	 	 	            js.executeScript("window.scrollBy(0,-700)");
 		 		 	 	 	            Thread.sleep(500);
 		 		 	 	 	        	performerPOM.clickNoticeOpen().click();		
@@ -7518,7 +7552,7 @@ public class MethodPOM  extends BasePage
 		 						String Description= c4.getStringCellValue();
 		 						 performerPOM.Description().sendKeys(Description);
 		 							
-		 						  JavascriptExecutor jse=(JavascriptExecutor)driver;
+		 						  JavascriptExecutor jse=(JavascriptExecutor) getDriver();
 		 							jse.executeScript("arguments[0].click();",  performerPOM.clickSaveResponse());
 		 							Thread.sleep(8000);
 		 							performerPOM.clickSaveResponse().click();
@@ -7591,7 +7625,7 @@ public class MethodPOM  extends BasePage
 		 			    performerPOM. clickNewResponse().click();
 		 					 
 		 			    Thread.sleep(8000);		
-		 			   JavascriptExecutor jse=(JavascriptExecutor)driver;
+		 			   JavascriptExecutor jse=(JavascriptExecutor) getDriver();
 		 			   jse.executeScript("arguments[0].click();",  performerPOM.clickSaveResponse());
 		 			   performerPOM.clickSaveResponse().click();
 		 							
@@ -7666,7 +7700,7 @@ public class MethodPOM  extends BasePage
 		 							if(performerPOM.clickClearNoticeResponse().isEnabled())
 		 					  		{
 		 								Thread.sleep(8000);
-		 								 JavascriptExecutor jse=(JavascriptExecutor)driver;
+		 								 JavascriptExecutor jse=(JavascriptExecutor) getDriver();
 		 		 						 jse.executeScript("arguments[0].click();",  performerPOM.clickClearNoticeResponse());
 		 								
 		 					  			test.log(LogStatus.PASS, "Clear button working successfully");
@@ -8101,7 +8135,7 @@ public class MethodPOM  extends BasePage
 								
 						
 						Thread.sleep(8000);
-						JavascriptExecutor js = (JavascriptExecutor) driver;
+						JavascriptExecutor js = (JavascriptExecutor) getDriver();
 					
 						js.executeScript("window.scrollBy(0,-700)");
 						Thread.sleep(8000);
@@ -8271,7 +8305,7 @@ public class MethodPOM  extends BasePage
 		 						WebDriverWait wait = new WebDriverWait(getDriver(), 50);
 		 						
 		 						Thread.sleep(500);
-		 						JavascriptExecutor js = (JavascriptExecutor) driver;
+		 						JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		 					
 		 						js.executeScript("window.scrollBy(0,-700)");
 		 						Thread.sleep(3000);
@@ -8308,7 +8342,7 @@ public class MethodPOM  extends BasePage
 		 			 			
 		 						WebDriverWait wait = new WebDriverWait(getDriver(), 50);
 		 						Thread.sleep(500);
-		 						JavascriptExecutor js = (JavascriptExecutor) driver;
+		 						JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		 					
 		 						js.executeScript("window.scrollBy(0,-700)");
 		 						Thread.sleep(3000);
@@ -8337,7 +8371,7 @@ public class MethodPOM  extends BasePage
 		 								
 		 						
 		 						Thread.sleep(500);
-		 						JavascriptExecutor js = (JavascriptExecutor) driver;
+		 						JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		 					
 		 						js.executeScript("window.scrollBy(0,-700)");
 		 						Thread.sleep(3000);
@@ -8462,7 +8496,9 @@ public class MethodPOM  extends BasePage
 					 	 	            Thread.sleep(8000);
 					 	 	        	performerPOM.clickCaseOpencfo().click();		
 					 	 	        	
-					 	 	       	Thread.sleep(8000);
+					 	
+					 	 	        	
+					 	 	        	Thread.sleep(8000);
 					 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad()));
 					 			/*	Thread.sleep(3000);
 			 	 	 	        	performerPOM.clickTrignle1().click();		
@@ -10567,7 +10603,7 @@ public class MethodPOM  extends BasePage
 							Thread.sleep(8000);
 							performerPOM.clickTaskOpen().click();
 							Thread.sleep(8000);
-							JavascriptExecutor js = (JavascriptExecutor) driver;
+							JavascriptExecutor js = (JavascriptExecutor) getDriver();
 							CFOcountPOM.clickNextPage1().sendKeys(Keys.UP);
 							
 							js.executeScript("window.scrollBy(0,-700)");
@@ -10715,7 +10751,7 @@ public class MethodPOM  extends BasePage
 				 	 	            	test.log(LogStatus.PASS, "Record not displayed in Case-User assignment");
 				 	 	            }
 				 	 	          
-				 	 	        JavascriptExecutor js = (JavascriptExecutor) driver;
+				 	 	        JavascriptExecutor js = (JavascriptExecutor) getDriver();
 
 				 	 			js.executeScript("window.scrollBy(0,-700)");	
 				 	 	            
@@ -11238,7 +11274,7 @@ public class MethodPOM  extends BasePage
 						 			//--------------------------------Notice----------------------------------
 						 			
 						 			Thread.sleep(8000);
-								    JavascriptExecutor js = (JavascriptExecutor) driver;
+								    JavascriptExecutor js = (JavascriptExecutor) getDriver();
 									js.executeScript("window.scrollBy(500,0)");
 									Thread.sleep(8000);
 									performerPOM.clickTypeDropdown().click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
@@ -11347,7 +11383,7 @@ public class MethodPOM  extends BasePage
 						 			//--------------------------------Notice----------------------------------
 						 			
 						 			Thread.sleep(8000);
-								    JavascriptExecutor js = (JavascriptExecutor) driver;
+								    JavascriptExecutor js = (JavascriptExecutor) getDriver();
 									js.executeScript("window.scrollBy(500,0)");
 									Thread.sleep(8000);
 									performerPOM.clickTypeDropdown2().click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
@@ -11980,7 +12016,7 @@ public class MethodPOM  extends BasePage
 					
 
 			       Thread.sleep(8000);
-				    JavascriptExecutor js = (JavascriptExecutor) driver;
+				    JavascriptExecutor js = (JavascriptExecutor) getDriver();
 					js.executeScript("window.scrollBy(500,0)");
 					Thread.sleep(8000);
 					performerPOM.clickTypeDropdown2().click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
@@ -12027,7 +12063,7 @@ public class MethodPOM  extends BasePage
 					 performerPOM.AdvancedSearchReports().click();
 					
 			       Thread.sleep(8000);
-				    JavascriptExecutor js = (JavascriptExecutor) driver;
+				    JavascriptExecutor js = (JavascriptExecutor) getDriver();
 					js.executeScript("window.scrollBy(500,0)");
 					Thread.sleep(8000);
 					performerPOM.clickTypeDropdown2().click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)

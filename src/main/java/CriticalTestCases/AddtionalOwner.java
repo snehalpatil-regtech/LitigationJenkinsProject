@@ -158,7 +158,7 @@ public class AddtionalOwner extends BasePage
 	     	{
 	     		test = extent.startTest("Close Notice Count verification");
 	     		
-	     		MethodsPOM.CloseNoticeCase( test, workbook,"Notice","performer a");
+	     		MethodsPOM.CloseNoticeCase( test,"Notice","performer a");
 	     		
 	     		extent.endTest(test);
 	     		extent.flush();
@@ -169,7 +169,7 @@ public class AddtionalOwner extends BasePage
 	 			test = extent.startTest("Close Case Count Verification");
 	 				
 	 				
-	 				MethodsPOM.CloseNoticeCase( test, workbook,"Case","performer a");
+	 				MethodsPOM.CloseNoticeCase( test,"Case","performer a");
 	 				
 	 			extent.endTest(test);
 	 				extent.flush();
@@ -193,7 +193,7 @@ public class AddtionalOwner extends BasePage
 			test = extent.startTest(" Closed Task Count verification");
 			
 			
-			MethodsPOM.CloseNoticeCase( test, workbook, "Task","performer regtrack");
+			MethodsPOM.CloseNoticeCase( test, "Task","performer regtrack");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -218,7 +218,7 @@ public class AddtionalOwner extends BasePage
 	 		test = extent.startTest("Notice- TaskActivity verification");
 	 		
 	 		
-	 		MethodsPOM.TaskActivtity( test,workbook);
+	 		MethodsPOM.TaskActivtity( test);
 	 		
 	 		extent.endTest(test);
 	 		extent.flush();
@@ -241,7 +241,7 @@ public class AddtionalOwner extends BasePage
 	 	test = extent.startTest("Notice- Response verification");
 	 	
 	 	
-	 	MethodsPOM.Response( test,workbook);
+	 	MethodsPOM.Response( test);
 	 	
 	 	extent.endTest(test);
 	 	extent.flush();
@@ -300,7 +300,7 @@ public class AddtionalOwner extends BasePage
 	 		test = extent.startTest("Case Task/Activity verification");
 	 		
 	 		
-	 		MethodsPOM.TaskActivity1( test,workbook,"Performer");
+	 		MethodsPOM.TaskActivity1( test,"Performer");
 	 		
 	 		extent.endTest(test);
 	 		extent.flush();
@@ -313,20 +313,20 @@ public class AddtionalOwner extends BasePage
 	 		test = extent.startTest("Case - CaseHearing Tab");
 	 		
 	 		
-	 		MethodsPOM.CaseHearing( test,workbook);
+	 		MethodsPOM.CaseHearing( test);
 	 		
 	 		extent.endTest(test);
 	 		extent.flush();
 	 	}
 	
 	
-	@Test(priority = 19)
+	@Test(priority = 18)
 	 	void CaseOrderTab() throws InterruptedException, IOException
 	 	{
 	 		test = extent.startTest("Case Order verification");
 	 		
 	 		
-	 		MethodsPOM.CaseOrder( test,workbook,"Performer");
+	 		MethodsPOM.CaseOrder( test,"Performer");
 	 		
 	 		extent.endTest(test);
 	 		extent.flush();
@@ -338,7 +338,7 @@ public class AddtionalOwner extends BasePage
 	 	test = extent.startTest("Case - Status/Payment Tab");
 	 	
 	 	
-	 	MethodsPOM.StatusPayment( test,workbook);
+	 	MethodsPOM.StatusPayment( test);
 	 	
 	 	extent.endTest(test);
 	 	extent.flush();
@@ -374,7 +374,7 @@ public class AddtionalOwner extends BasePage
 	 		test = extent.startTest("My Document-Download and View Document");
 	 	
 	 		
-	 		MethodsPOM.MyDocument( test, workbook);
+	 		MethodsPOM.MyDocument( test);
 	 		
 	 		extent.endTest(test);
 	 		extent.flush();
@@ -407,7 +407,7 @@ public class AddtionalOwner extends BasePage
 	 	{
 	 		test = extent.startTest("My Reminder verification");
 	 		
-	 		MethodsPOM.MyReminder(test, workbook);
+	 		MethodsPOM.MyReminder(test);
 	 		
 	 		extent.endTest(test);
 	 		extent.flush();
@@ -451,7 +451,7 @@ public class AddtionalOwner extends BasePage
 	 
 	 void Close()
 	 {
-		 driver.close(); 
+		 getDriver().close(); 
 	 }
 
 

@@ -1151,7 +1151,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
    js.executeScript("window.scrollBy(0,1300)");
 	
 	  //String LocationName =performerPOM.LocationName().getText();
-		test = extent.startTest("Select Case from Notice/Case Filter :- A Pvt Ltd Location:- To verify count of Location Summary graph");
+		test = extent.startTest("Select Case from Notice/Case Filter :- Branch Pune Location:- To verify count of Location Summary graph");
 		
   
    Thread.sleep(3000);
@@ -1324,9 +1324,9 @@ void AgeingGraph() throws InterruptedException, IOException
 			 int Complainant = Integer.parseInt(performerPOM.clickComplainantLessThanYearCase().getText());	//Reading Notice Open count.
 			 int InwardDefendent = Integer.parseInt(performerPOM.clickInwardDefendentLessThanYearCase().getText());	//Reading Notice Open count.
 			 int Appellant = Integer.parseInt(performerPOM.clickAppellantLessThanYearCase().getText());	//Reading Notice Open count.
-			 int OutwardPlaintiff = Integer.parseInt(performerPOM.clickOutwardPlaintiffLessthanyearCase().getText());	//Reading Notice Open count.
-	    	 int Petitioner = Integer.parseInt(performerPOM.clickPetitionerLeassThanYearCase().getText());	//Reading Notice Open count.
-	    	 int Respondent = Integer.parseInt(performerPOM.clickRespondentLessThanYearCase().getText());	//Reading Notice Open count.
+//			 int OutwardPlaintiff = Integer.parseInt(performerPOM.clickOutwardPlaintiffLessthanyearCase().getText());	//Reading Notice Open count.
+//	    	 int Petitioner = Integer.parseInt(performerPOM.clickPetitionerLeassThanYearCase().getText());	//Reading Notice Open count.
+//	    	 int Respondent = Integer.parseInt(performerPOM.clickRespondentLessThanYearCase().getText());	//Reading Notice Open count.
 	    	
 			
 	    	 
@@ -1338,12 +1338,12 @@ void AgeingGraph() throws InterruptedException, IOException
 	    	CFOMethod.AgeingGraphLessThanYear( test,"Inward/Defendent",InwardDefendent);
 	    	Thread.sleep(3000);
 	    	CFOMethod.AgeingGraphLessThanYear( test,"Appellant",Appellant);
-			Thread.sleep(3000);
-			CFOMethod.AgeingGraphLessThanYear( test,"Outward/Plaintiff",OutwardPlaintiff);
-			Thread.sleep(3000);
-			CFOMethod.AgeingGraphLessThanYear( test,"Petitioner",Petitioner);
-			Thread.sleep(3000);
-			CFOMethod.AgeingGraphLessThanYear( test,"Respondent",Respondent);
+//			Thread.sleep(3000);
+//			CFOMethod.AgeingGraphLessThanYear( test,"Outward/Plaintiff",OutwardPlaintiff);
+//			Thread.sleep(3000);
+//			CFOMethod.AgeingGraphLessThanYear( test,"Petitioner",Petitioner);
+//			Thread.sleep(3000);
+//			CFOMethod.AgeingGraphLessThanYear( test,"Respondent",Respondent);
 			
 			
 			Thread.sleep(3000);

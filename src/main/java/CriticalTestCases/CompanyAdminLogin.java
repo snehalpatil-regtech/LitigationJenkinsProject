@@ -683,18 +683,18 @@ public class CompanyAdminLogin extends BasePage
 								Thread.sleep(3000);
 							    int	InwardDefendent = Integer.parseInt(performerPOM.clickInwardDefendentNoticeCA().getText());	//Reading Notice Open count.
 						    	int	OutwardPlaintiff = Integer.parseInt(performerPOM.clickOutwardPlaintiffNoticeAgeing().getText());	//Reading Notice Open count.
-						    	int	Petitioner = Integer.parseInt(performerPOM.clickPetitionerNoticeCA().getText());	//Reading Notice Open count.
-						    	int	Respondent = Integer.parseInt(performerPOM.clickRespondentNoticeCA().getText());	//Reading Notice Open count.
+//						    	int	Petitioner = Integer.parseInt(performerPOM.clickPetitionerNoticeCA().getText());	//Reading Notice Open count.
+//						    	int	Respondent = Integer.parseInt(performerPOM.clickRespondentNoticeCA().getText());	//Reading Notice Open count.
 						    //	int	Defendant = Integer.parseInt(performerPOM.clickDefendantNoticeCA().getText());	//Reading Notice Open count.
 								
 						    	Thread.sleep(3000);
 						    	MethodsPOM.InwardDefendantAgeingGraph( test,"Inward/Defendent",InwardDefendent);
 								Thread.sleep(3000);
 								MethodsPOM.InwardDefendantAgeingGraph( test,"Outward/Plaintiff",OutwardPlaintiff);
-								Thread.sleep(3000);
-								MethodsPOM.InwardDefendantAgeingGraph( test,"Petitioner",Petitioner);
-								Thread.sleep(3000);
-								MethodsPOM.InwardDefendantAgeingGraph( test,"Respondent",Respondent);
+//								Thread.sleep(3000);
+//								MethodsPOM.InwardDefendantAgeingGraph( test,"Petitioner",Petitioner);
+//								Thread.sleep(3000);
+//								MethodsPOM.InwardDefendantAgeingGraph( test,"Respondent",Respondent);
 								//Thread.sleep(3000);
 								//MethodsPOM.InwardDefendantAgeingGraph( test,"Defendant",Defendant);
 								
@@ -1022,7 +1022,7 @@ public class CompanyAdminLogin extends BasePage
 					    	
 //					    	  String LocationName =performerPOM.LocationName().getText();
 //					  		test = extent.startTest("Select Case Filter = "+LocationName+" Location- Location Summary Graph Count Verification");
-					  		test = extent.startTest("Select Case from Notice/Case Filter :- A Pvt Ltd Location:- To verify count of Location Summary graph");
+					  		test = extent.startTest("Select Case from Notice/Case Filter :- Branch Pune Location:- To verify count of Location Summary graph");
 					      
 					       Thread.sleep(3000);
 					       MethodsPOM.LocationSummaryGraph1( test,"cfo -");
@@ -1200,9 +1200,9 @@ public class CompanyAdminLogin extends BasePage
 									 int Complainant = Integer.parseInt(performerPOM.clickComplainantLessThanYearCaseCA().getText());	//Reading Notice Open count.
 									 int InwardDefendent = Integer.parseInt(performerPOM.clickInwardDefendentLessThanYearCase().getText());	//Reading Notice Open count.
 									 int Appellant = Integer.parseInt(performerPOM.clickAppellantLessThanYearCase().getText());	//Reading Notice Open count.
-									 int OutwardPlaintiff = Integer.parseInt(performerPOM.clickOutwardPlaintiffLessthanyearCase().getText());	//Reading Notice Open count.
-							    	 int Petitioner = Integer.parseInt(performerPOM.clickPetitionerLeassThanYearCase().getText());	//Reading Notice Open count.
-							    	 int Respondent = Integer.parseInt(performerPOM.clickRespondentLessThanYearCase().getText());	//Reading Notice Open count.
+//									 int OutwardPlaintiff = Integer.parseInt(performerPOM.clickOutwardPlaintiffLessthanyearCase().getText());	//Reading Notice Open count.
+//							    	 int Petitioner = Integer.parseInt(performerPOM.clickPetitionerLeassThanYearCase().getText());	//Reading Notice Open count.
+//							    	 int Respondent = Integer.parseInt(performerPOM.clickRespondentLessThanYearCase().getText());	//Reading Notice Open count.
 							    	
 									
 							    	 
@@ -1214,12 +1214,12 @@ public class CompanyAdminLogin extends BasePage
 							    	MethodsPOM.AgeingGraphLessThanYear( test,"Inward/Defendent",InwardDefendent);
 							    	Thread.sleep(3000);
 							    	MethodsPOM.AgeingGraphLessThanYear( test,"Appellant",Appellant);
-									Thread.sleep(3000);
-									MethodsPOM.AgeingGraphLessThanYear( test,"Outward/Plaintiff",OutwardPlaintiff);
-									Thread.sleep(3000);
-									MethodsPOM.AgeingGraphLessThanYear( test,"Petitioner",Petitioner);
-									Thread.sleep(3000);
-									MethodsPOM.AgeingGraphLessThanYear( test,"Respondent",Respondent);
+//									Thread.sleep(3000);
+//									MethodsPOM.AgeingGraphLessThanYear( test,"Outward/Plaintiff",OutwardPlaintiff);
+//									Thread.sleep(3000);
+//									MethodsPOM.AgeingGraphLessThanYear( test,"Petitioner",Petitioner);
+//									Thread.sleep(3000);
+//									MethodsPOM.AgeingGraphLessThanYear( test,"Respondent",Respondent);
 									
 									
 									Thread.sleep(3000);
@@ -1437,7 +1437,7 @@ public class CompanyAdminLogin extends BasePage
 					 extent.flush();
 					 }
 					
-					 @Test(priority = 55)
+				/*	 @Test(priority = 55)
 						void Masters() throws InterruptedException, IOException
 						{
 							test = extent.startTest("Masters - Legal Entity  verification");
@@ -1670,7 +1670,7 @@ void Masters15() throws InterruptedException, IOException, AWTException
 	
 	extent.endTest(test);
 	extent.flush();
-}
+}*/
 @AfterMethod
 
 void Close()

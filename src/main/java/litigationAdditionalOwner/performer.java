@@ -308,7 +308,7 @@ void CaseUserAssignment() throws InterruptedException, IOException
 		void CloseNotice() throws InterruptedException, IOException
 		{
 		test = extent.startTest("Close Notice Count Verification");
-		MethodsPOM.CloseNoticeCase( test, workbook,"Notice","performer a");
+		MethodsPOM.CloseNoticeCase( test,"Notice","performer a");
 		extent.endTest(test);
 		extent.flush();
 		}
@@ -318,7 +318,7 @@ void CaseUserAssignment() throws InterruptedException, IOException
 		{
 		test = extent.startTest("Close Case Count Verification");
 			
-			MethodsPOM.CloseNoticeCase( test, workbook,"Case","performer a");
+			MethodsPOM.CloseNoticeCase( test,"Case","performer a");
 			
 		extent.endTest(test);
 			extent.flush();
@@ -543,7 +543,7 @@ void NoticeTaskActivityTab() throws InterruptedException, IOException
 	test = extent.startTest("Notice Task/Activity verification");
 	
 	
-	MethodsPOM.TaskActivtity( test,workbook);
+	MethodsPOM.TaskActivtity( test);
 	
 	extent.endTest(test);
 	extent.flush();
@@ -616,7 +616,7 @@ void NoticeResponseTab() throws InterruptedException, IOException
 	test = extent.startTest("Notice Response tab verification");
 	
 	
-	MethodsPOM.Response( test,workbook);
+	MethodsPOM.Response( test);
 	
 	extent.endTest(test);
 	extent.flush();
@@ -899,7 +899,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
  		test = extent.startTest("Case Task/Activity verification");
  		
  		
- 		MethodsPOM.TaskActivity1( test,workbook,"Performer");
+ 		MethodsPOM.TaskActivity1( test,"Performer");
  		
  		extent.endTest(test);
  		extent.flush();
@@ -960,7 +960,7 @@ void CaseTaskActivtityDeleteResponse() throws InterruptedException, IOException
  		test = extent.startTest("Case Hearing verification");
  		
  		
- 		MethodsPOM.CaseHearing( test,workbook);
+ 		MethodsPOM.CaseHearing( test);
  		
  		extent.endTest(test);
  		extent.flush();
@@ -1008,7 +1008,7 @@ void CaseTaskActivtityDeleteResponse() throws InterruptedException, IOException
  		test = extent.startTest("Case Order verification");
  		
  		
- 		MethodsPOM.CaseOrder( test,workbook,"Performer");
+ 		MethodsPOM.CaseOrder( test,"Performer");
  		
  		extent.endTest(test);
  		extent.flush();
@@ -1065,7 +1065,7 @@ void CaseTaskActivtityDeleteResponse() throws InterruptedException, IOException
  		test = extent.startTest("Case Status/Payment verification");
  	
  		
- 		MethodsPOM.StatusPayment( test,workbook);
+ 		MethodsPOM.StatusPayment( test);
  		
  		extent.endTest(test);
  		extent.flush();
@@ -1077,7 +1077,7 @@ void CaseTaskActivtityDeleteResponse() throws InterruptedException, IOException
  		test = extent.startTest("Case Status/Payment with existing data verification");
  	
  		
- 		MethodsPOM.StatusPaymentWithExistingData( test,workbook);
+ 		MethodsPOM.StatusPaymentWithExistingData( test);
  		
  		extent.endTest(test);
  		extent.flush();
@@ -1100,7 +1100,7 @@ void StatusPaymentwithInvaliddata() throws InterruptedException, IOException
 	test = extent.startTest("Case Status/Payment with Invalid data ");
 	
 	
-	MethodsPOM.StatusPaymentwithInvaliddata( test,workbook);
+	MethodsPOM.StatusPaymentwithInvaliddata( test);
 	
 	extent.endTest(test);
 	extent.flush();
@@ -1224,7 +1224,7 @@ void StatusPaymentwithInvaliddata() throws InterruptedException, IOException
 		test = extent.startTest("Task With existing data verification");
 		
 		
-		MethodsPOM.TaskWithExistingData( test, workbook);
+		MethodsPOM.TaskWithExistingData( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -1235,7 +1235,7 @@ void StatusPaymentwithInvaliddata() throws InterruptedException, IOException
 		test = extent.startTest("Task With Two manadatory fields verification");
 		
 		
-		MethodsPOM.TaskWithTwoMandatoryFields( test, workbook);
+		MethodsPOM.TaskWithTwoMandatoryFields( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -1303,7 +1303,7 @@ void TaskDelete() throws InterruptedException, IOException
 			test = extent.startTest(" Closed Task Count verification");
 			
 			
-			MethodsPOM.CloseNoticeCase( test, workbook,"Task","performer a");
+			MethodsPOM.CloseNoticeCase( test,"Task","performer a");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -1370,7 +1370,7 @@ void TaskDelete() throws InterruptedException, IOException
 		test = extent.startTest("Download and View Document Verification");
 		
 		
-		MethodsPOM.MyDocument( test, workbook);
+		MethodsPOM.MyDocument( test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -1620,7 +1620,7 @@ void AdvancedSearchClosedCaseDoc() throws InterruptedException, IOException
 		test = extent.startTest("My Reminder verification");
 	
 		
-		MethodsPOM.MyReminder( test, workbook);
+		MethodsPOM.MyReminder( test);
 		
 		extent.endTest(test);
 		extent.flush();

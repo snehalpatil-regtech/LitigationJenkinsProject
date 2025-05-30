@@ -108,7 +108,7 @@ public class CFO extends BasePage {
 				
 				
 	
-/*		@Test(priority =1)
+/*	@Test(priority =1)
 			    	void NoticeOpen() throws InterruptedException, IOException
 			    	{
 			    		test = extent.startTest("Notice - Open Count verification");
@@ -366,7 +366,7 @@ public class CFO extends BasePage {
 	    		test = extent.startTest("Notice TaskActivtiy verification");
 	    		
 	    		
-	    		MethodsPOM.TaskActivtity( test,workbook);
+	    		MethodsPOM.TaskActivtity( test);
 	    		
 	    		extent.endTest(test);
 	    		extent.flush();
@@ -825,7 +825,7 @@ public class CFO extends BasePage {
 		    		test = extent.startTest("Case - Task/Activity Tab");
 		    		
 		    		
-		    		MethodsPOM.TaskActivity1( test,workbook,"Performer");
+		    		MethodsPOM.TaskActivity1( test,"Performer");
 		    		
 		    		extent.endTest(test);
 		    		extent.flush();
@@ -985,7 +985,7 @@ public class CFO extends BasePage {
 		    		test = extent.startTest("Case - Status/Payment Tab");
 		    		
 		    		
-		    		MethodsPOM.StatusPayment( test,workbook);
+		    		MethodsPOM.StatusPayment( test);
 		    		
 		    		extent.endTest(test);
 		    		extent.flush();
@@ -2686,7 +2686,7 @@ void AgeingGraphMoreThan3yearsCase() throws InterruptedException, IOException
 					{
 						test = extent.startTest("My Reminder verification");
 						
-						MethodsPOM.MyReminder( test, workbook);
+						MethodsPOM.MyReminder( test);
 						
 						extent.endTest(test);
 						extent.flush();
